@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero">
+  <div class="shell hero__inner">
+    <div class="hero__text">
+      <h1 data-i18n="hero.title">{{ t('hero.title') }}</h1>
+      <p class="hero__sub" data-i18n="hero.subtitle">{{ t('hero.subtitle') }}</p>
+      <div class="hero__actions">
+        <a class="btn btn--solid btn--lg" href="{{ links.invite }}" rel="noopener" target="_blank" data-i18n="hero.invite">{{ t('hero.invite') }}</a>
+        <a class="btn btn--line btn--lg" href="{{ links.support }}" rel="noopener" target="_blank" data-i18n="hero.support">{{ t('hero.support') }}</a>
+      </div>
+      <p class="hero__note" data-i18n="hero.note">{{ t('hero.note') }}</p>
+    </div>
+
+    <div class="demo" id="demo" aria-hidden="true">
+      <div class="demo__bar">
+        <span class="demo__hash">#</span>
+        <span data-i18n="hero.demo_channel">{{ t('hero.demo_channel') }}</span>
+      </div>
+
+      <div class="demo__feed">
+        <article class="demo__msg" id="demo-msg">
+          <span class="demo__avatar">◕</span>
+          <div class="demo__msg-body">
+            <p class="demo__meta">
+              <span class="demo__name" data-i18n="hero.demo_user">{{ t('hero.demo_user') }}</span>
+              <span class="demo__used" data-i18n="hero.demo_command">{{ t('hero.demo_command') }}</span>
+            </p>
+            <div class="demo__embed">
+              <p class="demo__embed-title"><span aria-hidden="true">🎉</span> <span data-i18n="hero.demo_reply_title">{{ t('hero.demo_reply_title') }}</span></p>
+              <p class="demo__embed-prize" data-i18n="hero.demo_reply_prize">{{ t('hero.demo_reply_prize') }}</p>
+              <p class="demo__embed-meta" data-i18n="hero.demo_reply_meta">{{ t('hero.demo_reply_meta') }}</p>
+              <p class="demo__embed-row">
+                <span class="demo__button"><span aria-hidden="true">🎉</span> <span data-i18n="hero.demo_reply_button">{{ t('hero.demo_reply_button') }}</span></span>
+                <span class="demo__entries" data-i18n="hero.demo_reply_count">{{ t('hero.demo_reply_count') }}</span>
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="demo__suggest" id="demo-suggest">
+        <span class="demo__suggest-name" data-i18n="hero.demo_command">{{ t('hero.demo_command') }}</span>
+        <span class="demo__suggest-desc" data-i18n="hero.demo_hint">{{ t('hero.demo_hint') }}</span>
+      </div>
+
+      <div class="demo__input">
+        <span class="demo__plus" aria-hidden="true">+</span>
+        <span class="demo__typed" id="demo-typed"></span><span class="demo__caret" id="demo-caret"></span>
+        <span class="demo__placeholder" id="demo-placeholder" data-i18n="hero.demo_placeholder">{{ t('hero.demo_placeholder') }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="shell">
+    <ul class="stats">
+      <li><b>{{ command_count }}</b><span data-i18n="stats.commands">{{ t('stats.commands') }}</span></li>
+      <li><b>{{ group_count }}</b><span data-i18n="stats.groups">{{ t('stats.groups') }}</span></li>
+      <li><b>{{ language_count }}</b><span data-i18n="stats.languages">{{ t('stats.languages') }}</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="shell">
+    <header class="section__head">
+      <h2 data-i18n="features.title">{{ t('features.title') }}</h2>
+      <p data-i18n="features.subtitle">{{ t('features.subtitle') }}</p>
+    </header>
+    <div class="features">
+      {% for feature in feature_ids %}
+      <article class="feature">
+        <h3 data-i18n="features.{{ feature }}.title">{{ t('features.' ~ feature ~ '.title') }}</h3>
+        <p data-i18n="features.{{ feature }}.text">{{ t('features.' ~ feature ~ '.text') }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--commands" id="commands">
+  <div class="shell">
+    <header class="section__head">
+      <h2 data-i18n="commands.title">{{ t('commands.title') }}</h2>
+      <p data-i18n="commands.subtitle">{{ t('commands.subtitle') }}</p>
+    </header>
+
+    <div class="finder">
+      <div class="finder__search">
+        <span class="finder__slash" aria-hidden="true">/</span>
+        <label class="visually-hidden" for="cmd-search" data-i18n="commands.search">{{ t('commands.search') }}</label>
+        <input id="cmd-search" type="search" autocomplete="off" spellcheck="false"
+               placeholder="{{ t('commands.search_placeholder') }}"
+               data-i18n-attr="placeholder:commands.search_placeholder">
+        <span class="finder__count" id="cmd-count" role="status" aria-live="polite"></span>
+      </div>
+
+      <div class="chips" role="group">
+        <button class="chip is-active" type="button" data-filter="all" aria-pressed="true">
+          <span data-i18n="commands.all">{{ t('commands.all') }}</span>
+        </button>
+        {% for group in groups %}
+        <button class="chip" type="button" data-filter="{{ group.id }}" aria-pressed="false">
+          <span aria-hidden="true">{{ group.icon }}</span>
+          <span data-i18n="groups.{{ group.id }}">{{ t('groups.' ~ group.id) }}</span>
+        </button>
+        {% endfor %}
+      </div>
+
+      <div class="cmd-list" id="cmd-list">
+        {% for group in groups %}
+        <section class="cmd-group" data-group="{{ group.id }}">
+          <h3 class="cmd-group__title">
+            <span aria-hidden="true">{{ group.icon }}</span>
+            <span data-i18n="groups.{{ group.id }}">{{ t('groups.' ~ group.id) }}</span>
+          </h3>
+          <ul class="cmd-group__items">
+            {% for cmd_id, cmd_name in group.commands %}
+            <li class="cmd" data-name="{{ cmd_name }}" data-key="{{ cmd_id }}">
+              <code class="cmd__name">{{ cmd_name }}</code>
+              <span class="cmd__desc" data-i18n="cmd.{{ cmd_id }}">{{ t('cmd.' ~ cmd_id) }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+        </section>
+        {% endfor %}
+
+        <p class="cmd-empty" id="cmd-empty" hidden>
+          <b data-i18n="commands.empty_title">{{ t('commands.empty_title') }}</b>
+          <span data-i18n="commands.empty_text">{{ t('commands.empty_text') }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="shell">
+    <div class="cta">
+      <div>
+        <h2 data-i18n="cta.title">{{ t('cta.title') }}</h2>
+        <p data-i18n="cta.text">{{ t('cta.text') }}</p>
+      </div>
+      <div class="cta__actions">
+        <a class="btn btn--solid btn--lg" href="{{ links.invite }}" rel="noopener" target="_blank" data-i18n="cta.invite">{{ t('cta.invite') }}</a>
+        <a class="btn btn--line btn--lg" href="{{ links.reviews }}" rel="noopener" target="_blank" data-i18n="cta.reviews">{{ t('cta.reviews') }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

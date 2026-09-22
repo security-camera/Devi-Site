@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 — Devi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<main class="shell notfound">
+  <h1>404</h1>
+  <h2>{{ t('notfound.title') }}</h2>
+  <p>{{ t('notfound.text') }}</p>
+  <a class="btn btn--solid btn--lg" href="{{ url_for('landing', lang=lang) }}">{{ t('notfound.home') }}</a>
+</main>
+</body>
+</html>

@@ -1,0 +1,185 @@
+{
+  "_meta": {
+      "name": "English",
+      "english_name": "English",
+      "short": "EN",
+      "flag": "🇬🇧",
+      "dir": "ltr"
+  },
+  "site": {
+      "title": "Devi — a bot for your Discord server",
+      "description": "Devi is a Discord bot for moderation, auto responses, music, giveaways, temporary voice channels and AI answers. {count} commands, in English and Russian."
+  },
+  "nav": {
+      "features": "Features",
+      "commands": "Commands",
+      "support": "Support",
+      "invite": "Add the bot",
+      "language": "Language",
+      "theme": "Theme",
+      "to_light": "Switch to the light theme",
+      "to_dark": "Switch to the dark theme"
+  },
+  "hero": {
+      "title": "A server stays alive while someone keeps holding it together",
+      "subtitle": "Devi takes that job over: it keeps track of rule breakers, answers the questions people ask every day, plays music, runs giveaways and hands every group its own voice channel.",
+      "invite": "Add to your server",
+      "support": "Support server",
+      "note": "Free to use. Permissions are asked for piece by piece, so you grant only what you need.",
+      "demo_channel": "general",
+      "demo_user": "Devi",
+      "demo_placeholder": "Message #general",
+      "demo_command": "/giveaway start",
+      "demo_hint": "Starts a new giveaway",
+      "demo_reply_title": "The giveaway is live",
+      "demo_reply_prize": "Prize: one month of Discord Nitro",
+      "demo_reply_meta": "3 winners · Drawn in 24 hours",
+      "demo_reply_button": "Enter",
+      "demo_reply_count": "37 entries"
+  },
+  "stats": {
+      "commands": "commands",
+      "groups": "groups",
+      "languages": "interface languages"
+  },
+  "features": {
+      "title": "What Devi does",
+      "subtitle": "Thirteen groups of commands that cover most of what people usually install three separate bots for.",
+      "moderation": {
+          "title": "Moderation and logs",
+          "text": "Warnings with a full history and an \"old case\" flag, message clean-up, slow mode, roles that expire on their own, and one channel where everything gets written down."
+      },
+      "ai": {
+          "title": "AI on your own key",
+          "text": "The bot replies in a text channel or reads the answer out in voice chat. You set the Gemini key yourself with /ai key, and the conversation history can be wiped at any time."
+      },
+      "music": {
+          "title": "Music and speech",
+          "text": "Play from YouTube by link or title, queue tracks, repeat them, and drive it all from a button panel instead of a dozen commands. /tts makes the bot read text aloud."
+      },
+      "tempvoice": {
+          "title": "Temporary voice channels",
+          "text": "Someone joins the lobby channel and Devi creates a room for them. The owner sets the name, user limit, bitrate, region and who is allowed in."
+      },
+      "engagement": {
+          "title": "Giveaways and birthdays",
+          "text": "Giveaways you can end early or reroll. Members save their own birthday and the greeting goes to the channel you picked."
+      },
+      "control": {
+          "title": "Permissions and language",
+          "text": "Grant command access interactively: pick a role or a member and toggle what they can run. The bot's language is set per server."
+      }
+  },
+  "commands": {
+      "title": "Every command",
+      "subtitle": "Type part of a name or pick a group.",
+      "search": "Search commands",
+      "search_placeholder": "Try: warn",
+      "all": "All",
+      "found": "{count} found",
+      "empty_title": "Nothing matched",
+      "empty_text": "Try another word, or go back to \"All\"."
+  },
+  "groups": {
+      "mentions": "Mentions",
+      "triggers": "Auto responses",
+      "utilities": "Utilities",
+      "messages": "Messages",
+      "voice": "Voice",
+      "ai": "AI",
+      "admin": "Admin",
+      "warns": "Warnings",
+      "giveaways": "Giveaways",
+      "music": "Music",
+      "birthdays": "Birthdays",
+      "tempvoice": "Temporary voice",
+      "permissions": "Permissions"
+  },
+  "cmd": {
+      "mention_user": "Mentions a user a given number of times",
+      "mention_role": "Mentions a role a given number of times",
+      "mention_stop": "Stops running mentions right away",
+      "trigger": "Adds, edits or removes an auto response",
+      "triggers": "Lists every trigger on the server",
+      "random": "Generates a random number",
+      "coin": "Flips a coin",
+      "ball": "A magic ball that answers your question",
+      "avatar": "Shows a user's avatar",
+      "qr": "Turns a link into a QR code",
+      "preview": "Fetches the preview of a YouTube video",
+      "send_message": "Sends a message to a channel as the bot",
+      "send_dm": "Sends a direct message as the bot",
+      "send_sticky": "Posts a sticky message in a channel",
+      "send_allow": "Allows or blocks non-system direct messages",
+      "join": "Connects the bot to a voice channel",
+      "leave": "Disconnects the bot from a voice channel",
+      "tts": "Reads text out loud",
+      "ai_ask_text": "Asks the bot a question and replies in the text channel",
+      "ai_ask_voice": "Asks the bot a question and speaks the answer in voice",
+      "ai_clear": "Clears the AI conversation history",
+      "ai_key": "Sets the Gemini API key the AI features need",
+      "clear": "Deletes a given number of messages in a channel",
+      "set_log_channel": "Sets the channel used for logs",
+      "language": "Sets the bot's language for this server",
+      "command_id": "Returns the ID of a Devi command",
+      "temp_role": "Gives a member a role for a limited time",
+      "slowmode": "Sets slow mode for a channel",
+      "warn_add": "Warns a user",
+      "warn_show": "Shows a user's warnings",
+      "warn_remove": "Removes a warning by ID",
+      "warn_obsolete": "Marks a warning as an old case",
+      "giveaway_start": "Starts a new giveaway",
+      "giveaway_end": "Ends a giveaway early and picks the winners",
+      "giveaway_reroll": "Picks new winners for a finished giveaway",
+      "giveaway_list": "Lists the server's active giveaways",
+      "music_interface": "Opens the player panel with buttons",
+      "music_play": "Plays audio from YouTube by link or title",
+      "music_pause": "Pauses playback",
+      "music_resume": "Resumes playback",
+      "music_skip": "Skips the current track",
+      "music_loop": "Switches the repeat mode",
+      "music_queue": "Shows the track queue",
+      "music_stop": "Stops playback and clears the queue",
+      "birthday_set": "Saves your birthday",
+      "birthday_check": "Shows the saved date",
+      "birthday_remove": "Deletes your saved birthday",
+      "birthday_channel": "Sets the channel for birthday greetings",
+      "voice_setup": "Sets up the lobby channel for temporary voice rooms",
+      "voice_interface": "Opens the panel for your temporary room",
+      "voice_name": "Renames your temporary room",
+      "voice_open": "Opens the room to everyone",
+      "voice_close": "Closes the room to everyone",
+      "voice_allow": "Lets a user join your room",
+      "voice_ban": "Stops a user from joining your room",
+      "voice_kick": "Removes a user from your room",
+      "voice_limit": "Sets the user limit of your room",
+      "voice_bitrate": "Sets the bitrate of your room",
+      "voice_region": "Sets the voice region of your room",
+      "permissions_manage": "Manages command access: pick a target and toggle permissions",
+      "permissions_list": "Shows every permission assigned on the server"
+  },
+  "cta": {
+      "title": "Add Devi and set it up in a couple of minutes",
+      "text": "Start with /language and /set_log_channel — the bot walks you through the rest. If something breaks, drop into the support server.",
+      "invite": "Add to your server",
+      "reviews": "Reviews on top.gg"
+  },
+  "footer": {
+      "tagline": "A bot for Discord servers that have better things to do than moderate.",
+      "bot": "Bot",
+      "legal": "Legal",
+      "tos": "Terms of Service",
+      "privacy": "Privacy Policy",
+      "topgg": "top.gg page",
+      "reviews": "Reviews",
+      "support": "Support server",
+      "commands": "Commands",
+      "features": "Features",
+      "note": "Devi is not affiliated with Discord Inc."
+  },
+  "notfound": {
+      "title": "That page isn't here",
+      "text": "The link is out of date, or the address has a typo.",
+      "home": "Go to the start"
+  }
+}

@@ -1,0 +1,185 @@
+﻿{
+  "_meta": {
+      "name": "Deutsch",
+      "english_name": "German",
+      "short": "DE",
+      "flag": "🇩🇪",
+      "dir": "ltr"
+  },
+  "site": {
+      "title": "Devi — Discord-Server-Bot",
+      "description": "Devi — ein Discord-Bot für Moderation, automatische Antworten, Musik, Giveaways, temporäre Sprachkanäle und KI-Antworten. {count} Befehle, Benutzeroberfläche auf Deutsch und Englisch."
+  },
+  "nav": {
+      "features": "Funktionen",
+      "commands": "Befehle",
+      "support": "Support",
+      "invite": "Bot hinzufügen",
+      "language": "Sprache",
+      "theme": "Design",
+      "to_light": "Helles Design aktivieren",
+      "to_dark": "Dunkles Design aktivieren"
+  },
+  "hero": {
+      "title": "Ein Server läuft rund, wenn jemand ihn im Griff hat",
+      "subtitle": "Devi übernimmt diese Arbeit: überwacht Regelverstöße, beantwortet häufige Fragen, spielt Musik, veranstaltet Giveaways und erstellt Sprachkanäle für jede Gruppe.",
+      "invite": "Zum Server hinzufügen",
+      "support": "Support-Server",
+      "note": "Kostenlos. Berechtigungen werden einzeln angefordert — du kannst nur das gewähren, was benötigt wird.",
+      "demo_channel": "allgemeiner-chat",
+      "demo_user": "Devi",
+      "demo_placeholder": "Nachricht an #allgemeiner-chat",
+      "demo_command": "/giveaway start",
+      "demo_hint": "Startet ein neues Giveaway",
+      "demo_reply_title": "Giveaway gestartet",
+      "demo_reply_prize": "Preis: 1 Monat Discord Nitro",
+      "demo_reply_meta": "Gewinner: 3 · Ende in 24 Stunden",
+      "demo_reply_button": "Teilnehmen",
+      "demo_reply_count": "37 Teilnehmer"
+  },
+  "stats": {
+      "commands": "Befehle",
+      "groups": "Bereiche",
+      "languages": "Oberflächensprachen"
+  },
+  "features": {
+      "title": "Was Devi kann",
+      "subtitle": "Dreizehn Befehlsbereiche, die fast alles abdecken, wofür man normalerweise drei verschiedene Bots braucht.",
+      "moderation": {
+          "title": "Moderation & Protokolle",
+          "text": "Verwarnungen mit Verlauf und Markierung „alter Fall“, Nachrichtenlöschung, Slowmode, zeitlich begrenzte Rollen und ein eigener Kanal, in dem alles protokolliert wird."
+      },
+      "ai": {
+          "title": "KI mit eigenem Schlüssel",
+          "text": "Der Bot antwortet per Text im Kanal oder per Sprache im Sprachkanal. Deinen Gemini-Schlüssel gibst du mit /ai key an. Den Gesprächsverlauf kannst du jederzeit löschen."
+      },
+      "music": {
+          "title": "Musik & Sprachausgabe",
+          "text": "Audio von YouTube per Link oder Titel abspielen, Warteschlange verwalten, Wiederholung aktivieren und ein Bedienfeld mit Schaltflächen statt dutzender Befehle nutzen. Außerdem /tts, damit der Bot Text vorliest."
+      },
+      "tempvoice": {
+          "title": "Temporäre Sprachkanäle",
+          "text": "Ein Mitglied betritt den Lobby-Kanal — Devi erstellt einen eigenen Kanal. Der Besitzer kann Name, Limit, Bitrate, Region und Zugriffsrechte ändern."
+      },
+      "engagement": {
+          "title": "Giveaways & Geburtstage",
+          "text": "Giveaways mit vorzeitigem Ende und Neuauswahl der Gewinner. Mitglieder speichern ihre Geburtstage selbst, die Glückwünsche werden in den ausgewählten Kanal gesendet."
+      },
+      "control": {
+          "title": "Berechtigungen & Sprache",
+          "text": "Interaktive Vergabe von Befehlsberechtigungen: Rolle oder Mitglied auswählen und Zugriff ein- oder ausschalten. Die Sprache des Bots wird für jeden Server separat festgelegt."
+      }
+  },
+  "commands": {
+      "title": "Alle Befehle",
+      "subtitle": "Gib einen Teil des Befehlsnamens ein oder wähle einen Bereich.",
+      "search": "Befehle durchsuchen",
+      "search_placeholder": "Zum Beispiel: warn",
+      "all": "Alle",
+      "found": "Gefunden: {count}",
+      "empty_title": "Nichts gefunden",
+      "empty_text": "Versuche ein anderes Wort oder öffne den Bereich „Alle“."
+  },
+  "groups": {
+      "mentions": "Erwähnungen",
+      "triggers": "Auto-Antworten",
+      "utilities": "Werkzeuge",
+      "messages": "Nachrichten",
+      "voice": "Sprache",
+      "ai": "KI",
+      "admin": "Administration",
+      "warns": "Verwarnungen",
+      "giveaways": "Giveaways",
+      "music": "Musik",
+      "birthdays": "Geburtstage",
+      "tempvoice": "Temporäre Sprachkanäle",
+      "permissions": "Berechtigungen"
+  },
+  "cmd": {
+      "mention_user": "Erwähnt einen Benutzer eine bestimmte Anzahl von Malen",
+      "mention_role": "Erwähnt eine Rolle eine bestimmte Anzahl von Malen",
+      "mention_stop": "Stoppt Erwähnungen zwangsweise",
+      "trigger": "Fügt eine Auto-Antwort hinzu, bearbeitet oder entfernt sie",
+      "triggers": "Zeigt alle Server-Trigger",
+      "random": "Generiert eine Zufallszahl",
+      "coin": "Wirft eine Münze",
+      "ball": "Eine mysteriöse Kugel, die Fragen beantwortet",
+      "avatar": "Zeigt den Avatar eines Benutzers",
+      "qr": "Generiert einen QR-Code aus einem Link",
+      "preview": "Ruft eine Videovorschau von YouTube ab",
+      "send_message": "Sendet eine Nachricht als Bot in einen Kanal",
+      "send_dm": "Sendet eine Direktnachricht als Bot",
+      "send_sticky": "Sendet eine Sticky-Nachricht in einen Kanal",
+      "send_allow": "Erlaubt oder blockiert nicht-systemische Direktnachrichten",
+      "join": "Verbindet den Bot mit einem Sprachkanal",
+      "leave": "Trennt den Bot vom Sprachkanal",
+      "tts": "Liest Text laut vor",
+      "ai_ask_text": "Stellt dem Bot eine Frage und erhält die Antwort in einem Textkanal",
+      "ai_ask_voice": "Stellt dem Bot eine Frage und hört die Antwort im Sprachkanal",
+      "ai_clear": "Löscht deinen KI-Gesprächsverlauf",
+      "ai_key": "Legt einen Gemini-API-Schlüssel für KI-Funktionen fest",
+      "clear": "Löscht eine bestimmte Anzahl von Nachrichten aus einem Kanal",
+      "set_log_channel": "Legt den Kanal für das Protokollsystem fest",
+      "language": "Legt die Bot-Sprache für diesen Server fest",
+      "command_id": "Gibt die ID eines Devi-Befehls zurück",
+      "temp_role": "Gibt einem Mitglied für eine begrenzte Zeit eine Rolle",
+      "slowmode": "Legt den Slowmode des Kanals fest",
+      "warn_add": "Verwarnt einen Benutzer",
+      "warn_show": "Zeigt die Verwarnungen eines Benutzers",
+      "warn_remove": "Entfernt eine Verwarnung anhand ihrer ID",
+      "warn_obsolete": "Markiert eine Verwarnung als alten Fall",
+      "giveaway_start": "Startet ein neues Giveaway",
+      "giveaway_end": "Beendet ein Giveaway vorzeitig und bestimmt die Gewinner",
+      "giveaway_reroll": "Wählt die Gewinner eines beendeten Giveaways erneut aus",
+      "giveaway_list": "Zeigt aktive Giveaways des Servers",
+      "music_interface": "Zeigt das Bedienfeld des Players mit Schaltflächen",
+      "music_play": "Spielt Audio von YouTube per Link oder Titel ab",
+      "music_pause": "Pausiert die Wiedergabe",
+      "music_resume": "Setzt die Wiedergabe fort",
+      "music_skip": "Überspringt den aktuellen Titel",
+      "music_loop": "Schaltet den Wiederholungsmodus um",
+      "music_queue": "Zeigt die Titelwarteschlange",
+      "music_stop": "Stoppt die Wiedergabe und leert die Warteschlange",
+      "birthday_set": "Speichert deinen Geburtstag",
+      "birthday_check": "Zeigt deinen gespeicherten Geburtstag",
+      "birthday_remove": "Entfernt deinen gespeicherten Geburtstag",
+      "birthday_channel": "Legt den Kanal für Geburtstagsgrüße fest",
+      "voice_setup": "Richtet einen Lobby-Kanal für temporäre Sprachkanäle ein",
+      "voice_interface": "Zeigt das Bedienfeld für deinen Kanal",
+      "voice_name": "Benennt deinen temporären Kanal um",
+      "voice_open": "Öffnet den Kanal für alle",
+      "voice_close": "Schließt den Kanal für alle",
+      "voice_allow": "Erlaubt einem Benutzer, dem Kanal beizutreten",
+      "voice_ban": "Verbietet einem Benutzer, dem Kanal beizutreten",
+      "voice_kick": "Wirft einen Benutzer aus deinem Kanal",
+      "voice_limit": "Legt das Teilnehmerlimit des Kanals fest",
+      "voice_bitrate": "Legt die Bitrate des Kanals fest",
+      "voice_region": "Legt die Sprachregion des Kanals fest",
+      "permissions_manage": "Verwaltet den Befehlszugriff: Objekt auswählen und Berechtigungen umschalten",
+      "permissions_list": "Zeigt alle auf dem Server vergebenen Berechtigungen"
+  },
+  "cta": {
+      "title": "Füge Devi hinzu und richte ihn in wenigen Minuten ein",
+      "text": "Beginne mit /language und /set_log_channel — den Rest erklärt dir der Bot. Wenn etwas nicht funktioniert, besuche den Support-Server.",
+      "invite": "Zum Server hinzufügen",
+      "reviews": "Bewertungen auf top.gg"
+  },
+  "footer": {
+      "tagline": "Ein Discord-Bot für Server, auf denen es mehr zu tun gibt als nur Moderation.",
+      "bot": "Bot",
+      "legal": "Dokumente",
+      "tos": "Nutzungsbedingungen",
+      "privacy": "Datenschutzerklärung",
+      "topgg": "top.gg-Seite",
+      "reviews": "Bewertungen",
+      "support": "Support-Server",
+      "commands": "Befehle",
+      "features": "Funktionen",
+      "note": "Devi ist nicht mit Discord Inc. verbunden."
+  },
+  "notfound": {
+      "title": "Diese Seite existiert nicht",
+      "text": "Der Link ist möglicherweise veraltet oder die Adresse enthält einen Tippfehler.",
+      "home": "Zur Startseite"
+  }
+}

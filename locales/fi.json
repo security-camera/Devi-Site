@@ -1,0 +1,185 @@
+﻿{
+  "_meta": {
+      "name": "Suomi",
+      "english_name": "Finnish",
+      "short": "FI",
+      "flag": "🇫🇮",
+      "dir": "ltr"
+  },
+  "site": {
+      "title": "Devi — Discord-palvelimen botti",
+      "description": "Devi — Discord-botti moderointiin, automaattisiin vastauksiin, musiikkiin, arvontoihin, väliaikaisiin puhekanaviin ja tekoälyvastauksiin. {count} komentoa, käyttöliittymä englanniksi ja venäjäksi."
+  },
+  "nav": {
+      "features": "Ominaisuudet",
+      "commands": "Komennot",
+      "support": "Tuki",
+      "invite": "Lisää botti",
+      "language": "Kieli",
+      "theme": "Teema",
+      "to_light": "Ota vaalea teema käyttöön",
+      "to_dark": "Ota tumma teema käyttöön"
+  },
+  "hero": {
+      "title": "Palvelin toimii, kun joku pitää sen hallinnassa",
+      "subtitle": "Devi hoitaa tämän työn: valvoo sääntörikkomuksia, vastaa yleisiin kysymyksiin, soittaa musiikkia, järjestää arvontoja ja luo puhekanavia jokaiselle ryhmälle.",
+      "invite": "Lisää palvelimelle",
+      "support": "Tukipalvelin",
+      "note": "Ilmainen. Oikeudet pyydetään erikseen — voit antaa vain tarvittavat oikeudet.",
+      "demo_channel": "yleinen-chat",
+      "demo_user": "Devi",
+      "demo_placeholder": "Kirjoita kanavalle #yleinen-chat",
+      "demo_command": "/giveaway start",
+      "demo_hint": "Aloittaa uuden arvonnan",
+      "demo_reply_title": "Arvonta alkoi",
+      "demo_reply_prize": "Palkinto: Discord Nitro kuukaudeksi",
+      "demo_reply_meta": "Voittajia: 3 · Tulokset 24 tunnin kuluttua",
+      "demo_reply_button": "Osallistu",
+      "demo_reply_count": "37 osallistujaa"
+  },
+  "stats": {
+      "commands": "komentoa",
+      "groups": "osiota",
+      "languages": "käyttöliittymäkieltä"
+  },
+  "features": {
+      "title": "Mitä Devi osaa",
+      "subtitle": "Kolmetoista komento-osiota, jotka kattavat lähes kaiken, mihin yleensä tarvitaan kolme eri bottia.",
+      "moderation": {
+          "title": "Moderointi ja lokit",
+          "text": "Varoitukset historioineen ja vanhan tapauksen merkinnällä, viestien poisto, hidas tila, väliaikaiset roolit sekä erillinen kanava, johon kaikki tapahtumat kirjataan."
+      },
+      "ai": {
+          "title": "Tekoäly omalla avaimellasi",
+          "text": "Botti voi vastata tekstinä tekstikanavalla tai puheena puhekanavalla. Annat oman Gemini-avaimesi komennolla /ai key, ja keskusteluhistorian voi poistaa milloin tahansa."
+      },
+      "music": {
+          "title": "Musiikki ja puhesynteesi",
+          "text": "Toista YouTube-ääntä linkillä tai nimellä, hallitse jonoa, käytä toistoa ja painikkeilla toimivaa ohjauspaneelia kymmenien komentojen sijaan. Lisäksi /tts tekstin lukemiseen ääneen."
+      },
+      "tempvoice": {
+          "title": "Väliaikaiset puhekanavat",
+          "text": "Jäsen liittyy aulakanavalle — Devi luo hänelle oman kanavan. Omistaja voi muuttaa nimeä, osallistujarajaa, bittinopeutta, aluetta ja pääsyoikeuksia."
+      },
+      "engagement": {
+          "title": "Arvonnat ja syntymäpäivät",
+          "text": "Arvontoja voi lopettaa etuajassa ja voittajat voidaan arpoa uudelleen. Jäsenet tallentavat syntymäpäivänsä itse, ja onnittelut lähetetään valittuun kanavaan."
+      },
+      "control": {
+          "title": "Oikeudet ja kieli",
+          "text": "Interaktiivinen komentojen oikeuksien hallinta: valitse rooli tai jäsen ja vaihda käyttöoikeutta. Botin kieli voidaan määrittää erikseen jokaiselle palvelimelle."
+      }
+  },
+  "commands": {
+      "title": "Kaikki komennot",
+      "subtitle": "Kirjoita osa komennon nimestä tai valitse osio.",
+      "search": "Hae komentoja",
+      "search_placeholder": "Esimerkiksi: warn",
+      "all": "Kaikki",
+      "found": "Löytyi: {count}",
+      "empty_title": "Mitään ei löytynyt",
+      "empty_text": "Kokeile toista sanaa tai avaa ”Kaikki”-osio."
+  },
+  "groups": {
+      "mentions": "Maininnat",
+      "triggers": "Automaattiset vastaukset",
+      "utilities": "Apuohjelmat",
+      "messages": "Viestit",
+      "voice": "Puhe",
+      "ai": "Tekoäly",
+      "admin": "Ylläpito",
+      "warns": "Varoitukset",
+      "giveaways": "Arvonnat",
+      "music": "Musiikki",
+      "birthdays": "Syntymäpäivät",
+      "tempvoice": "Väliaikaiset puhekanavat",
+      "permissions": "Oikeudet"
+  },
+  "cmd": {
+      "mention_user": "Mainitsee käyttäjän määritetyn määrän kertoja",
+      "mention_role": "Mainitsee roolin määritetyn määrän kertoja",
+      "mention_stop": "Pysäyttää maininnat pakotetusti",
+      "trigger": "Lisää, muokkaa tai poistaa automaattisen vastauksen",
+      "triggers": "Näyttää kaikki palvelimen triggerit",
+      "random": "Luo satunnaisen numeron",
+      "coin": "Heittää kolikkoa",
+      "ball": "Salaperäinen pallo, joka vastaa kysymyksiin",
+      "avatar": "Näyttää käyttäjän avatarin",
+      "qr": "Luo QR-koodin linkistä",
+      "preview": "Hakee YouTube-videon esikatselun",
+      "send_message": "Lähettää viestin bottina kanavalle",
+      "send_dm": "Lähettää yksityisviestin bottina",
+      "send_sticky": "Lähettää kiinnitetyn viestin kanavalle",
+      "send_allow": "Sallii tai estää ei-järjestelmän yksityisviestit",
+      "join": "Yhdistää botin puhekanavalle",
+      "leave": "Poistaa botin puhekanavalta",
+      "tts": "Lukee tekstin ääneen",
+      "ai_ask_text": "Esittää botille kysymyksen ja saa vastauksen tekstikanavalla",
+      "ai_ask_voice": "Esittää botille kysymyksen ja kuulee vastauksen puhekanavalla",
+      "ai_clear": "Poistaa tekoälykeskustelun historian",
+      "ai_key": "Asettaa Gemini API -avaimen tekoälytoimintoja varten",
+      "clear": "Poistaa määritetyn määrän viestejä kanavalta",
+      "set_log_channel": "Asettaa lokijärjestelmän kanavan",
+      "language": "Asettaa botin kielen tälle palvelimelle",
+      "command_id": "Palauttaa Devi-komennon tunnuksen",
+      "temp_role": "Antaa jäsenelle roolin rajoitetuksi ajaksi",
+      "slowmode": "Asettaa kanavan hitaan tilan",
+      "warn_add": "Antaa käyttäjälle varoituksen",
+      "warn_show": "Näyttää käyttäjän varoitukset",
+      "warn_remove": "Poistaa varoituksen tunnuksen perusteella",
+      "warn_obsolete": "Merkitsee varoituksen vanhaksi tapaukseksi",
+      "giveaway_start": "Aloittaa uuden arvonnan",
+      "giveaway_end": "Lopettaa arvonnan etuajassa ja valitsee voittajat",
+      "giveaway_reroll": "Arpoo valmiin arvonnan voittajat uudelleen",
+      "giveaway_list": "Näyttää palvelimen aktiiviset arvonnat",
+      "music_interface": "Näyttää soittimen ohjauspaneelin painikkeilla",
+      "music_play": "Toistaa YouTube-ääntä linkillä tai nimellä",
+      "music_pause": "Keskeyttää toiston",
+      "music_resume": "Jatkaa toistoa",
+      "music_skip": "Ohittaa nykyisen kappaleen",
+      "music_loop": "Vaihtaa toistotilaa",
+      "music_queue": "Näyttää kappalejonon",
+      "music_stop": "Pysäyttää toiston ja tyhjentää jonon",
+      "birthday_set": "Tallentaa syntymäpäiväsi",
+      "birthday_check": "Näyttää tallennetun syntymäpäiväsi",
+      "birthday_remove": "Poistaa tallennetun syntymäpäivän",
+      "birthday_channel": "Määrittää syntymäpäiväonnittelujen kanavan",
+      "voice_setup": "Määrittää aulakanavan väliaikaisille puhekanaville",
+      "voice_interface": "Näyttää oman kanavasi ohjauspaneelin",
+      "voice_name": "Nimeää väliaikaisen kanavasi uudelleen",
+      "voice_open": "Avaa kanavan kaikille",
+      "voice_close": "Sulkee kanavan kaikilta",
+      "voice_allow": "Sallii käyttäjän liittyä kanavalle",
+      "voice_ban": "Estää käyttäjää liittymästä kanavalle",
+      "voice_kick": "Poistaa käyttäjän kanavaltasi",
+      "voice_limit": "Asettaa kanavan osallistujarajan",
+      "voice_bitrate": "Asettaa kanavan bittinopeuden",
+      "voice_region": "Asettaa kanavan puhealueen",
+      "permissions_manage": "Hallitsee komentojen käyttöoikeuksia: valitse kohde ja vaihda oikeuksia",
+      "permissions_list": "Näyttää kaikki palvelimelle määritetyt oikeudet"
+  },
+  "cta": {
+      "title": "Lisää Devi ja määritä se muutamassa minuutissa",
+      "text": "Aloita komennoilla /language ja /set_log_channel — botti opastaa lopussa. Jos jokin ei toimi, liity tukipalvelimelle.",
+      "invite": "Lisää palvelimelle",
+      "reviews": "Arvostelut top.gg:ssä"
+  },
+  "footer": {
+      "tagline": "Discord-botti palvelimille, joilla on muutakin tekemistä kuin moderointi.",
+      "bot": "Botti",
+      "legal": "Asiakirjat",
+      "tos": "Käyttöehdot",
+      "privacy": "Tietosuojakäytäntö",
+      "topgg": "top.gg-sivu",
+      "reviews": "Arvostelut",
+      "support": "Tukipalvelin",
+      "commands": "Komennot",
+      "features": "Ominaisuudet",
+      "note": "Devi ei ole yhteydessä Discord Inc.:iin."
+  },
+  "notfound": {
+      "title": "Tätä sivua ei ole",
+      "text": "Linkki saattaa olla vanhentunut tai osoitteessa voi olla kirjoitusvirhe.",
+      "home": "Etusivulle"
+  }
+}
