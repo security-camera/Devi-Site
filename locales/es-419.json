@@ -1,0 +1,185 @@
+﻿{
+  "_meta": {
+      "name": "Español (Latinoamérica)",
+      "english_name": "Spanish (Latin America)",
+      "short": "LA",
+      "flag": "🌎",
+      "dir": "ltr"
+  },
+  "site": {
+      "title": "Devi — bot para tu servidor de Discord",
+      "description": "Devi es un bot de Discord con moderación, respuestas automáticas, música, sorteos, canales de voz temporales y respuestas de IA. {count} comandos, interfaz en ruso, inglés y más idiomas."
+  },
+  "nav": {
+      "features": "Funciones",
+      "commands": "Comandos",
+      "support": "Soporte",
+      "invite": "Agregar el bot",
+      "language": "Idioma",
+      "theme": "Tema",
+      "to_light": "Activar el tema claro",
+      "to_dark": "Activar el tema oscuro"
+  },
+  "hero": {
+      "title": "Un servidor sigue vivo mientras alguien lo cuida",
+      "subtitle": "Devi se encarga de ese trabajo: vigila a los infractores, responde a las preguntas frecuentes, pone música, organiza sorteos y crea canales de voz para cada grupo.",
+      "invite": "Agregar al servidor",
+      "support": "Servidor de soporte",
+      "note": "Gratis. Los permisos se piden por partes: puedes dar solo los que necesites.",
+      "demo_channel": "chat-general",
+      "demo_user": "Devi",
+      "demo_placeholder": "Enviar mensaje a #chat-general",
+      "demo_command": "/giveaway start",
+      "demo_hint": "Inicia un nuevo sorteo",
+      "demo_reply_title": "Comenzó el sorteo",
+      "demo_reply_prize": "Premio: un mes de Discord Nitro",
+      "demo_reply_meta": "Ganadores: 3 · Resultados en 24 horas",
+      "demo_reply_button": "Participar",
+      "demo_reply_count": "37 participantes"
+  },
+  "stats": {
+      "commands": "comandos",
+      "groups": "secciones",
+      "languages": "idiomas de interfaz"
+  },
+  "features": {
+      "title": "Qué sabe hacer Devi",
+      "subtitle": "Trece secciones de comandos que cubren casi todo para lo que normalmente se instalan tres bots distintos.",
+      "moderation": {
+          "title": "Moderación y registros",
+          "text": "Advertencias con historial y marca de «caso antiguo», limpieza de mensajes, modo lento, roles temporales y un canal aparte donde queda registrado todo lo que ocurre."
+      },
+      "ai": {
+          "title": "IA con tu propia clave",
+          "text": "El bot responde por texto en el canal o por voz en el canal de voz. La clave de Gemini la indicas tú con /ai key y el historial de la conversación se puede borrar en cualquier momento."
+      },
+      "music": {
+          "title": "Música y lectura en voz alta",
+          "text": "Reproducción desde YouTube por enlace o por nombre, cola, repetición y un panel con botones en lugar de una decena de comandos. Además, /tts para que el bot lea un texto en voz alta."
+      },
+      "tempvoice": {
+          "title": "Canales de voz temporales",
+          "text": "Un miembro entra en el canal lobby y Devi le crea su propio canal. El dueño cambia por sí mismo el nombre, el límite, la tasa de bits, la región y la lista de quién puede entrar."
+      },
+      "engagement": {
+          "title": "Sorteos y cumpleaños",
+          "text": "Sorteos con finalización anticipada y nueva elección de ganadores. Los miembros guardan ellos mismos su cumpleaños y las felicitaciones se envían al canal que elijas."
+      },
+      "control": {
+          "title": "Permisos e idioma",
+          "text": "Asignación interactiva de permisos sobre los comandos: eliges un rol o un miembro y activas o desactivas el acceso. El idioma del bot se define por separado en cada servidor."
+      }
+  },
+  "commands": {
+      "title": "Todos los comandos",
+      "subtitle": "Escribe parte del nombre o elige una sección.",
+      "search": "Buscar comando",
+      "search_placeholder": "Por ejemplo: warn",
+      "all": "Todos",
+      "found": "Encontrados: {count}",
+      "empty_title": "No se ha encontrado nada",
+      "empty_text": "Prueba con otra palabra o abre la sección «Todos»."
+  },
+  "groups": {
+      "mentions": "Menciones",
+      "triggers": "Respuestas automáticas",
+      "utilities": "Utilidades",
+      "messages": "Mensajes",
+      "voice": "Voz",
+      "ai": "IA",
+      "admin": "Administración",
+      "warns": "Advertencias",
+      "giveaways": "Sorteos",
+      "music": "Música",
+      "birthdays": "Cumpleaños",
+      "tempvoice": "Canales de voz temporales",
+      "permissions": "Permisos"
+  },
+  "cmd": {
+      "mention_user": "Menciona a un usuario la cantidad de veces indicada",
+      "mention_role": "Menciona un rol la cantidad de veces indicada",
+      "mention_stop": "Detiene las menciones a la fuerza",
+      "trigger": "Agrega, modifica o elimina una respuesta automática",
+      "triggers": "Muestra todos los disparadores del servidor",
+      "random": "Genera un número aleatorio",
+      "coin": "Lanza una moneda",
+      "ball": "Una bola misteriosa que responde a tus preguntas",
+      "avatar": "Muestra el avatar de un usuario",
+      "qr": "Genera un código QR a partir de un enlace",
+      "preview": "Obtiene la miniatura de un video de YouTube",
+      "send_message": "Envía un mensaje a un canal en nombre del bot",
+      "send_dm": "Envía un mensaje directo en nombre del bot",
+      "send_sticky": "Envía un mensaje sticky al canal",
+      "send_allow": "Permite o prohíbe los mensajes directos no del sistema",
+      "join": "Conecta el bot a un canal de voz",
+      "leave": "Desconecta el bot del canal de voz",
+      "tts": "Lee un texto en voz alta",
+      "ai_ask_text": "Hace una pregunta al bot; la respuesta llega al canal de texto",
+      "ai_ask_voice": "Hace una pregunta al bot; la respuesta suena en el canal de voz",
+      "ai_clear": "Elimina el historial de conversación con la IA",
+      "ai_key": "Establece la clave de la API de Gemini para el funcionamiento de la IA",
+      "clear": "Elimina la cantidad indicada de mensajes del canal",
+      "set_log_channel": "Establece el canal del sistema de registros",
+      "language": "Establece el idioma del bot para este servidor",
+      "command_id": "Devuelve el ID de un comando de Devi",
+      "temp_role": "Da un rol a un miembro por tiempo limitado",
+      "slowmode": "Establece el modo lento de un canal",
+      "warn_add": "Pone una advertencia a un usuario",
+      "warn_show": "Muestra las advertencias de un usuario",
+      "warn_remove": "Elimina una advertencia por su ID",
+      "warn_obsolete": "Marca una advertencia como caso antiguo",
+      "giveaway_start": "Inicia un nuevo sorteo",
+      "giveaway_end": "Finaliza un sorteo antes de tiempo y elige a los ganadores",
+      "giveaway_reroll": "Vuelve a elegir ganadores de un sorteo finalizado",
+      "giveaway_list": "Muestra los sorteos activos del servidor",
+      "music_interface": "Muestra el panel de control del reproductor con botones",
+      "music_play": "Reproduce audio de YouTube por enlace o por nombre",
+      "music_pause": "Pone la reproducción en pausa",
+      "music_resume": "Reanuda la reproducción",
+      "music_skip": "Salta la canción actual",
+      "music_loop": "Cambia el modo de repetición",
+      "music_queue": "Muestra la cola de canciones",
+      "music_stop": "Detiene la reproducción y vacía la cola",
+      "birthday_set": "Guarda tu cumpleaños",
+      "birthday_check": "Muestra la fecha guardada",
+      "birthday_remove": "Elimina el cumpleaños guardado",
+      "birthday_channel": "Configura el canal de felicitaciones",
+      "voice_setup": "Configura el canal lobby de los canales de voz temporales",
+      "voice_interface": "Muestra el panel de control de tu canal",
+      "voice_name": "Cambia el nombre de tu canal temporal",
+      "voice_open": "Abre el canal para todos",
+      "voice_close": "Cierra el canal para todos",
+      "voice_allow": "Permite a un usuario conectarse al canal",
+      "voice_ban": "Prohíbe a un usuario conectarse al canal",
+      "voice_kick": "Expulsa a un usuario de tu canal",
+      "voice_limit": "Establece el límite de miembros del canal",
+      "voice_bitrate": "Establece la tasa de bits del canal",
+      "voice_region": "Establece la región de voz del canal",
+      "permissions_manage": "Administra el acceso a los comandos: elige un objeto y activa o desactiva permisos",
+      "permissions_list": "Muestra todos los permisos asignados en el servidor"
+  },
+  "cta": {
+      "title": "Agrega a Devi y configúralo en un par de minutos",
+      "text": "Empieza por /language y /set_log_channel: lo demás te lo irá indicando el propio bot. Si algo no funciona, visita el servidor de soporte.",
+      "invite": "Agregar al servidor",
+      "reviews": "Reseñas en top.gg"
+  },
+  "footer": {
+      "tagline": "Un bot para servidores de Discord que tienen cosas más interesantes que hacer que moderar.",
+      "bot": "Bot",
+      "legal": "Documentos",
+      "tos": "Términos de uso",
+      "privacy": "Política de privacidad",
+      "topgg": "Página en top.gg",
+      "reviews": "Reseñas",
+      "support": "Servidor de soporte",
+      "commands": "Comandos",
+      "features": "Funciones",
+      "note": "Devi no está afiliado a Discord Inc."
+  },
+  "notfound": {
+      "title": "Esta página no existe",
+      "text": "El enlace está desactualizado o hay un error en la dirección.",
+      "home": "Ir al inicio"
+  }
+}

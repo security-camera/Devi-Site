@@ -29,12 +29,22 @@ from flask import (
 
 import data
 import i18n
+from i18n import LOCALES_DIR
 
 app = Flask(__name__)
 
 LANG_COOKIE = "devi_lang"
 COOKIE_MAX_AGE = 60 * 60 * 24 * 365
 
+def _locale_count() -> int:
+    if not os.path.isdir(LOCALES_DIR):
+        return 0
+
+    return len(sorted(
+        file
+        for file in os.listdir(LOCALES_DIR)
+        if file.endswith(".json")
+    ))
 
 def render_page(lang: str):
     """Render the landing page in the given language."""
@@ -53,7 +63,7 @@ def render_page(lang: str):
         links=data.LINKS,
         command_count=data.command_count(),
         group_count=data.group_count(),
-        language_count=5,
+        language_count=_locale_count(),
         catalogs=i18n.all_catalogs(),
     )
     response = make_response(html)
