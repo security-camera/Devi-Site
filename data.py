@@ -89,6 +89,7 @@ COMMAND_GROUPS = [
             ("command_id", "/command_id"),
             ("temp_role", "/temp_role"),
             ("slowmode", "/slowmode"),
+            ("temp_ban", "/temp_ban"),
         ],
     },
     {
@@ -160,10 +161,19 @@ COMMAND_GROUPS = [
             ("permissions_list", "/permissions list"),
         ],
     },
+    {
+        "id": "security",
+        "icon": "🛡️",
+        "commands": [
+            ("trap_channel", "/trap channel"),
+            ("trap_punishment", "/trap punishment"),
+        ],
+    }
 ]
 
 # Feature cards on the landing page. Each id maps to "features.<id>.title"
 # and "features.<id>.text" in the locale files.
+# TODO: Add features "birthdays", "utils"
 FEATURE_IDS = ["moderation", "ai", "music", "tempvoice", "engagement", "control"]
 
 

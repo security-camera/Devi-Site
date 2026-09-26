@@ -68,6 +68,10 @@
       "control": {
           "title": "Permissions and language",
           "text": "Grant command access interactively: pick a role or a member and toggle what they can run. The bot's language is set per server."
+      },
+      "security": {
+          "title": "Security",
+          "text": "Protection against bots that send messages using trap channels"
       }
   },
   "commands": {
@@ -93,7 +97,8 @@
       "music": "Music",
       "birthdays": "Birthdays",
       "tempvoice": "Temporary voice",
-      "permissions": "Permissions"
+      "permissions": "Permissions",
+      "security": "Security"
   },
   "cmd": {
       "mention_user": "Mentions a user a given number of times",
@@ -156,7 +161,10 @@
       "voice_bitrate": "Sets the bitrate of your room",
       "voice_region": "Sets the voice region of your room",
       "permissions_manage": "Manages command access: pick a target and toggle permissions",
-      "permissions_list": "Shows every permission assigned on the server"
+      "permissions_list": "Shows every permission assigned on the server",
+      "trap_channel": "Sets a trap channel",
+      "trap_punishment": "Sets the trap channel punishment",
+      "temp_ban": "Temporarily bans a member"
   },
   "cta": {
       "title": "Add Devi and set it up in a couple of minutes",

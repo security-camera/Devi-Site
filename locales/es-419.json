@@ -68,6 +68,10 @@
       "control": {
           "title": "Permisos e idioma",
           "text": "Asignación interactiva de permisos sobre los comandos: eliges un rol o un miembro y activas o desactivas el acceso. El idioma del bot se define por separado en cada servidor."
+      },
+      "security": {
+          "title": "Seguridad",
+          "text": "Protección contra bots que envían mensajes mediante canales trampa"
       }
   },
   "commands": {
@@ -93,7 +97,8 @@
       "music": "Música",
       "birthdays": "Cumpleaños",
       "tempvoice": "Canales de voz temporales",
-      "permissions": "Permisos"
+      "permissions": "Permisos",
+      "security": "Seguridad"
   },
   "cmd": {
       "mention_user": "Menciona a un usuario la cantidad de veces indicada",
@@ -156,7 +161,10 @@
       "voice_bitrate": "Establece la tasa de bits del canal",
       "voice_region": "Establece la región de voz del canal",
       "permissions_manage": "Administra el acceso a los comandos: elige un objeto y activa o desactiva permisos",
-      "permissions_list": "Muestra todos los permisos asignados en el servidor"
+      "permissions_list": "Muestra todos los permisos asignados en el servidor",
+      "trap_channel": "Establece un canal trampa",
+      "trap_punishment": "Establece el castigo del canal trampa",
+      "temp_ban": "Banea temporalmente a un miembro"
   },
   "cta": {
       "title": "Agrega a Devi y configúralo en un par de minutos",

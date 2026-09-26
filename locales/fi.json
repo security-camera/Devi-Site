@@ -68,6 +68,10 @@
       "control": {
           "title": "Oikeudet ja kieli",
           "text": "Interaktiivinen komentojen oikeuksien hallinta: valitse rooli tai jäsen ja vaihda käyttöoikeutta. Botin kieli voidaan määrittää erikseen jokaiselle palvelimelle."
+      },
+      "security": {
+          "title": "Turvallisuus",
+          "text": "Suojaus viestejä lähettäviä botteja vastaan ansakanavien avulla"
       }
   },
   "commands": {
@@ -93,7 +97,8 @@
       "music": "Musiikki",
       "birthdays": "Syntymäpäivät",
       "tempvoice": "Väliaikaiset puhekanavat",
-      "permissions": "Oikeudet"
+      "permissions": "Oikeudet",
+      "security": "Turvallisuus"
   },
   "cmd": {
       "mention_user": "Mainitsee käyttäjän määritetyn määrän kertoja",
@@ -156,7 +161,10 @@
       "voice_bitrate": "Asettaa kanavan bittinopeuden",
       "voice_region": "Asettaa kanavan puhealueen",
       "permissions_manage": "Hallitsee komentojen käyttöoikeuksia: valitse kohde ja vaihda oikeuksia",
-      "permissions_list": "Näyttää kaikki palvelimelle määritetyt oikeudet"
+      "permissions_list": "Näyttää kaikki palvelimelle määritetyt oikeudet",
+      "trap_channel": "Asettaa ansakanavan",
+      "trap_punishment": "Asettaa ansakanavan rangaistuksen",
+      "temp_ban": "Antaa jäsenelle väliaikaisen porttikiellon"
   },
   "cta": {
       "title": "Lisää Devi ja määritä se muutamassa minuutissa",

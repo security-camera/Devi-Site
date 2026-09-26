@@ -68,6 +68,10 @@
       "control": {
           "title": "Berechtigungen & Sprache",
           "text": "Interaktive Vergabe von Befehlsberechtigungen: Rolle oder Mitglied auswählen und Zugriff ein- oder ausschalten. Die Sprache des Bots wird für jeden Server separat festgelegt."
+      },
+      "security": {
+          "title": "Sicherheit",
+          "text": "Schutz vor Bots, die Nachrichten über Fallenkanäle versenden"
       }
   },
   "commands": {
@@ -93,7 +97,8 @@
       "music": "Musik",
       "birthdays": "Geburtstage",
       "tempvoice": "Temporäre Sprachkanäle",
-      "permissions": "Berechtigungen"
+      "permissions": "Berechtigungen",
+      "security": "Sicherheit"
   },
   "cmd": {
       "mention_user": "Erwähnt einen Benutzer eine bestimmte Anzahl von Malen",
@@ -156,7 +161,10 @@
       "voice_bitrate": "Legt die Bitrate des Kanals fest",
       "voice_region": "Legt die Sprachregion des Kanals fest",
       "permissions_manage": "Verwaltet den Befehlszugriff: Objekt auswählen und Berechtigungen umschalten",
-      "permissions_list": "Zeigt alle auf dem Server vergebenen Berechtigungen"
+      "permissions_list": "Zeigt alle auf dem Server vergebenen Berechtigungen",
+      "trap_channel": "Legt einen Fallenkanal fest",
+      "trap_punishment": "Legt die Bestrafung für einen Fallenkanal fest",
+      "temp_ban": "Verhängt einen vorübergehenden Bann gegen ein Mitglied"
   },
   "cta": {
       "title": "Füge Devi hinzu und richte ihn in wenigen Minuten ein",
