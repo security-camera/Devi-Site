@@ -3,7 +3,7 @@
    1. theme switch (stored in localStorage)
    2. language switch without a page reload
    3. command search and group filter
-   4. one hero animation on load
+   4. cycled hero animation on load
    ========================================================= */
 
 (function () {
@@ -296,8 +296,7 @@
 
     runFilter();
 
-    /* ---------- hero: one typing sequence on load ---------- */
-
+    /* ---------- hero: looping typing sequence ---------- */
     const typed = document.getElementById("demo-typed");
     const caret = document.getElementById("demo-caret");
     const suggest = document.getElementById("demo-suggest");
@@ -326,6 +325,8 @@
         if (!typed || !message) {
             return;
         }
+
+        message.classList.remove("is-shown");
 
         const text = t("hero.demo_command");
         let index = 0;
@@ -358,7 +359,13 @@
 
     if (reduceMotion) {
         showResult();
-    } else {
+    }
+    else
+    {
         playIntro();
+
+        window.setInterval(function () {
+            playIntro();
+        }, 7000);
     }
 })();
