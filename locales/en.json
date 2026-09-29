@@ -61,9 +61,17 @@
           "title": "Temporary voice channels",
           "text": "Someone joins the lobby channel and Devi creates a room for them. The owner sets the name, user limit, bitrate, region and who is allowed in."
       },
-      "engagement": {
-          "title": "Giveaways and birthdays",
-          "text": "Giveaways you can end early or reroll. Members save their own birthday and the greeting goes to the channel you picked."
+      "giveaways": {
+          "title": "Giveaways",
+          "text": "Giveaways you can end early or reroll."
+      },
+      "birthdays": {
+          "title": "Birthdays",
+          "text": "Members save their birthdays themselves, and greetings are sent to the selected channel and the birthday person's DMs. Users can configure which servers should send them birthday greetings."
+      },
+      "utils": {
+          "title": "Utilities",
+          "text": "Get a user's avatar, a YouTube video preview, or a random number; flip a coin or generate a QR code — all directly with the bot."
       },
       "control": {
           "title": "Permissions and language",

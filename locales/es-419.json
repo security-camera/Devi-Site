@@ -61,9 +61,17 @@
           "title": "Canales de voz temporales",
           "text": "Un miembro entra en el canal lobby y Devi le crea su propio canal. El dueño cambia por sí mismo el nombre, el límite, la tasa de bits, la región y la lista de quién puede entrar."
       },
-      "engagement": {
-          "title": "Sorteos y cumpleaños",
-          "text": "Sorteos con finalización anticipada y nueva elección de ganadores. Los miembros guardan ellos mismos su cumpleaños y las felicitaciones se envían al canal que elijas."
+      "giveaways": {
+          "title": "Sorteos",
+          "text": "Sorteos con finalización anticipada y nueva elección de ganadores."
+      },
+      "birthdays": {
+          "title": "Cumpleaños",
+          "text": "Los miembros guardan sus cumpleaños por su cuenta, y las felicitaciones se envían al canal seleccionado y por mensaje privado a la persona que cumple años. Los usuarios pueden configurar en qué servidores quieren recibir felicitaciones."
+      },
+      "utils": {
+          "title": "Utilidades",
+          "text": "Obtén el avatar de un usuario, una vista previa de un video de YouTube o un número aleatorio; lanza una moneda o genera un código QR, directamente con el bot."
       },
       "control": {
           "title": "Permisos e idioma",

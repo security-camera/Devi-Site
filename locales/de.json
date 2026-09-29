@@ -61,9 +61,17 @@
           "title": "Temporäre Sprachkanäle",
           "text": "Ein Mitglied betritt den Lobby-Kanal — Devi erstellt einen eigenen Kanal. Der Besitzer kann Name, Limit, Bitrate, Region und Zugriffsrechte ändern."
       },
-      "engagement": {
-          "title": "Giveaways & Geburtstage",
-          "text": "Giveaways mit vorzeitigem Ende und Neuauswahl der Gewinner. Mitglieder speichern ihre Geburtstage selbst, die Glückwünsche werden in den ausgewählten Kanal gesendet."
+      "giveaways": {
+          "title": "Giveaways",
+          "text": "Giveaways mit vorzeitigem Ende und Neuauswahl der Gewinner."
+      },
+      "birthdays": {
+          "title": "Geburtstage",
+          "text": "Mitglieder tragen ihre Geburtstage selbst ein. Glückwünsche werden in den ausgewählten Kanal und per Direktnachricht an das Geburtstagskind gesendet. Nutzer können festlegen, auf welchen Servern ihnen gratuliert werden soll."
+      },
+      "utils": {
+          "title": "Dienstprogramme",
+          "text": "Rufen Sie den Avatar eines Benutzers oder eine YouTube-Videovorschau ab, generieren Sie eine Zufallszahl, werfen Sie eine Münze oder erstellen Sie einen QR-Code — direkt mit dem Bot."
       },
       "control": {
           "title": "Berechtigungen & Sprache",

@@ -8,7 +8,12 @@ Run locally:
 Routes:
     /            redirects to the best language for the visitor
     /<lang>/     the landing page in that language
+    /links/<link> redirects user to data.LINKS[<link>]
     /api/locales returns every translation as JSON
+    /api/locales/<locale> returns locale as JSON
+    /api/links returns every translation as JSON
+    /api/links/<link> returns link as JSON
+    /api/commands returns data.COMMAND_GROUPS as JSON
 """
 
 from __future__ import annotations
@@ -31,20 +36,12 @@ import data
 import i18n
 from i18n import LOCALES_DIR
 
+from data import LINKS, COMMAND_GROUPS
+
 app = Flask(__name__)
 
 LANG_COOKIE = "devi_lang"
 COOKIE_MAX_AGE = 60 * 60 * 24 * 365
-
-def _locale_count() -> int:
-    if not os.path.isdir(LOCALES_DIR):
-        return 0
-
-    return len(sorted(
-        file
-        for file in os.listdir(LOCALES_DIR)
-        if file.endswith(".json")
-    ))
 
 def render_page(lang: str):
     """Render the landing page in the given language."""
@@ -63,7 +60,7 @@ def render_page(lang: str):
         links=data.LINKS,
         command_count=data.command_count(),
         group_count=data.group_count(),
-        language_count=_locale_count(),
+        language_count=data.locale_count(),
         catalogs=i18n.all_catalogs(),
     )
     response = make_response(html)
@@ -93,9 +90,36 @@ def landing(lang: str):
 
 @app.route("/api/locales")
 def api_locales():
-    """Every translation, for clients that want to switch without a reload."""
     return jsonify(i18n.all_catalogs())
 
+@app.route("/api/locales/<locale>")
+def api_locale(locale: str):
+    if not i18n.is_supported(locale):
+        abort(404)
+    return jsonify(i18n.catalog(locale))
+
+@app.route("/links/<link>")
+def links_link(link: str):
+    if link not in LINKS:
+        abort(404)
+    return redirect(LINKS[link])
+
+@app.route("/api/links")
+def api_links():
+    return jsonify(LINKS)
+
+@app.route("/api/links/<link>")
+def api_link(link: str):
+    target = LINKS.get(link)
+
+    if not target:
+        abort(404)
+
+    return jsonify(target)
+
+@app.route("/api/commands")
+def api_commands():
+    return jsonify(COMMAND_GROUPS)
 
 @app.errorhandler(404)
 def not_found(_error):
@@ -109,7 +133,7 @@ def not_found(_error):
 
 @app.context_processor
 def inject_globals():
-    return {"links": data.LINKS, "year": datetime.now().year}
+    return {"links": LINKS, "year": datetime.now().year}
 
 
 if __name__ == "__main__":

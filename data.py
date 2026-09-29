@@ -6,6 +6,8 @@ language never means touching this file.
 """
 
 from __future__ import annotations
+import os
+from i18n import LOCALES_DIR
 
 # Public links shown across the site.
 LINKS = {
@@ -173,8 +175,7 @@ COMMAND_GROUPS = [
 
 # Feature cards on the landing page. Each id maps to "features.<id>.title"
 # and "features.<id>.text" in the locale files.
-# TODO: Add features "birthdays", "utils"
-FEATURE_IDS = ["moderation", "ai", "music", "tempvoice", "engagement", "control"]
+FEATURE_IDS = ["moderation", "ai", "music", "tempvoice", "giveaways", "utils", "birthdays", "security", "control"]
 
 
 def command_count() -> int:
@@ -185,3 +186,14 @@ def command_count() -> int:
 def group_count() -> int:
     """Total number of command groups."""
     return len(COMMAND_GROUPS)
+
+def locale_count() -> int:
+    """Total number of locales."""
+    if not os.path.isdir(LOCALES_DIR):
+        return 0
+
+    return len(sorted(
+        file
+        for file in os.listdir(LOCALES_DIR)
+        if file.endswith(".json")
+    ))

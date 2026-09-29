@@ -61,9 +61,17 @@
           "title": "Väliaikaiset puhekanavat",
           "text": "Jäsen liittyy aulakanavalle — Devi luo hänelle oman kanavan. Omistaja voi muuttaa nimeä, osallistujarajaa, bittinopeutta, aluetta ja pääsyoikeuksia."
       },
-      "engagement": {
-          "title": "Arvonnat ja syntymäpäivät",
-          "text": "Arvontoja voi lopettaa etuajassa ja voittajat voidaan arpoa uudelleen. Jäsenet tallentavat syntymäpäivänsä itse, ja onnittelut lähetetään valittuun kanavaan."
+      "giveaways": {
+          "title": "Arvonnat",
+          "text": "Arvontoja voi lopettaa etuajassa ja voittajat voidaan arpoa uudelleen."
+      },
+      "birthdays": {
+          "title": "Syntymäpäivät",
+          "text": "Jäsenet tallentavat syntymäpäivänsä itse, ja onnittelut lähetetään valittuun kanavaan sekä syntymäpäiväsankarin yksityisviesteihin. Käyttäjät voivat määrittää, millä palvelimilla heille lähetetään onnittelut."
+      },
+      "utils": {
+          "title": "Apuohjelmat",
+          "text": "Hae käyttäjän avatar, YouTube-videon esikatselu tai satunnaisluku; heitä kolikkoa tai luo QR-koodi — suoraan botilla."
       },
       "control": {
           "title": "Oikeudet ja kieli",
