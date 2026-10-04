@@ -170,8 +170,8 @@
       "voice_region": "Asettaa kanavan puhealueen",
       "permissions_manage": "Hallitsee komentojen käyttöoikeuksia: valitse kohde ja vaihda oikeuksia",
       "permissions_list": "Näyttää kaikki palvelimelle määritetyt oikeudet",
-      "trap_channel": "Asettaa ansakanavan",
-      "trap_punishment": "Asettaa ansakanavan rangaistuksen",
+      "honeypot_channel": "Asettaa ansakanavan",
+      "honeypot_punishment": "Asettaa ansakanavan rangaistuksen",
       "temp_ban": "Antaa jäsenelle väliaikaisen porttikiellon"
   },
   "cta": {

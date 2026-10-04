@@ -79,7 +79,7 @@
       },
       "security": {
           "title": "Security",
-          "text": "Protection against bots that send messages using trap channels"
+          "text": "Protection against bots that send messages using honeypot channels"
       }
   },
   "commands": {
@@ -170,8 +170,8 @@
       "voice_region": "Sets the voice region of your room",
       "permissions_manage": "Manages command access: pick a target and toggle permissions",
       "permissions_list": "Shows every permission assigned on the server",
-      "trap_channel": "Sets a trap channel",
-      "trap_punishment": "Sets the trap channel punishment",
+      "honeypot_channel": "Sets a honeypot channel",
+      "honeypot_punishment": "Sets the honeypot channel punishment",
       "temp_ban": "Temporarily bans a member"
   },
   "cta": {

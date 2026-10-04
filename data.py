@@ -167,8 +167,8 @@ COMMAND_GROUPS = [
         "id": "security",
         "icon": "🛡️",
         "commands": [
-            ("trap_channel", "/trap channel"),
-            ("trap_punishment", "/trap punishment"),
+            ("honeypot_channel", "/honeypot channel"),
+            ("honeypot_punishment", "/honeypot punishment"),
         ],
     }
 ]

@@ -170,8 +170,8 @@
       "voice_region": "Establece la región de voz del canal",
       "permissions_manage": "Administra el acceso a los comandos: elige un objeto y activa o desactiva permisos",
       "permissions_list": "Muestra todos los permisos asignados en el servidor",
-      "trap_channel": "Establece un canal trampa",
-      "trap_punishment": "Establece el castigo del canal trampa",
+      "honeypot_channel": "Establece un canal trampa",
+      "honeypot_punishment": "Establece el castigo del canal trampa",
       "temp_ban": "Banea temporalmente a un miembro"
   },
   "cta": {

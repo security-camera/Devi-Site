@@ -170,8 +170,8 @@
       "voice_region": "Legt die Sprachregion des Kanals fest",
       "permissions_manage": "Verwaltet den Befehlszugriff: Objekt auswählen und Berechtigungen umschalten",
       "permissions_list": "Zeigt alle auf dem Server vergebenen Berechtigungen",
-      "trap_channel": "Legt einen Fallenkanal fest",
-      "trap_punishment": "Legt die Bestrafung für einen Fallenkanal fest",
+      "honeypot_channel": "Legt einen Fallenkanal fest",
+      "honeypot_punishment": "Legt die Bestrafung für einen Fallenkanal fest",
       "temp_ban": "Verhängt einen vorübergehenden Bann gegen ein Mitglied"
   },
   "cta": {
