@@ -1,0 +1,252 @@
+{
+    "title": "Panel",
+    "nav": {
+        "skip": "Saltar al contenido",
+        "login": "Iniciar sesión",
+        "open": "Panel",
+        "servers": "Servidores",
+        "logout": "Cerrar sesión",
+        "language": "Idioma"
+    },
+    "footer": {
+        "terms": "Términos",
+        "privacy": "Privacidad",
+        "support": "Soporte"
+    },
+    "servers": {
+        "title": "Elige un servidor",
+        "lead": "Abre el servidor en el que quieres configurar a Devi.",
+        "limited": "Acceso limitado",
+        "open": "Abrir",
+        "refresh": "Actualizar lista",
+        "add_title": "Agrega a Devi a un servidor",
+        "add_lead": "Puedes administrar estos servidores, pero Devi todavía no está en ellos.",
+        "add": "Agregar a Devi",
+        "empty_title": "Aún no hay servidores para configurar",
+        "empty_text": "Devi no está en ningún servidor que puedas administrar. Agrégalo a uno de tus servidores para empezar.",
+        "unavailable_title": "Devi está fuera de línea",
+        "unavailable_text": "El panel no puede comunicarse con el bot, así que no sabe en qué servidores está Devi. Inténtalo de nuevo en un minuto."
+    },
+    "messages": {
+        "not_configured": {
+            "title": "El panel no está disponible",
+            "text": "Aún no se ha configurado en este sitio."
+        },
+        "login_failed": {
+            "title": "No pudimos iniciar tu sesión",
+            "text": "Discord no confirmó el inicio de sesión. Inténtalo de nuevo en un momento."
+        },
+        "login_cancelled": {
+            "title": "Inicio de sesión cancelado",
+            "text": "Sin acceso a tu cuenta no podemos mostrar tus servidores. Puedes intentarlo de nuevo cuando quieras."
+        },
+        "home": "Volver al sitio"
+    },
+    "guild": {
+        "back": "Todos los servidores",
+        "menu": "Secciones de ajustes",
+        "loading": "Cargando ajustes",
+        "forbidden_title": "No puedes administrar este servidor",
+        "forbidden_text": "Pide a un administrador del servidor que te dé el permiso Admin en Devi, o inicia sesión con otra cuenta.",
+        "not_found_title": "Devi no está en este servidor",
+        "not_found_text": "Primero agrega a Devi al servidor y luego vuelve aquí.",
+        "unavailable_title": "Devi está fuera de línea",
+        "unavailable_text": "El panel no puede comunicarse con el bot. Inténtalo de nuevo en un minuto.",
+        "invite": "Agregar a Devi"
+    },
+    "common": {
+        "save": "Guardar",
+        "saved": "Guardado",
+        "saving": "Guardando…",
+        "discard": "Descartar",
+        "cancel": "Cancelar",
+        "delete": "Eliminar",
+        "deleted": "Eliminado",
+        "edit": "Editar",
+        "add": "Agregar",
+        "turn_off": "Desactivar",
+        "turned_off": "Desactivado",
+        "retry": "Reintentar",
+        "unsaved": "Cambios sin guardar: {count}",
+        "status_on": "Activado",
+        "status_off": "Desactivado"
+    },
+    "sections": {
+        "permissions": {
+            "name": "Permisos",
+            "title": "Permisos",
+            "lead": "Devi tiene sus propios permisos, independientes de los roles de Discord. Elige a quién se aplican y qué pueden hacer."
+        },
+        "birthdays": {
+            "name": "Cumpleaños",
+            "title": "Canal de cumpleaños",
+            "lead": "En este canal Devi felicita a los miembros en su cumpleaños."
+        },
+        "logs": {
+            "name": "Registros",
+            "title": "Canal de registros",
+            "lead": "Devi publica aquí los eventos del servidor: mensajes, miembros, actividad de voz, acciones de moderación y comandos usados."
+        },
+        "voice": {
+            "name": "Voz temporal",
+            "title": "Canales de voz temporales",
+            "lead": "Quien entra al lobby recibe un canal de voz propio. Se elimina cuando todos se van."
+        },
+        "triggers": {
+            "name": "Disparadores",
+            "title": "Disparadores",
+            "lead": "Cuando un mensaje coincide con un patrón, Devi responde con una de las respuestas al azar."
+        }
+    },
+    "channels": {
+        "no_access": "sin acceso",
+        "missing": "Canal desconocido ({id})",
+        "cant_send": "Devi no puede enviar mensajes en este canal. Dale los permisos Ver canal y Enviar mensajes.",
+        "no_category": "Sin categoría"
+    },
+    "logs": {
+        "label": "Canal de registros",
+        "off": "Desactivado (no se envían registros)",
+        "hint": "Devi necesita permiso para ver este canal y escribir en él."
+    },
+    "birthdays": {
+        "label": "Canal de cumpleaños",
+        "off": "Desactivado (solo mensajes directos)",
+        "hint": "Los miembros fijan su cumpleaños con /birthday set. Devi lo revisa todos los días a las {hour}:00 UTC."
+    },
+    "voice": {
+        "lobby_label": "Canal lobby",
+        "lobby_hint": "Quien entra a este canal de voz recibe un canal propio.",
+        "lobby_none": "Sin seleccionar",
+        "category_label": "Categoría de los canales nuevos",
+        "category_same": "La misma del lobby",
+        "template_label": "Nombre del canal",
+        "template_hint": "[user] se sustituye por el apodo del dueño.",
+        "preview": "Vista previa: {name}",
+        "sample_name": "Alex",
+        "bot_perms": "Devi necesita los permisos Administrar canales y Mover miembros para crear estos canales y mover a los miembros a ellos."
+    },
+    "permissions": {
+        "targets": "A quién se aplica",
+        "scope": {
+            "guild": "Todo el servidor",
+            "role": "Roles",
+            "channel": "Canales",
+            "user": "Miembros"
+        },
+        "guild_name": "Todos en el servidor",
+        "scope_hint": {
+            "guild": "Se aplica a todos los miembros del servidor.",
+            "role": "Se aplica a todos los que tengan este rol.",
+            "channel": "Se aplica a las acciones realizadas en este canal.",
+            "user": "Se aplica solo a este miembro."
+        },
+        "add_role": "Agregar un rol",
+        "add_channel": "Agregar un canal",
+        "find_member": "Agregar un miembro",
+        "find_placeholder": "Nombre o ID",
+        "find_min": "Escribe al menos 2 caracteres.",
+        "find_none": "No se encontraron miembros.",
+        "empty_group": "Aún no hay nada aquí.",
+        "summary_none": "Sin permisos",
+        "summary_full": "Acceso total",
+        "summary_count": "Activados: {count}",
+        "will_clear": "Se borrará",
+        "clear": "Quitar todos los permisos",
+        "group_full": "Acceso total",
+        "group_allow": "Acciones permitidas",
+        "group_restrict": "Restricciones",
+        "pick_hint": "Elige un rol, un canal o un miembro para editarlo.",
+        "flag": {
+            "Admin": {
+                "desc": "Activa de una vez todas las acciones permitidas de abajo. Las restricciones se manejan aparte.",
+                "label": "Todos los permisos"
+            },
+            "ManageMention": {
+                "desc": "Usar /mention sin límite ni tiempo de espera y detenerlo con /mention stop.",
+                "label": "Administración de Mention"
+            },
+            "MentionBlackList": {
+                "desc": "Bloquea los comandos /mention.",
+                "label": "Lista negra de Mention"
+            },
+            "ManageTriggers": {
+                "desc": "Agregar, editar y eliminar disparadores.",
+                "label": "Administración de disparadores"
+            },
+            "TTS": {
+                "desc": "Con /tts, Devi lee un texto en voz alta en un canal de voz.",
+                "label": "Voz del bot"
+            },
+            "Send": {
+                "desc": "Enviar mensajes y mensajes directos como Devi con /send.",
+                "label": "Envío de MD"
+            },
+            "AiBlackList": {
+                "desc": "Bloquea las funciones de IA.",
+                "label": "Lista negra de IA"
+            },
+            "Giveaways": {
+                "desc": "Iniciar, terminar y volver a sortear sorteos.",
+                "label": "Sorteos"
+            },
+            "Warnings": {
+                "desc": "Dar, ver y quitar advertencias.",
+                "label": "Advertencias"
+            },
+            "MusicBlackList": {
+                "desc": "Bloquea los comandos de música.",
+                "label": "Lista negra de música"
+            }
+        }
+    },
+    "triggers": {
+        "search": "Buscar disparadores",
+        "count": "Disparadores: {count} de {max}",
+        "new": "Nuevo disparador",
+        "empty_title": "Aún no hay disparadores",
+        "empty_text": "Crea un disparador y Devi responderá solo a los mensajes que coincidan.",
+        "no_match": "Ningún disparador coincide con tu búsqueda.",
+        "pattern": "Patrón",
+        "pattern_hint": "Una expresión regular, sin distinguir mayúsculas. Una palabra simple como hola coincide con cualquier mensaje que la contenga; usa ^ y $ para que coincida con el mensaje completo.",
+        "pattern_placeholder": "hola|buenas",
+        "replies": "Respuestas",
+        "replies_hint": "Devi elige una respuesta al azar cada vez.",
+        "reply_placeholder": "Qué debe responder Devi",
+        "reply_n": "Respuesta {n}",
+        "add_reply": "Agregar respuesta",
+        "remove_reply": "Quitar respuesta",
+        "reply_count": "Respuestas: {count}",
+        "create": "Agregar disparador",
+        "created": "Disparador agregado",
+        "confirm_delete": "Haz clic de nuevo para eliminar"
+    },
+    "errors": {
+        "unauthenticated": "Tu sesión expiró. Inicia sesión de nuevo.",
+        "csrf": "Esta página está desactualizada. Recárgala e inténtalo de nuevo.",
+        "forbidden": "No tienes acceso a esto.",
+        "guild_not_found": "Devi no está en este servidor.",
+        "bot_unavailable": "Devi está fuera de línea. Inténtalo de nuevo en un minuto.",
+        "server": "Algo salió mal de nuestro lado. Inténtalo de nuevo en un momento.",
+        "network": "No se puede conectar con el sitio. Revisa tu conexión.",
+        "invalid_channel": "Este canal no se puede usar aquí.",
+        "invalid_name_template": "Este nombre de canal no es válido.",
+        "name_template_too_long": "El nombre del canal es demasiado largo (máximo {max} caracteres).",
+        "invalid_request": "Se rechazó la solicitud. Recarga la página e inténtalo de nuevo.",
+        "invalid_target": "Ese rol o canal ya no existe.",
+        "unknown_user": "Ese miembro no está en el servidor.",
+        "too_many_changes": "Demasiados cambios a la vez. Guarda menos elementos por vez.",
+        "trigger_exists": "Ya existe un disparador con este patrón.",
+        "trigger_not_found": "Este disparador ya no existe. Recarga la página.",
+        "invalid_regex": "Este patrón no es válido: {detail}",
+        "empty_pattern": "Escribe un patrón.",
+        "pattern_too_long": "El patrón es demasiado largo (máximo {max} caracteres).",
+        "no_responses": "Agrega al menos una respuesta.",
+        "empty_response": "Las respuestas no pueden estar vacías.",
+        "response_too_long": "Una respuesta es demasiado larga (máximo {max} caracteres).",
+        "too_many_responses": "Demasiadas respuestas (máximo {max}).",
+        "duplicate_response": "Dos respuestas son idénticas.",
+        "too_many_triggers": "Llegaste al límite de {max} disparadores.",
+        "payload_too_large": "Son demasiados datos para guardar de una vez."
+    }
+}

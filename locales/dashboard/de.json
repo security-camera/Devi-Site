@@ -1,0 +1,252 @@
+{
+    "title": "Dashboard",
+    "nav": {
+        "skip": "Zum Inhalt springen",
+        "login": "Anmelden",
+        "open": "Dashboard",
+        "servers": "Server",
+        "logout": "Abmelden",
+        "language": "Sprache"
+    },
+    "footer": {
+        "terms": "Nutzungsbedingungen",
+        "privacy": "Datenschutz",
+        "support": "Support"
+    },
+    "servers": {
+        "title": "Server auswählen",
+        "lead": "Öffne den Server, auf dem du Devi einrichten möchtest.",
+        "limited": "Eingeschränkter Zugriff",
+        "open": "Öffnen",
+        "refresh": "Liste aktualisieren",
+        "add_title": "Devi zu einem Server hinzufügen",
+        "add_lead": "Du kannst diese Server verwalten, aber Devi ist dort noch nicht.",
+        "add": "Devi hinzufügen",
+        "empty_title": "Noch keine Server zum Einrichten",
+        "empty_text": "Devi ist auf keinem Server, den du verwalten kannst. Füge ihn zu einem deiner Server hinzu, um loszulegen.",
+        "unavailable_title": "Devi ist gerade offline",
+        "unavailable_text": "Das Dashboard erreicht den Bot nicht und weiß deshalb nicht, auf welchen Servern Devi ist. Versuche es in einer Minute erneut."
+    },
+    "messages": {
+        "not_configured": {
+            "title": "Das Dashboard ist nicht verfügbar",
+            "text": "Es wurde auf dieser Website noch nicht eingerichtet."
+        },
+        "login_failed": {
+            "title": "Anmeldung fehlgeschlagen",
+            "text": "Discord hat die Anmeldung nicht bestätigt. Versuche es gleich noch einmal."
+        },
+        "login_cancelled": {
+            "title": "Anmeldung abgebrochen",
+            "text": "Ohne Zugriff auf dein Konto können wir deine Server nicht anzeigen. Du kannst es jederzeit erneut versuchen."
+        },
+        "home": "Zurück zur Website"
+    },
+    "guild": {
+        "back": "Alle Server",
+        "menu": "Einstellungsbereiche",
+        "loading": "Einstellungen werden geladen",
+        "forbidden_title": "Du kannst diesen Server nicht verwalten",
+        "forbidden_text": "Bitte einen Server-Administrator, dir die Admin-Berechtigung in Devi zu geben, oder melde dich mit einem anderen Konto an.",
+        "not_found_title": "Devi ist nicht auf diesem Server",
+        "not_found_text": "Füge Devi zuerst zum Server hinzu und komm dann hierher zurück.",
+        "unavailable_title": "Devi ist gerade offline",
+        "unavailable_text": "Das Dashboard erreicht den Bot nicht. Versuche es in einer Minute erneut.",
+        "invite": "Devi hinzufügen"
+    },
+    "common": {
+        "save": "Speichern",
+        "saved": "Gespeichert",
+        "saving": "Wird gespeichert…",
+        "discard": "Verwerfen",
+        "cancel": "Abbrechen",
+        "delete": "Löschen",
+        "deleted": "Gelöscht",
+        "edit": "Bearbeiten",
+        "add": "Hinzufügen",
+        "turn_off": "Ausschalten",
+        "turned_off": "Ausgeschaltet",
+        "retry": "Erneut versuchen",
+        "unsaved": "Ungespeicherte Änderungen: {count}",
+        "status_on": "An",
+        "status_off": "Aus"
+    },
+    "sections": {
+        "permissions": {
+            "name": "Berechtigungen",
+            "title": "Berechtigungen",
+            "lead": "Devi hat eigene Berechtigungen, getrennt von Discord-Rollen. Wähle, für wen sie gelten, und lege fest, was erlaubt ist."
+        },
+        "birthdays": {
+            "name": "Geburtstage",
+            "title": "Geburtstagskanal",
+            "lead": "In diesem Kanal gratuliert Devi Mitgliedern zum Geburtstag."
+        },
+        "logs": {
+            "name": "Logs",
+            "title": "Log-Kanal",
+            "lead": "Hier postet Devi Serverereignisse: Nachrichten, Mitglieder, Sprachaktivität, Moderationsaktionen und verwendete Befehle."
+        },
+        "voice": {
+            "name": "Temporäre Sprachkanäle",
+            "title": "Temporäre Sprachkanäle",
+            "lead": "Wer der Lobby beitritt, bekommt einen eigenen Sprachkanal. Er wird gelöscht, sobald alle gegangen sind."
+        },
+        "triggers": {
+            "name": "Trigger",
+            "title": "Trigger",
+            "lead": "Passt eine Nachricht zu einem Muster, antwortet Devi mit einer zufällig gewählten Antwort."
+        }
+    },
+    "channels": {
+        "no_access": "kein Zugriff",
+        "missing": "Unbekannter Kanal ({id})",
+        "cant_send": "Devi kann in diesem Kanal keine Nachrichten senden. Gib ihm die Berechtigungen „Kanal ansehen“ und „Nachrichten senden“.",
+        "no_category": "Ohne Kategorie"
+    },
+    "logs": {
+        "label": "Log-Kanal",
+        "off": "Aus (keine Logs senden)",
+        "hint": "Devi braucht die Berechtigung, diesen Kanal zu sehen und darin zu schreiben."
+    },
+    "birthdays": {
+        "label": "Geburtstagskanal",
+        "off": "Aus (nur Direktnachrichten)",
+        "hint": "Mitglieder legen ihren Geburtstag mit /birthday set fest. Devi prüft täglich um {hour}:00 UTC."
+    },
+    "voice": {
+        "lobby_label": "Lobby-Kanal",
+        "lobby_hint": "Wer diesem Sprachkanal beitritt, bekommt einen eigenen Kanal.",
+        "lobby_none": "Nicht ausgewählt",
+        "category_label": "Kategorie für neue Kanäle",
+        "category_same": "Wie die Lobby",
+        "template_label": "Kanalname",
+        "template_hint": "[user] wird durch den Spitznamen des Besitzers ersetzt.",
+        "preview": "Vorschau: {name}",
+        "sample_name": "Alex",
+        "bot_perms": "Devi braucht die Berechtigungen „Kanäle verwalten“ und „Mitglieder verschieben“, um diese Kanäle zu erstellen und Mitglieder dorthin zu verschieben."
+    },
+    "permissions": {
+        "targets": "Gilt für",
+        "scope": {
+            "guild": "Ganzer Server",
+            "role": "Rollen",
+            "channel": "Kanäle",
+            "user": "Mitglieder"
+        },
+        "guild_name": "Alle auf dem Server",
+        "scope_hint": {
+            "guild": "Gilt für alle Mitglieder des Servers.",
+            "role": "Gilt für alle, die diese Rolle haben.",
+            "channel": "Gilt für Aktionen, die in diesem Kanal ausgeführt werden.",
+            "user": "Gilt nur für dieses Mitglied."
+        },
+        "add_role": "Rolle hinzufügen",
+        "add_channel": "Kanal hinzufügen",
+        "find_member": "Mitglied hinzufügen",
+        "find_placeholder": "Name oder ID",
+        "find_min": "Gib mindestens 2 Zeichen ein.",
+        "find_none": "Keine Mitglieder gefunden.",
+        "empty_group": "Noch nichts vorhanden.",
+        "summary_none": "Keine Berechtigungen",
+        "summary_full": "Voller Zugriff",
+        "summary_count": "Aktiv: {count}",
+        "will_clear": "Wird entfernt",
+        "clear": "Alle Berechtigungen entfernen",
+        "group_full": "Voller Zugriff",
+        "group_allow": "Erlaubte Aktionen",
+        "group_restrict": "Einschränkungen",
+        "pick_hint": "Wähle eine Rolle, einen Kanal oder ein Mitglied zum Bearbeiten.",
+        "flag": {
+            "Admin": {
+                "desc": "Schaltet alle erlaubten Aktionen unten auf einmal ein. Einschränkungen bleiben getrennt.",
+                "label": "Alle Berechtigungen"
+            },
+            "ManageMention": {
+                "desc": "/mention ohne Mengenlimit und Abklingzeit nutzen und mit /mention stop beenden.",
+                "label": "Mention-Verwaltung"
+            },
+            "MentionBlackList": {
+                "desc": "Sperrt die /mention-Befehle.",
+                "label": "Mention-Sperrliste"
+            },
+            "ManageTriggers": {
+                "desc": "Trigger hinzufügen, bearbeiten und entfernen.",
+                "label": "Trigger-Verwaltung"
+            },
+            "TTS": {
+                "desc": "Mit /tts liest Devi Text in einem Sprachkanal vor.",
+                "label": "Text-to-Speech"
+            },
+            "Send": {
+                "desc": "Mit /send Nachrichten und Direktnachrichten als Devi senden.",
+                "label": "Direktnachrichten senden"
+            },
+            "AiBlackList": {
+                "desc": "Sperrt die KI-Funktionen.",
+                "label": "KI-Sperrliste"
+            },
+            "Giveaways": {
+                "desc": "Gewinnspiele starten, beenden und neu auslosen.",
+                "label": "Gewinnspiele"
+            },
+            "Warnings": {
+                "desc": "Verwarnungen vergeben, ansehen und entfernen.",
+                "label": "Verwarnungen"
+            },
+            "MusicBlackList": {
+                "desc": "Sperrt die Musikbefehle.",
+                "label": "Musik-Sperrliste"
+            }
+        }
+    },
+    "triggers": {
+        "search": "Trigger suchen",
+        "count": "Trigger: {count} von {max}",
+        "new": "Neuer Trigger",
+        "empty_title": "Noch keine Trigger",
+        "empty_text": "Erstelle einen Trigger, und Devi antwortet von selbst auf passende Nachrichten.",
+        "no_match": "Kein Trigger entspricht deiner Suche.",
+        "pattern": "Muster",
+        "pattern_hint": "Ein regulärer Ausdruck, ohne Beachtung der Groß- und Kleinschreibung. Ein einfaches Wort wie hallo passt zu jeder Nachricht, die es enthält; mit ^ und $ passt du die ganze Nachricht ab.",
+        "pattern_placeholder": "hallo|guten tag",
+        "replies": "Antworten",
+        "replies_hint": "Devi wählt jedes Mal zufällig eine Antwort aus.",
+        "reply_placeholder": "Was Devi antworten soll",
+        "reply_n": "Antwort {n}",
+        "add_reply": "Antwort hinzufügen",
+        "remove_reply": "Antwort entfernen",
+        "reply_count": "Antworten: {count}",
+        "create": "Trigger hinzufügen",
+        "created": "Trigger hinzugefügt",
+        "confirm_delete": "Zum Löschen erneut klicken"
+    },
+    "errors": {
+        "unauthenticated": "Deine Sitzung ist abgelaufen. Melde dich erneut an.",
+        "csrf": "Diese Seite ist veraltet. Lade sie neu und versuche es erneut.",
+        "forbidden": "Dafür hast du keine Berechtigung.",
+        "guild_not_found": "Devi ist nicht auf diesem Server.",
+        "bot_unavailable": "Devi ist gerade offline. Versuche es in einer Minute erneut.",
+        "server": "Auf unserer Seite ist etwas schiefgelaufen. Versuche es gleich noch einmal.",
+        "network": "Die Website ist nicht erreichbar. Prüfe deine Verbindung.",
+        "invalid_channel": "Dieser Kanal kann hier nicht verwendet werden.",
+        "invalid_name_template": "Dieser Kanalname ist ungültig.",
+        "name_template_too_long": "Der Kanalname ist zu lang (höchstens {max} Zeichen).",
+        "invalid_request": "Die Anfrage wurde abgelehnt. Lade die Seite neu und versuche es erneut.",
+        "invalid_target": "Diese Rolle oder dieser Kanal existiert nicht mehr.",
+        "unknown_user": "Dieses Mitglied ist nicht auf dem Server.",
+        "too_many_changes": "Zu viele Änderungen auf einmal. Speichere weniger Einträge gleichzeitig.",
+        "trigger_exists": "Ein Trigger mit diesem Muster gibt es bereits.",
+        "trigger_not_found": "Dieser Trigger existiert nicht mehr. Lade die Seite neu.",
+        "invalid_regex": "Das ist kein gültiges Muster: {detail}",
+        "empty_pattern": "Gib ein Muster ein.",
+        "pattern_too_long": "Das Muster ist zu lang (höchstens {max} Zeichen).",
+        "no_responses": "Füge mindestens eine Antwort hinzu.",
+        "empty_response": "Antworten dürfen nicht leer sein.",
+        "response_too_long": "Eine Antwort ist zu lang (höchstens {max} Zeichen).",
+        "too_many_responses": "Zu viele Antworten (höchstens {max}).",
+        "duplicate_response": "Zwei Antworten sind identisch.",
+        "too_many_triggers": "Du hast das Limit von {max} Triggern erreicht.",
+        "payload_too_large": "Das sind zu viele Daten für einmal Speichern."
+    }
+}

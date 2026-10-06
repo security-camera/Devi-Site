@@ -14,6 +14,8 @@ Routes:
     /api/links returns every translation as JSON
     /api/links/<link> returns link as JSON
     /api/commands returns data.COMMAND_GROUPS as JSON
+    /login, /oauth/callback, /logout, /<lang>/servers, /<lang>/dashboard/<guild>
+                  the dashboard, see dashboard/views.py
 """
 
 from __future__ import annotations
@@ -37,8 +39,13 @@ import i18n
 from i18n import LOCALES_DIR
 
 from data import LINKS, COMMAND_GROUPS
+from dashboard import init_app as init_dashboard
+from dotenv import load_dotenv
+
+load_dotenv(".env")
 
 app = Flask(__name__)
+init_dashboard(app)
 
 LANG_COOKIE = "devi_lang"
 COOKIE_MAX_AGE = 60 * 60 * 24 * 365
@@ -134,6 +141,19 @@ def not_found(_error):
 @app.context_processor
 def inject_globals():
     return {"links": LINKS, "year": datetime.now().year}
+
+@app.context_processor
+def inject_template_helpers():
+    def lang_url(language: str) -> str:
+        endpoint = request.endpoint
+        values = dict(request.view_args or {})
+        values["lang"] = language
+
+        return url_for(endpoint, **values)
+
+    return {
+        "lang_url": lang_url,
+    }
 
 
 if __name__ == "__main__":

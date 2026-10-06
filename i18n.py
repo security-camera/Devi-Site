@@ -10,6 +10,7 @@ DEFAULT_LANG = "en"
 
 # Cache: lang code -> parsed dictionary.
 _CACHE: dict[str, dict[str, Any]] = {}
+_DASHBOARD_CACHE: dict[str, dict[str, Any]] = {}
 _PLACEHOLDER = re.compile(r"\{(\w+)\}")
 
 
@@ -22,6 +23,14 @@ def _load(lang: str) -> dict[str, Any]:
         return {}
     with path.open(encoding="utf-8-sig") as fh:
         data = json.load(fh)
+
+    # The dashboard strings live in locales/dashboard/<lang>.json and are exposed
+    # under the "dashboard" key, so t(lang, "dashboard.title") just works.
+    extra = LOCALES_DIR / "dashboard" / f"{lang}.json"
+    if extra.is_file():
+        with extra.open(encoding="utf-8-sig") as fh:
+            _deep_update(data.setdefault("dashboard", {}), json.load(fh))
+
     _CACHE[lang] = data
     return data
 
@@ -29,6 +38,7 @@ def _load(lang: str) -> dict[str, Any]:
 def reload_locales() -> None:
     """Drop the cache so edited locale files are picked up."""
     _CACHE.clear()
+    _DASHBOARD_CACHE.clear()
 
 
 def available_languages() -> list[dict[str, str]]:
@@ -97,8 +107,42 @@ def catalog(lang: str) -> dict[str, Any]:
     return merged
 
 
+# The landing page only needs the top bar button from the dashboard strings.
+_LANDING_DASHBOARD_KEYS = ("login", "open")
+
+
 def all_catalogs() -> dict[str, dict[str, Any]]:
-    return {code: catalog(code) for code in language_codes()}
+    """Every language for the landing page.
+
+    The dashboard strings are cut down to the login/open button, so the big
+    dashboard catalogue is not shipped to visitors who never open it.
+    """
+    result: dict[str, dict[str, Any]] = {}
+    for code in language_codes():
+        full = catalog(code)
+        nav = full.get("dashboard", {}).get("nav", {})
+        full["dashboard"] = {"nav": {key: nav[key] for key in _LANDING_DASHBOARD_KEYS if key in nav}}
+        result[code] = full
+    return result
+
+
+def dashboard_catalogs(lang: str) -> dict[str, dict[str, Any]]:
+    """The catalogues a dashboard page ships to the browser.
+
+    Only the default language (first, so main.js uses it as the fallback) and the
+    page language are sent. Picking another language in the switcher then simply
+    follows the link: main.js does that for languages it has no catalogue for.
+    Each catalogue is cut down to what the dashboard uses: the language metadata,
+    the "nav" group (language picker and theme button) and the dashboard strings.
+    """
+    codes = [DEFAULT_LANG] if lang == DEFAULT_LANG else [DEFAULT_LANG, lang]
+    result: dict[str, dict[str, Any]] = {}
+    for code in codes:
+        if code not in _DASHBOARD_CACHE:
+            full = catalog(code)
+            _DASHBOARD_CACHE[code] = {key: full[key] for key in ("_meta", "nav", "dashboard") if key in full}
+        result[code] = _DASHBOARD_CACHE[code]
+    return result
 
 
 def _deep_update(base: dict[str, Any], extra: dict[str, Any]) -> None:

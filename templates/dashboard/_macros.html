@@ -1,0 +1,7 @@
+{% macro guild_icon(guild, size="md") %}
+  {% if guild.icon %}
+    <img class="guild-icon guild-icon--{{ size }}" src="{{ guild.icon }}" alt="" width="48" height="48" loading="lazy" referrerpolicy="no-referrer">
+  {% else %}
+    <span class="guild-icon guild-icon--{{ size }} guild-icon--fallback" aria-hidden="true">{{ guild.initials }}</span>
+  {% endif %}
+{% endmacro %}

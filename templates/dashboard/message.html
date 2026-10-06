@@ -1,0 +1,16 @@
+{% extends "dashboard/base.html" %}
+{% block title %}{{ t("dashboard.messages." ~ kind ~ ".title") }}{% endblock %}
+{% block main %}
+<div class="shell page page--center">
+  <div class="state">
+    <h1 data-i18n="dashboard.messages.{{ kind }}.title">{{ t("dashboard.messages." ~ kind ~ ".title") }}</h1>
+    <p data-i18n="dashboard.messages.{{ kind }}.text">{{ t("dashboard.messages." ~ kind ~ ".text") }}</p>
+    <div class="state__actions">
+      {% if kind != "not_configured" %}
+        <a class="btn btn--solid" href="{{ url_for('dashboard.login', lang=lang) }}" data-i18n="dashboard.nav.login">{{ t("dashboard.nav.login") }}</a>
+      {% endif %}
+      <a class="btn btn--line" href="{{ url_for('landing', lang=lang) }}" data-i18n="dashboard.messages.home">{{ t("dashboard.messages.home") }}</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

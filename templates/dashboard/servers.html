@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% from "dashboard/_macros.html" import guild_icon %}
+{% block title %}{{ t("dashboard.servers.title") }}{% endblock %}
+{% block main %}
+<div class="shell page">
+  <header class="page__head">
+    <div>
+      <h1 data-i18n="dashboard.servers.title">{{ t("dashboard.servers.title") }}</h1>
+      <p class="page__lead" data-i18n="dashboard.servers.lead">{{ t("dashboard.servers.lead") }}</p>
+    </div>
+    <a class="btn btn--line" href="{{ refresh_url }}" data-i18n="dashboard.servers.refresh">{{ t("dashboard.servers.refresh") }}</a>
+  </header>
+
+  {% if unavailable %}
+    <div class="state">
+      <h2 data-i18n="dashboard.servers.unavailable_title">{{ t("dashboard.servers.unavailable_title") }}</h2>
+      <p data-i18n="dashboard.servers.unavailable_text">{{ t("dashboard.servers.unavailable_text") }}</p>
+      <div class="state__actions">
+        <a class="btn btn--solid" href="{{ request.path }}" data-i18n="dashboard.common.retry">{{ t("dashboard.common.retry") }}</a>
+      </div>
+    </div>
+  {% elif not openable and not invitable %}
+    <div class="state">
+      <h2 data-i18n="dashboard.servers.empty_title">{{ t("dashboard.servers.empty_title") }}</h2>
+      <p data-i18n="dashboard.servers.empty_text">{{ t("dashboard.servers.empty_text") }}</p>
+      <div class="state__actions">
+        <a class="btn btn--solid" href="{{ invite_url }}" data-i18n="dashboard.servers.add">{{ t("dashboard.servers.add") }}</a>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if openable %}
+    <ul class="server-grid" role="list">
+      {% for item in openable %}
+        <li class="server-card">
+          {{ guild_icon(item) }}
+          <div class="server-card__body">
+            <a class="server-card__name" href="{{ url_for('dashboard.guild_page', lang=lang, guild_id=item.id) }}">{{ item.name }}</a>
+            {% if item.limited %}
+              <span class="tag" data-i18n="dashboard.servers.limited">{{ t("dashboard.servers.limited") }}</span>
+            {% endif %}
+          </div>
+          <span class="btn btn--solid server-card__action" aria-hidden="true" data-i18n="dashboard.servers.open">{{ t("dashboard.servers.open") }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if invitable %}
+    <section class="invite-block">
+      <h2 data-i18n="dashboard.servers.add_title">{{ t("dashboard.servers.add_title") }}</h2>
+      <p class="page__lead" data-i18n="dashboard.servers.add_lead">{{ t("dashboard.servers.add_lead") }}</p>
+      <ul class="server-grid" role="list">
+        {% for item in invitable %}
+          <li class="server-card server-card--quiet">
+            {{ guild_icon(item) }}
+            <div class="server-card__body">
+              <span class="server-card__name">{{ item.name }}</span>
+            </div>
+            <a class="btn btn--line server-card__action" href="{{ item.invite_url }}" rel="noopener" data-i18n="dashboard.servers.add">{{ t("dashboard.servers.add") }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+</div>
+{% endblock %}

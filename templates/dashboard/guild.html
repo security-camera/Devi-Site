@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% from "dashboard/_macros.html" import guild_icon %}
+{% block title %}{{ guild.name if guild else t("dashboard.title") }}{% endblock %}
+{% block main %}
+<div class="shell dash" id="dash"
+     data-api="{{ url_for('dashboard.api_snapshot', guild_id=guild_id) }}"
+     data-csrf="{{ csrf_token }}"
+     data-login-url="{{ url_for('dashboard.login', lang=lang, next=request.path) }}"
+     data-servers-url="{{ url_for('dashboard.servers', lang=lang) }}"
+     data-invite-url="{{ invite_url }}">
+
+  <header class="dash__head">
+    <a class="dash__back" href="{{ url_for('dashboard.servers', lang=lang) }}" data-i18n="dashboard.guild.back">{{ t("dashboard.guild.back") }}</a>
+    <div class="dash__guild" id="dash-guild">
+      {% if guild %}
+        {{ guild_icon(guild, "sm") }}
+        <h1 class="dash__name">{{ guild.name }}</h1>
+      {% else %}
+        <h1 class="dash__name" data-i18n="dashboard.title">{{ t("dashboard.title") }}</h1>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="dash__body">
+    <nav class="dash__nav" id="dash-nav" aria-label="{{ t('dashboard.guild.menu') }}" data-i18n-attr="aria-label:dashboard.guild.menu" hidden></nav>
+    <div class="dash__content" id="dash-content">
+      <div class="skeleton" role="status">
+        <span class="visually-hidden" data-i18n="dashboard.guild.loading">{{ t("dashboard.guild.loading") }}</span>
+        <div class="skeleton__block skeleton__block--title"></div>
+        <div class="skeleton__block"></div>
+        <div class="skeleton__block skeleton__block--short"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+{% endblock %}
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}

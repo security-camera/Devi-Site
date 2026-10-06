@@ -1,0 +1,252 @@
+{
+    "title": "Dashboard",
+    "nav": {
+        "skip": "Skip to content",
+        "login": "Log in",
+        "open": "Dashboard",
+        "servers": "Servers",
+        "logout": "Log out",
+        "language": "Language"
+    },
+    "footer": {
+        "terms": "Terms",
+        "privacy": "Privacy",
+        "support": "Support"
+    },
+    "servers": {
+        "title": "Choose a server",
+        "lead": "Open the server you want to configure Devi on.",
+        "limited": "Limited access",
+        "open": "Open",
+        "refresh": "Refresh list",
+        "add_title": "Add Devi to a server",
+        "add_lead": "You can manage these servers, but Devi isn't there yet.",
+        "add": "Add Devi",
+        "empty_title": "No servers to configure yet",
+        "empty_text": "Devi isn't on any server you can manage. Add it to one of your servers to get started.",
+        "unavailable_title": "Devi is offline right now",
+        "unavailable_text": "The dashboard can't reach the bot, so it can't tell which servers have Devi. Try again in a minute."
+    },
+    "messages": {
+        "not_configured": {
+            "title": "The dashboard isn't available",
+            "text": "It hasn't been set up on this site yet."
+        },
+        "login_failed": {
+            "title": "Couldn't sign you in",
+            "text": "Discord didn't confirm the sign-in. Try again in a moment."
+        },
+        "login_cancelled": {
+            "title": "Sign-in cancelled",
+            "text": "Without access to your account we can't show your servers. You can try again whenever you like."
+        },
+        "home": "Back to the site"
+    },
+    "guild": {
+        "back": "All servers",
+        "menu": "Settings sections",
+        "loading": "Loading settings",
+        "forbidden_title": "You can't manage this server",
+        "forbidden_text": "Ask a server administrator to give you the Admin permission in Devi, or sign in with another account.",
+        "not_found_title": "Devi isn't on this server",
+        "not_found_text": "Add Devi to the server first, then come back here.",
+        "unavailable_title": "Devi is offline right now",
+        "unavailable_text": "The dashboard can't reach the bot. Try again in a minute.",
+        "invite": "Add Devi"
+    },
+    "common": {
+        "save": "Save",
+        "saved": "Saved",
+        "saving": "Saving…",
+        "discard": "Discard",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "deleted": "Deleted",
+        "edit": "Edit",
+        "add": "Add",
+        "turn_off": "Turn off",
+        "turned_off": "Turned off",
+        "retry": "Try again",
+        "unsaved": "Unsaved changes: {count}",
+        "status_on": "On",
+        "status_off": "Off"
+    },
+    "sections": {
+        "permissions": {
+            "name": "Permissions",
+            "title": "Permissions",
+            "lead": "Devi has its own permissions, separate from Discord roles. Pick who they apply to, then choose what they can do."
+        },
+        "birthdays": {
+            "name": "Birthdays",
+            "title": "Birthday channel",
+            "lead": "Devi congratulates members on their birthday in this channel."
+        },
+        "logs": {
+            "name": "Logs",
+            "title": "Log channel",
+            "lead": "Devi posts server events here: messages, members, voice activity, moderation actions and used commands."
+        },
+        "voice": {
+            "name": "Temporary voice",
+            "title": "Temporary voice channels",
+            "lead": "Members who join the lobby get a voice channel of their own. It's deleted when everyone leaves."
+        },
+        "triggers": {
+            "name": "Triggers",
+            "title": "Triggers",
+            "lead": "When a message matches a pattern, Devi replies with one of the replies at random."
+        }
+    },
+    "channels": {
+        "no_access": "no access",
+        "missing": "Unknown channel ({id})",
+        "cant_send": "Devi can't send messages in this channel. Give it the View Channel and Send Messages permissions.",
+        "no_category": "No category"
+    },
+    "logs": {
+        "label": "Log channel",
+        "off": "Off (don't post logs)",
+        "hint": "Devi needs permission to view and send messages in this channel."
+    },
+    "birthdays": {
+        "label": "Birthday channel",
+        "off": "Off (direct messages only)",
+        "hint": "Members set their birthday with /birthday set. Devi checks every day at {hour}:00 UTC."
+    },
+    "voice": {
+        "lobby_label": "Lobby channel",
+        "lobby_hint": "Members who join this voice channel get a channel of their own.",
+        "lobby_none": "Not selected",
+        "category_label": "Category for new channels",
+        "category_same": "Same as the lobby",
+        "template_label": "Channel name",
+        "template_hint": "[user] is replaced with the owner's nickname.",
+        "preview": "Preview: {name}",
+        "sample_name": "Alex",
+        "bot_perms": "Devi needs the Manage Channels and Move Members permissions to create these channels and move members into them."
+    },
+    "permissions": {
+        "targets": "Who it applies to",
+        "scope": {
+            "guild": "Whole server",
+            "role": "Roles",
+            "channel": "Channels",
+            "user": "Members"
+        },
+        "guild_name": "Everyone on the server",
+        "scope_hint": {
+            "guild": "Applies to every member of the server.",
+            "role": "Applies to everyone who has this role.",
+            "channel": "Applies to actions performed in this channel.",
+            "user": "Applies to this member only."
+        },
+        "add_role": "Add a role",
+        "add_channel": "Add a channel",
+        "find_member": "Add a member",
+        "find_placeholder": "Name or ID",
+        "find_min": "Type at least 2 characters.",
+        "find_none": "No members found.",
+        "empty_group": "Nothing here yet.",
+        "summary_none": "No permissions",
+        "summary_full": "Full access",
+        "summary_count": "Enabled: {count}",
+        "will_clear": "Will be cleared",
+        "clear": "Clear all permissions",
+        "group_full": "Full access",
+        "group_allow": "Allowed actions",
+        "group_restrict": "Restrictions",
+        "pick_hint": "Pick a role, channel or member to edit.",
+        "flag": {
+            "Admin": {
+                "desc": "Turns on every allowed action below at once. Restrictions stay separate.",
+                "label": "All Permissions"
+            },
+            "ManageMention": {
+                "desc": "Use /mention without the count limit and cooldown, and stop it with /mention stop.",
+                "label": "Manage Mentions"
+            },
+            "MentionBlackList": {
+                "desc": "Blocks the /mention commands.",
+                "label": "Mention Blacklist"
+            },
+            "ManageTriggers": {
+                "desc": "Add, edit and remove triggers.",
+                "label": "Manage Triggers"
+            },
+            "TTS": {
+                "desc": "With /tts, Devi reads text aloud in a voice channel.",
+                "label": "Text-to-Speech"
+            },
+            "Send": {
+                "desc": "Send messages and direct messages as Devi with /send.",
+                "label": "Send DMs"
+            },
+            "AiBlackList": {
+                "desc": "Blocks the AI features.",
+                "label": "AI Blacklist"
+            },
+            "Giveaways": {
+                "desc": "Start, end and reroll giveaways.",
+                "label": "Giveaways"
+            },
+            "Warnings": {
+                "desc": "Give, view and remove warnings.",
+                "label": "Warnings"
+            },
+            "MusicBlackList": {
+                "desc": "Blocks the music commands.",
+                "label": "Music Blacklist"
+            }
+        }
+    },
+    "triggers": {
+        "search": "Search triggers",
+        "count": "Triggers: {count} of {max}",
+        "new": "New trigger",
+        "empty_title": "No triggers yet",
+        "empty_text": "Create a trigger and Devi will answer matching messages on its own.",
+        "no_match": "No triggers match your search.",
+        "pattern": "Pattern",
+        "pattern_hint": "A regular expression, not case-sensitive. A plain word like hello matches any message that contains it; use ^ and $ to match the whole message.",
+        "pattern_placeholder": "hello|hi there",
+        "replies": "Replies",
+        "replies_hint": "Devi picks one reply at random each time.",
+        "reply_placeholder": "What Devi should answer",
+        "reply_n": "Reply {n}",
+        "add_reply": "Add reply",
+        "remove_reply": "Remove reply",
+        "reply_count": "Replies: {count}",
+        "create": "Add trigger",
+        "created": "Trigger added",
+        "confirm_delete": "Click again to delete"
+    },
+    "errors": {
+        "unauthenticated": "Your session has expired. Log in again.",
+        "csrf": "This page is out of date. Reload it and try again.",
+        "forbidden": "You don't have access to this.",
+        "guild_not_found": "Devi isn't on this server.",
+        "bot_unavailable": "Devi is offline right now. Try again in a minute.",
+        "server": "Something went wrong on our side. Try again in a moment.",
+        "network": "Can't reach the site. Check your connection.",
+        "invalid_channel": "This channel can't be used here.",
+        "invalid_name_template": "This channel name isn't valid.",
+        "name_template_too_long": "The channel name is too long ({max} characters at most).",
+        "invalid_request": "The request was rejected. Reload the page and try again.",
+        "invalid_target": "That role or channel no longer exists.",
+        "unknown_user": "That member isn't on this server.",
+        "too_many_changes": "Too many changes at once. Save fewer items at a time.",
+        "trigger_exists": "A trigger with this pattern already exists.",
+        "trigger_not_found": "This trigger no longer exists. Reload the page.",
+        "invalid_regex": "This isn't a valid pattern: {detail}",
+        "empty_pattern": "Enter a pattern.",
+        "pattern_too_long": "The pattern is too long ({max} characters at most).",
+        "no_responses": "Add at least one reply.",
+        "empty_response": "Replies can't be empty.",
+        "response_too_long": "A reply is too long ({max} characters at most).",
+        "too_many_responses": "Too many replies ({max} at most).",
+        "duplicate_response": "Two replies are identical.",
+        "too_many_triggers": "You've reached the limit of {max} triggers.",
+        "payload_too_large": "That's too much data to save at once."
+    }
+}

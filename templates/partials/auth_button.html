@@ -1,0 +1,8 @@
+{# Put this inside .topbar__tools of index.html. It shows nothing until the dashboard is configured. #}
+{% if dashboard_enabled %}
+  {% if current_user %}
+    <a class="btn btn--line" href="{{ url_for('dashboard.servers', lang=lang) }}" data-i18n="dashboard.nav.open">{{ t("dashboard.nav.open") }}</a>
+  {% else %}
+    <a class="btn btn--line" href="{{ url_for('dashboard.login', lang=lang) }}" data-i18n="dashboard.nav.login">{{ t("dashboard.nav.login") }}</a>
+  {% endif %}
+{% endif %}

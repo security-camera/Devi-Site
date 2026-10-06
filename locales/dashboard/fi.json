@@ -1,0 +1,252 @@
+{
+    "title": "Hallintapaneeli",
+    "nav": {
+        "skip": "Siirry sisältöön",
+        "login": "Kirjaudu sisään",
+        "open": "Hallintapaneeli",
+        "servers": "Palvelimet",
+        "logout": "Kirjaudu ulos",
+        "language": "Kieli"
+    },
+    "footer": {
+        "terms": "Käyttöehdot",
+        "privacy": "Tietosuoja",
+        "support": "Tuki"
+    },
+    "servers": {
+        "title": "Valitse palvelin",
+        "lead": "Avaa palvelin, jolla haluat määrittää Devin.",
+        "limited": "Rajoitettu käyttöoikeus",
+        "open": "Avaa",
+        "refresh": "Päivitä luettelo",
+        "add_title": "Lisää Devi palvelimelle",
+        "add_lead": "Voit hallita näitä palvelimia, mutta Devi ei ole niillä vielä.",
+        "add": "Lisää Devi",
+        "empty_title": "Ei vielä määritettäviä palvelimia",
+        "empty_text": "Devi ei ole millään palvelimella, jota voit hallita. Lisää se johonkin palvelimeesi aloittaaksesi.",
+        "unavailable_title": "Devi on tällä hetkellä offline-tilassa",
+        "unavailable_text": "Hallintapaneeli ei saa yhteyttä bottiin, joten se ei tiedä, millä palvelimilla Devi on. Yritä uudelleen minuutin kuluttua."
+    },
+    "messages": {
+        "not_configured": {
+            "title": "Hallintapaneeli ei ole käytettävissä",
+            "text": "Sitä ei ole vielä otettu käyttöön tällä sivustolla."
+        },
+        "login_failed": {
+            "title": "Kirjautuminen epäonnistui",
+            "text": "Discord ei vahvistanut kirjautumista. Yritä hetken kuluttua uudelleen."
+        },
+        "login_cancelled": {
+            "title": "Kirjautuminen peruttu",
+            "text": "Ilman pääsyä tiliisi emme voi näyttää palvelimiasi. Voit yrittää uudelleen milloin tahansa."
+        },
+        "home": "Takaisin sivustolle"
+    },
+    "guild": {
+        "back": "Kaikki palvelimet",
+        "menu": "Asetusosiot",
+        "loading": "Ladataan asetuksia",
+        "forbidden_title": "Et voi hallita tätä palvelinta",
+        "forbidden_text": "Pyydä palvelimen ylläpitäjää antamaan sinulle Admin-oikeus Devissä tai kirjaudu toisella tilillä.",
+        "not_found_title": "Devi ei ole tällä palvelimella",
+        "not_found_text": "Lisää Devi ensin palvelimelle ja palaa sitten tänne.",
+        "unavailable_title": "Devi on tällä hetkellä offline-tilassa",
+        "unavailable_text": "Hallintapaneeli ei saa yhteyttä bottiin. Yritä uudelleen minuutin kuluttua.",
+        "invite": "Lisää Devi"
+    },
+    "common": {
+        "save": "Tallenna",
+        "saved": "Tallennettu",
+        "saving": "Tallennetaan…",
+        "discard": "Hylkää",
+        "cancel": "Peruuta",
+        "delete": "Poista",
+        "deleted": "Poistettu",
+        "edit": "Muokkaa",
+        "add": "Lisää",
+        "turn_off": "Poista käytöstä",
+        "turned_off": "Poistettu käytöstä",
+        "retry": "Yritä uudelleen",
+        "unsaved": "Tallentamattomia muutoksia: {count}",
+        "status_on": "Päällä",
+        "status_off": "Pois"
+    },
+    "sections": {
+        "permissions": {
+            "name": "Oikeudet",
+            "title": "Oikeudet",
+            "lead": "Devillä on omat oikeutensa, jotka ovat erillään Discord-rooleista. Valitse, keihin ne vaikuttavat, ja päätä, mitä he saavat tehdä."
+        },
+        "birthdays": {
+            "name": "Syntymäpäivät",
+            "title": "Syntymäpäiväkanava",
+            "lead": "Devi onnittelee jäseniä syntymäpäivänä tällä kanavalla."
+        },
+        "logs": {
+            "name": "Lokit",
+            "title": "Lokikanava",
+            "lead": "Devi julkaisee tänne palvelimen tapahtumat: viestit, jäsenet, ääniaktiivisuuden, moderointitoimet ja käytetyt komennot."
+        },
+        "voice": {
+            "name": "Väliaikaiset äänikanavat",
+            "title": "Väliaikaiset äänikanavat",
+            "lead": "Lobbyyn liittyvä jäsen saa oman äänikanavan. Se poistetaan, kun kaikki ovat lähteneet."
+        },
+        "triggers": {
+            "name": "Triggerit",
+            "title": "Triggerit",
+            "lead": "Kun viesti vastaa kaavaa, Devi vastaa jollakin vastauksista satunnaisesti."
+        }
+    },
+    "channels": {
+        "no_access": "ei käyttöoikeutta",
+        "missing": "Tuntematon kanava ({id})",
+        "cant_send": "Devi ei voi lähettää viestejä tälle kanavalle. Anna sille oikeudet Näytä kanava ja Lähetä viestejä.",
+        "no_category": "Ei kategoriaa"
+    },
+    "logs": {
+        "label": "Lokikanava",
+        "off": "Pois (lokeja ei lähetetä)",
+        "hint": "Devi tarvitsee oikeuden nähdä tämä kanava ja kirjoittaa siihen."
+    },
+    "birthdays": {
+        "label": "Syntymäpäiväkanava",
+        "off": "Pois (vain yksityisviestit)",
+        "hint": "Jäsenet asettavat syntymäpäivänsä komennolla /birthday set. Devi tarkistaa ne joka päivä klo {hour}.00 UTC."
+    },
+    "voice": {
+        "lobby_label": "Lobbykanava",
+        "lobby_hint": "Tälle äänikanavalle liittyvä jäsen saa oman kanavan.",
+        "lobby_none": "Ei valittu",
+        "category_label": "Uusien kanavien kategoria",
+        "category_same": "Sama kuin lobbyssa",
+        "template_label": "Kanavan nimi",
+        "template_hint": "[user] korvataan omistajan nimimerkillä.",
+        "preview": "Esikatselu: {name}",
+        "sample_name": "Alex",
+        "bot_perms": "Devi tarvitsee oikeudet Hallitse kanavia ja Siirrä jäseniä luodakseen nämä kanavat ja siirtääkseen jäsenet niihin."
+    },
+    "permissions": {
+        "targets": "Keihin se vaikuttaa",
+        "scope": {
+            "guild": "Koko palvelin",
+            "role": "Roolit",
+            "channel": "Kanavat",
+            "user": "Jäsenet"
+        },
+        "guild_name": "Kaikki palvelimella",
+        "scope_hint": {
+            "guild": "Koskee kaikkia palvelimen jäseniä.",
+            "role": "Koskee kaikkia, joilla on tämä rooli.",
+            "channel": "Koskee tällä kanavalla tehtyjä toimintoja.",
+            "user": "Koskee vain tätä jäsentä."
+        },
+        "add_role": "Lisää rooli",
+        "add_channel": "Lisää kanava",
+        "find_member": "Lisää jäsen",
+        "find_placeholder": "Nimi tai tunnus",
+        "find_min": "Kirjoita vähintään 2 merkkiä.",
+        "find_none": "Jäseniä ei löytynyt.",
+        "empty_group": "Täällä ei ole vielä mitään.",
+        "summary_none": "Ei oikeuksia",
+        "summary_full": "Täydet oikeudet",
+        "summary_count": "Käytössä: {count}",
+        "will_clear": "Tyhjennetään",
+        "clear": "Poista kaikki oikeudet",
+        "group_full": "Täydet oikeudet",
+        "group_allow": "Sallitut toiminnot",
+        "group_restrict": "Rajoitukset",
+        "pick_hint": "Valitse muokattava rooli, kanava tai jäsen.",
+        "flag": {
+            "Admin": {
+                "desc": "Ottaa käyttöön kaikki alla olevat sallitut toiminnot kerralla. Rajoitukset pysyvät erillään.",
+                "label": "Kaikki oikeudet"
+            },
+            "ManageMention": {
+                "desc": "Käytä /mention-komentoa ilman määrärajaa ja jäähyä ja pysäytä se komennolla /mention stop.",
+                "label": "Mainintojen hallinta"
+            },
+            "MentionBlackList": {
+                "desc": "Estää /mention-komennot.",
+                "label": "Mainintojen mustalista"
+            },
+            "ManageTriggers": {
+                "desc": "Triggerien lisääminen, muokkaaminen ja poistaminen.",
+                "label": "Triggerien hallinta"
+            },
+            "TTS": {
+                "desc": "Komennolla /tts Devi lukee tekstin ääneen äänikanavalla.",
+                "label": "Botin puhesyntetisointi"
+            },
+            "Send": {
+                "desc": "Lähetä viestejä ja yksityisviestejä Devinä komennolla /send.",
+                "label": "Yksityisviestien lähetys"
+            },
+            "AiBlackList": {
+                "desc": "Estää tekoälytoiminnot.",
+                "label": "Tekoälyn mustalista"
+            },
+            "Giveaways": {
+                "desc": "Arvontojen aloittaminen, lopettaminen ja uudelleenarvonta.",
+                "label": "Arvonnat"
+            },
+            "Warnings": {
+                "desc": "Varoitusten antaminen, katselu ja poistaminen.",
+                "label": "Varoitukset"
+            },
+            "MusicBlackList": {
+                "desc": "Estää musiikkikomennot.",
+                "label": "Musiikin mustalista"
+            }
+        }
+    },
+    "triggers": {
+        "search": "Hae triggereitä",
+        "count": "Triggerit: {count} / {max}",
+        "new": "Uusi trigger",
+        "empty_title": "Ei vielä triggereitä",
+        "empty_text": "Luo trigger, niin Devi vastaa täsmääviin viesteihin itse.",
+        "no_match": "Haulla ei löytynyt triggereitä.",
+        "pattern": "Kaava",
+        "pattern_hint": "Säännöllinen lauseke, kirjainkoolla ei ole väliä. Pelkkä sana, kuten moi, täsmää jokaiseen viestiin, jossa se esiintyy; ^ ja $ täsmäävät koko viestiin.",
+        "pattern_placeholder": "moi|hei",
+        "replies": "Vastaukset",
+        "replies_hint": "Devi valitsee joka kerta yhden vastauksen satunnaisesti.",
+        "reply_placeholder": "Mitä Devin pitäisi vastata",
+        "reply_n": "Vastaus {n}",
+        "add_reply": "Lisää vastaus",
+        "remove_reply": "Poista vastaus",
+        "reply_count": "Vastauksia: {count}",
+        "create": "Lisää trigger",
+        "created": "Trigger lisätty",
+        "confirm_delete": "Poista napsauttamalla uudelleen"
+    },
+    "errors": {
+        "unauthenticated": "Istuntosi on vanhentunut. Kirjaudu sisään uudelleen.",
+        "csrf": "Sivu on vanhentunut. Lataa se uudelleen ja yritä uudestaan.",
+        "forbidden": "Sinulla ei ole oikeutta tähän.",
+        "guild_not_found": "Devi ei ole tällä palvelimella.",
+        "bot_unavailable": "Devi on tällä hetkellä offline-tilassa. Yritä uudelleen minuutin kuluttua.",
+        "server": "Meidän päässämme tapahtui virhe. Yritä hetken kuluttua uudelleen.",
+        "network": "Sivustoon ei saada yhteyttä. Tarkista verkkoyhteytesi.",
+        "invalid_channel": "Tätä kanavaa ei voi käyttää tässä.",
+        "invalid_name_template": "Kanavan nimi ei kelpaa.",
+        "name_template_too_long": "Kanavan nimi on liian pitkä (enintään {max} merkkiä).",
+        "invalid_request": "Pyyntö hylättiin. Lataa sivu uudelleen ja yritä uudestaan.",
+        "invalid_target": "Tätä roolia tai kanavaa ei enää ole.",
+        "unknown_user": "Tämä jäsen ei ole palvelimella.",
+        "too_many_changes": "Liian monta muutosta kerralla. Tallenna vähemmän kohteita kerrallaan.",
+        "trigger_exists": "Tällä kaavalla on jo trigger.",
+        "trigger_not_found": "Tätä triggeriä ei enää ole. Lataa sivu uudelleen.",
+        "invalid_regex": "Kaava ei kelpaa: {detail}",
+        "empty_pattern": "Kirjoita kaava.",
+        "pattern_too_long": "Kaava on liian pitkä (enintään {max} merkkiä).",
+        "no_responses": "Lisää vähintään yksi vastaus.",
+        "empty_response": "Vastaus ei voi olla tyhjä.",
+        "response_too_long": "Vastaus on liian pitkä (enintään {max} merkkiä).",
+        "too_many_responses": "Liian monta vastausta (enintään {max}).",
+        "duplicate_response": "Kaksi vastausta on samanlaisia.",
+        "too_many_triggers": "Triggerien raja ({max}) on täynnä.",
+        "payload_too_large": "Tietoa on liikaa tallennettavaksi kerralla."
+    }
+}
