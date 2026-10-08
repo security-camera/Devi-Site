@@ -92,10 +92,20 @@
             "title": "Temporary voice channels",
             "lead": "Members who join the lobby get a voice channel of their own. It's deleted when everyone leaves."
         },
+        "honeypot": {
+            "name": "Honeypot",
+            "title": "Honeypot channel",
+            "lead": "A trap for spam bots. Whoever writes in this channel is punished at once and their message is deleted."
+        },
         "triggers": {
             "name": "Triggers",
             "title": "Triggers",
             "lead": "When a message matches a pattern, Devi replies with one of the replies at random."
+        },
+        "language": {
+            "name": "Language",
+            "title": "Server language",
+            "lead": "The language Devi uses when it talks on this server."
         }
     },
     "channels": {
@@ -125,6 +135,61 @@
         "preview": "Preview: {name}",
         "sample_name": "Alex",
         "bot_perms": "Devi needs the Manage Channels and Move Members permissions to create these channels and move members into them."
+    },
+    "honeypot": {
+        "label": "Honeypot channel",
+        "off": "Off (no honeypot)",
+        "hint": "Devi posts a warning in this channel. Real members should stay out of it: everyone who writes there gets the punishment below.",
+        "punishment_label": "Punishment",
+        "kind": {
+            "timeout": "Timeout",
+            "ban": "Ban / Kick",
+            "role": "Role"
+        },
+        "kind_hint": {
+            "timeout": "The member can't write or speak for the time set below.",
+            "ban": "The member is banned for the time set below, or kicked if it's 0.",
+            "role": "The member gets a role, for example one that mutes them or moves them to a quarantine channel."
+        },
+        "duration_label": {
+            "timeout": "Timeout length",
+            "ban": "Ban length",
+            "role": "Role duration"
+        },
+        "duration_hint": {
+            "timeout": "From 1 second to 28 days.",
+            "ban": "0 kicks the member instead of banning them.",
+            "role": "0 keeps the role until someone removes it."
+        },
+        "unit_label": "Unit",
+        "unit": {
+            "s": "seconds",
+            "m": "minutes",
+            "h": "hours",
+            "d": "days"
+        },
+        "role_label": "Role",
+        "role_none": "Choose a role",
+        "role_missing": "Unknown role ({id})",
+        "role_above": "above Devi's role",
+        "problem": {
+            "amount": "Enter a whole number, 0 or more.",
+            "timeout_range": "A timeout lasts from 1 second to 28 days.",
+            "too_long": "That's too long: 10 years at most.",
+            "role_required": "Choose a role."
+        },
+        "needs": {
+            "timeout": "Devi needs the Timeout Members permission to punish this way.",
+            "ban": "Devi needs the Ban Members permission to punish this way.",
+            "kick": "Devi needs the Kick Members permission to punish this way.",
+            "role": "Devi needs the Manage Roles permission to punish this way.",
+            "role_above": "Devi can't give this role: it's above Devi's highest role."
+        }
+    },
+    "language": {
+        "label": "Language",
+        "hint": "Devi's replies and messages on this server use this language.",
+        "site_note": "This doesn't change the language of the website. Use the language menu at the top of the page for that."
     },
     "permissions": {
         "targets": "Who it applies to",
@@ -247,6 +312,12 @@
         "too_many_responses": "Too many replies ({max} at most).",
         "duplicate_response": "Two replies are identical.",
         "too_many_triggers": "You've reached the limit of {max} triggers.",
-        "payload_too_large": "That's too much data to save at once."
+        "payload_too_large": "That's too much data to save at once.",
+        "invalid_timeout": "A timeout lasts from 1 second to 28 days.",
+        "invalid_duration": "This duration isn't valid.",
+        "invalid_role": "This role can't be used.",
+        "role_required": "Choose a role for this punishment.",
+        "cant_send": "Devi can't write in this channel. Give it the View Channel and Send Messages permissions.",
+        "invalid_locale": "This language isn't available."
     }
 }

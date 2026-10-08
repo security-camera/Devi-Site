@@ -10,6 +10,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import hmac
 import logging
 import re
@@ -48,7 +49,7 @@ SNOWFLAKE = re.compile(r"^\d{15,20}$")
 SAFE_METHODS = {"GET", "HEAD", "OPTIONS"}
 API_PREFIX = "/api/dashboard/"
 MAX_API_BODY = 64 * 1024
-SECTION_COUNT = 5  # permissions, birthdays, logs, voice, triggers
+SECTION_COUNT = 7  # permissions, birthdays, logs, voice, honeypot, triggers, language
 
 ADMINISTRATOR = 0x8
 MANAGE_GUILD = 0x20
@@ -61,15 +62,26 @@ def _dash():
     return current_app.extensions["devi_dashboard"]
 
 
+def _short(sid: str) -> str:
+    """A harmless label of a session for the log (the real id is a credential)."""
+    return hashlib.sha256(sid.encode("utf-8")).hexdigest()[:8]
+
+
 def current_session() -> Session | None:
     """The signed-in user's server-side session, or None."""
     if "dash_session" not in g:
         store = _dash().store
         sid = session.get("sid")
-        found = store.get(sid) if store is not None and isinstance(sid, str) else None
-        if found is None and ("sid" in session or "user" in session):
-            session.pop("sid", None)  # the server forgot this session: stop pretending
-            session.pop("user", None)
+        found, why = None, "no session id in the cookie"
+        if store is not None and isinstance(sid, str):
+            found, why = store.lookup(sid)
+        if found is None:
+            if sid is not None or "user" in session:
+                session.pop("sid", None)  # the server forgot this session: stop pretending
+                session.pop("user", None)
+                log.info("session rejected: %s (%s)", why, _short(sid) if isinstance(sid, str) else "-")
+            elif g.get("cookie_unreadable"):
+                log.info("session rejected: the session cookie is unreadable (SECRET_KEY changed or cookie expired)")
         g.dash_session = found
     return g.dash_session
 
@@ -142,6 +154,9 @@ def login_required_page(view: Callable[..., Any]) -> Callable[..., Any]:
 @bp.before_request
 def prepare():
     g.csp_nonce = secrets.token_urlsafe(16)
+    # A session cookie arrived but Flask found nothing readable in it: its signature does not match
+    # the current SECRET_KEY (changed or regenerated?) or the cookie's own lifetime has passed.
+    g.cookie_unreadable = bool(request.cookies.get(current_app.config["SESSION_COOKIE_NAME"])) and not session
     if request.path.startswith(API_PREFIX):
         return _guard_api()
     return None
@@ -242,7 +257,7 @@ def oauth_callback():
     if not code:
         return message("login_failed", 400, lang)
 
-    token = None
+    # The token only lives for these three calls and is not stored (and not revoked, see oauth.py).
     try:
         token = oauth.exchange_code(dash.settings, _redirect_uri(), code)
         user = oauth.fetch_user(dash.settings, token)
@@ -250,15 +265,13 @@ def oauth_callback():
     except (oauth.OAuthError, KeyError, ValueError) as problem:
         log.warning("sign-in failed: %s", problem)
         return message("login_failed", 502, lang)
-    finally:
-        if token:
-            oauth.revoke_token(dash.settings, token)
 
     created = dash.store.create(user, guilds)
     session.clear()  # new session id on every sign-in
     session.permanent = True
     session["sid"] = created.sid
     session["user"] = {"id": user["id"], "name": user["name"], "avatar": user["avatar"]}
+    log.info("signed in: user %s, %d servers, session %s", user["id"], len(guilds), _short(created.sid))
 
     return redirect(flow.get("next") or url_for("dashboard.servers", lang=lang))
 
@@ -388,6 +401,16 @@ def api_birthday_channel(guild_id: str):
 @bp.put(API_PREFIX + "<guild_id>/temp-voice")
 def api_temp_voice(guild_id: str):
     return _forward(guild_id, "PUT", "/temp-voice", body=True)
+
+
+@bp.put(API_PREFIX + "<guild_id>/honeypot")
+def api_honeypot(guild_id: str):
+    return _forward(guild_id, "PUT", "/honeypot", body=True)
+
+
+@bp.put(API_PREFIX + "<guild_id>/language")
+def api_language(guild_id: str):
+    return _forward(guild_id, "PUT", "/language", body=True)
 
 
 @bp.patch(API_PREFIX + "<guild_id>/permissions")

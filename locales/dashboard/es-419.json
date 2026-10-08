@@ -92,10 +92,20 @@
             "title": "Canales de voz temporales",
             "lead": "Quien entra al lobby recibe un canal de voz propio. Se elimina cuando todos se van."
         },
+        "honeypot": {
+            "name": "Canal trampa",
+            "title": "Canal trampa",
+            "lead": "Una trampa para bots de spam. Quien escriba en este canal recibe un castigo al instante y su mensaje se elimina."
+        },
         "triggers": {
             "name": "Disparadores",
             "title": "Disparadores",
             "lead": "Cuando un mensaje coincide con un patrón, Devi responde con una de las respuestas al azar."
+        },
+        "language": {
+            "name": "Idioma",
+            "title": "Idioma del servidor",
+            "lead": "El idioma que Devi usa para hablar en este servidor."
         }
     },
     "channels": {
@@ -125,6 +135,61 @@
         "preview": "Vista previa: {name}",
         "sample_name": "Alex",
         "bot_perms": "Devi necesita los permisos Administrar canales y Mover miembros para crear estos canales y mover a los miembros a ellos."
+    },
+    "honeypot": {
+        "label": "Canal trampa",
+        "off": "Desactivado (sin trampa)",
+        "hint": "Devi publica una advertencia en este canal. Los miembros normales deben mantenerse al margen: todo el que escriba aquí recibe el castigo elegido abajo.",
+        "punishment_label": "Castigo",
+        "kind": {
+            "timeout": "Timeout",
+            "ban": "Ban / Kick",
+            "role": "Rol"
+        },
+        "kind_hint": {
+            "timeout": "El miembro no puede escribir ni hablar durante el tiempo indicado abajo.",
+            "ban": "El miembro es vetado durante el tiempo indicado abajo, o expulsado si es 0.",
+            "role": "El miembro recibe un rol, por ejemplo uno que lo silencie o lo mande a un canal de cuarentena."
+        },
+        "duration_label": {
+            "timeout": "Duración del timeout",
+            "ban": "Duración del ban",
+            "role": "Duración del rol"
+        },
+        "duration_hint": {
+            "timeout": "De 1 segundo a 28 días.",
+            "ban": "Con 0 se expulsa al miembro en lugar de vetarlo.",
+            "role": "Con 0 el rol se mantiene hasta que alguien lo quite."
+        },
+        "unit_label": "Unidad",
+        "unit": {
+            "s": "segundos",
+            "m": "minutos",
+            "h": "horas",
+            "d": "días"
+        },
+        "role_label": "Rol",
+        "role_none": "Elige un rol",
+        "role_missing": "Rol desconocido ({id})",
+        "role_above": "por encima del rol de Devi",
+        "problem": {
+            "amount": "Escribe un número entero, 0 o más.",
+            "timeout_range": "Un timeout dura de 1 segundo a 28 días.",
+            "too_long": "Es demasiado: 10 años como máximo.",
+            "role_required": "Elige un rol."
+        },
+        "needs": {
+            "timeout": "Para castigar así, Devi necesita permiso para aplicar timeouts a los miembros.",
+            "ban": "Para castigar así, Devi necesita permiso para vetar miembros.",
+            "kick": "Para castigar así, Devi necesita permiso para expulsar miembros.",
+            "role": "Para castigar así, Devi necesita el permiso Administrar roles.",
+            "role_above": "Devi no puede dar este rol: está por encima de su rol más alto."
+        }
+    },
+    "language": {
+        "label": "Idioma",
+        "hint": "Devi responde y escribe en este idioma en este servidor.",
+        "site_note": "Esto no cambia el idioma del sitio web. Para eso usa el menú de idioma en la parte superior de la página."
     },
     "permissions": {
         "targets": "A quién se aplica",
@@ -247,6 +312,12 @@
         "too_many_responses": "Demasiadas respuestas (máximo {max}).",
         "duplicate_response": "Dos respuestas son idénticas.",
         "too_many_triggers": "Llegaste al límite de {max} disparadores.",
-        "payload_too_large": "Son demasiados datos para guardar de una vez."
+        "payload_too_large": "Son demasiados datos para guardar de una vez.",
+        "invalid_timeout": "Un timeout dura de 1 segundo a 28 días.",
+        "invalid_duration": "Esta duración no es válida.",
+        "invalid_role": "Este rol no se puede usar.",
+        "role_required": "Elige un rol para este castigo.",
+        "cant_send": "Devi no puede enviar mensajes en este canal. Dale los permisos Ver canal y Enviar mensajes.",
+        "invalid_locale": "Este idioma no está disponible."
     }
 }

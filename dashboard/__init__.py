@@ -9,6 +9,8 @@ Usage (app.py):
 from __future__ import annotations
 
 import json
+import logging
+import os
 from dataclasses import dataclass
 from datetime import timedelta
 
@@ -31,6 +33,22 @@ _JSON_ESCAPES = {
 }
 
 
+def _setup_logging() -> None:
+    """Make the dashboard's own log lines (sign-ins, rejected sessions) show up in the service log.
+
+    Without a handler Python only prints warnings, and the reason a visitor had to sign in
+    again is an INFO line. DEVI_LOG_LEVEL=WARNING silences them again.
+    """
+    log = logging.getLogger("devi.dashboard")
+    if log.handlers:
+        return
+    handler = logging.StreamHandler()
+    handler.setFormatter(logging.Formatter("%(asctime)s %(levelname)s %(name)s: %(message)s"))
+    log.addHandler(handler)
+    log.setLevel((os.environ.get("DEVI_LOG_LEVEL") or "INFO").upper())
+    log.propagate = False
+
+
 @dataclass
 class Dashboard:
     settings: Settings
@@ -44,6 +62,7 @@ def _json_script(value: object) -> Markup:
 
 
 def init_app(app: Flask) -> Dashboard:
+    _setup_logging()
     settings = load_settings()
 
     # Nothing is written to disk until the dashboard is configured, so importing the app

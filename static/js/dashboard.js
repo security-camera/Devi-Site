@@ -204,6 +204,8 @@
         internal: "server",
         http_error: "server",
         triggers_unavailable: "server",
+        honeypot_unavailable: "server",
+        invalid_punishment: "invalid_request",
         invalid_json: "invalid_request",
         invalid_id: "invalid_request",
         invalid_user: "invalid_request",
@@ -263,8 +265,8 @@
 
     /* ---------- state ---------- */
 
-    const ORDER = ["permissions", "birthdays", "logs", "voice", "triggers"];
-    const ICONS = { permissions: "🗂️", birthdays: "🥳", logs: "📝", voice: "⌛", triggers: "💬" };
+    const ORDER = ["permissions", "birthdays", "logs", "voice", "honeypot", "triggers", "language"];
+    const ICONS = { permissions: "🗂️", birthdays: "🥳", logs: "📝", voice: "⌛", honeypot: "🍯", triggers: "💬", language: "🌍" };
     const KIND_PREFIX = { text: "# ", forum: "# ", voice: "🔊 ", stage: "🎙️ " };
 
     const state = {
@@ -276,6 +278,8 @@
         logs: null,
         birthdays: null,
         voice: null,
+        honeypot: null,
+        language: null,
         perms: null,
         triggers: null
     };
@@ -350,6 +354,8 @@
         state.logs = { value: current.logs ? current.logs.channel_id || "" : "" };
         state.birthdays = { value: current.birthdays ? current.birthdays.channel_id || "" : "" };
         state.voice = current.voice ? voiceDraft(current.voice) : null;
+        state.honeypot = current.honeypot ? honeypotDraft(current.honeypot) : null;
+        state.language = current.language ? { value: current.language.locale } : null;
         state.perms = current.permissions ? buildPerms(current.permissions, null) : null;
         state.triggers = { query: "", creating: null, editing: null, removing: {} };
     }
@@ -365,6 +371,10 @@
                 return state[name].value !== (settings(name).channel_id || "");
             case "voice":
                 return voiceDirty();
+            case "honeypot":
+                return honeypotDirty();
+            case "language":
+                return state.language.value !== settings("language").locale;
             case "permissions":
                 return dirtyEntries().length > 0;
             case "triggers": {
@@ -866,6 +876,346 @@
             fail(error);
         } finally {
             state.busy.voice = false;
+            render();
+        }
+    }
+
+    /* ---------- panel: honeypot channel ---------- */
+
+    const PUNISHMENTS = ["timeout", "ban", "role"]; // the position is the number the bot stores
+    const UNITS = { s: 1, m: 60, h: 3600, d: 86400 };
+
+    // 90 s -> 90 seconds, 7200 s -> 2 hours: the largest unit that divides the time evenly.
+    function splitDuration(seconds) {
+        if (seconds <= 0) {
+            return { amount: 0, unit: "h" };
+        }
+
+        const unit = ["d", "h", "m"].find(function (name) {
+            return seconds % UNITS[name] === 0;
+        }) || "s";
+
+        return { amount: seconds / UNITS[unit], unit: unit };
+    }
+
+    function honeypotDraft(saved) {
+        const split = splitDuration(saved.duration);
+
+        return {
+            channel: saved.channel_id || "",
+            kind: saved.punishment,
+            amount: String(split.amount),
+            unit: split.unit,
+            role: saved.role_id || ""
+        };
+    }
+
+    // The time the form describes in seconds, or null while the amount is not a whole number.
+    function honeypotSeconds(form) {
+        const text = form.amount.trim();
+
+        return /^\d{1,9}$/.test(text) ? parseInt(text, 10) * UNITS[form.unit] : null;
+    }
+
+    function honeypotDirty() {
+        const saved = settings("honeypot");
+        const form = state.honeypot;
+
+        if (form.channel !== (saved.channel_id || "")) {
+            return true;
+        }
+        // The punishment only matters while there is a honeypot channel.
+        if (!form.channel) {
+            return false;
+        }
+        return form.kind !== saved.punishment ||
+            honeypotSeconds(form) !== saved.duration ||
+            (form.kind === 2 && form.role !== (saved.role_id || ""));
+    }
+
+    // The key of what is wrong with the punishment (honeypot.problem.*), or null.
+    function honeypotProblem(form) {
+        const info = settings("honeypot");
+        const seconds = honeypotSeconds(form);
+
+        if (seconds === null) {
+            return "amount";
+        }
+        if (form.kind === 0 && (seconds < 1 || seconds > info.max_timeout)) {
+            return "timeout_range";
+        }
+        if (seconds > info.max_duration) {
+            return "too_long";
+        }
+        if (form.kind === 2 && !form.role) {
+            return "role_required";
+        }
+        return null;
+    }
+
+    // The key of the permission Devi is missing for this punishment (honeypot.needs.*), or null.
+    function honeypotNeeds(form) {
+        const can = settings("honeypot").bot_can;
+        const seconds = honeypotSeconds(form);
+
+        if (!form.channel || seconds === null) {
+            return null;
+        }
+        if (form.kind === 0) {
+            return can.timeout ? null : "timeout";
+        }
+        if (form.kind === 1) {
+            return seconds > 0 ? (can.ban ? null : "ban") : (can.kick ? null : "kick");
+        }
+        if (!can.role) {
+            return "role";
+        }
+
+        const role = roleById(form.role);
+        return role && !role.assignable ? "role_above" : null;
+    }
+
+    // opts: { id, label (when there is no visible label), describedBy }
+    function selectOf(options, onchange, opts) {
+        return h(
+            "div",
+            { class: "select-wrap" },
+            h("select", { class: "select", id: opts.id, "aria-label": opts.label || null, "aria-describedby": opts.describedBy || null, onchange: onchange }, options)
+        );
+    }
+
+    function roleSelect(form, onchange) {
+        const roles = state.data.roles.filter(function (role) {
+            return !role.managed;
+        });
+        const canAssign = settings("honeypot").bot_can.role;
+        const options = [h("option", { value: "", selected: form.role === "" }, t("honeypot.role_none"))];
+
+        // The saved role may have been deleted since: keep it visible instead of silently dropping it.
+        if (form.role && !roleById(form.role)) {
+            options.push(h("option", { value: form.role, selected: true }, t("honeypot.role_missing", { id: form.role })));
+        }
+        roles.forEach(function (role) {
+            const above = canAssign && !role.assignable;
+
+            options.push(h("option", { value: role.id, selected: role.id === form.role }, role.name + (above ? " (" + t("honeypot.role_above") + ")" : "")));
+        });
+
+        return selectOf(options, function (event) {
+            onchange(event.target.value);
+        }, { id: "field-honeypot-role" });
+    }
+
+    function honeypotPanel() {
+        const saved = settings("honeypot");
+        const form = state.honeypot;
+        const busy = !!state.busy.honeypot;
+        const kind = PUNISHMENTS[form.kind];
+
+        const channelNote = h("div", { class: "note note--warn", role: "note" }, t("channels.cant_send"));
+        const needsNote = h("div", { class: "note note--warn", role: "note" });
+        const problem = h("p", { class: "field__error", "aria-live": "polite" });
+        const save = button(busy ? t("common.saving") : t("common.save"), "btn--solid", saveHoneypot);
+        const discard = button(t("common.discard"), "btn--line", function () {
+            state.honeypot = honeypotDraft(saved);
+            render();
+        });
+
+        const channel = channelSelect({
+            id: "field-honeypot-channel",
+            kinds: ["text"],
+            value: form.channel,
+            placeholder: t("honeypot.off"),
+            requireSend: true,
+            onchange: function (value) {
+                form.channel = value;
+                render("field-honeypot-channel");
+            }
+        });
+
+        let amount = null;
+
+        // Selecting only touches the buttons and the notes, so the controls keep keyboard focus.
+        function sync() {
+            const changed = honeypotDirty();
+            const chosen = channelById(form.channel);
+            const issue = form.channel ? honeypotProblem(form) : null;
+            const needs = honeypotNeeds(form);
+
+            channelNote.hidden = !(chosen && chosen.kind === "text" && !chosen.can_send);
+            problem.textContent = issue ? t("honeypot.problem." + issue) : "";
+            problem.hidden = !issue;
+            if (amount) {
+                amount.setAttribute("aria-invalid", issue === "amount" || issue === "timeout_range" || issue === "too_long" ? "true" : "false");
+            }
+            needsNote.textContent = needs ? t("honeypot.needs." + needs) : "";
+            needsNote.hidden = !needs;
+            save.disabled = !changed || !!issue || busy;
+            discard.disabled = !changed || busy;
+            renderNav();
+        }
+
+        const body = [field({ id: "field-honeypot-channel", label: t("honeypot.label"), control: channel, hint: t("honeypot.hint") }), channelNote];
+
+        if (form.channel) {
+            amount = h("input", {
+                class: "input",
+                type: "text",
+                inputmode: "numeric",
+                id: "field-honeypot-amount",
+                value: form.amount,
+                maxlength: 9,
+                autocomplete: "off",
+                "aria-describedby": "field-honeypot-amount-hint",
+                oninput: function (event) {
+                    form.amount = event.target.value;
+                    sync();
+                }
+            });
+            const unit = selectOf(["s", "m", "h", "d"].map(function (name) {
+                return h("option", { value: name, selected: name === form.unit }, t("honeypot.unit." + name));
+            }), function (event) {
+                form.unit = event.target.value;
+                sync();
+            }, { id: "field-honeypot-unit", label: t("honeypot.unit_label") });
+            const type = selectOf(PUNISHMENTS.map(function (name, index) {
+                return h("option", { value: String(index), selected: index === form.kind }, t("honeypot.kind." + name));
+            }), function (event) {
+                form.kind = Number(event.target.value);
+                render("field-honeypot-kind");
+            }, { id: "field-honeypot-kind", describedBy: "field-honeypot-kind-hint" });
+
+            body.push(
+                field({ id: "field-honeypot-kind", label: t("honeypot.punishment_label"), control: type, hint: t("honeypot.kind_hint." + kind) }),
+                form.kind === 2
+                    ? field({
+                        id: "field-honeypot-role",
+                        label: t("honeypot.role_label"),
+                        control: roleSelect(form, function (value) {
+                            form.role = value;
+                            sync();
+                        })
+                    })
+                    : null,
+                field({
+                    id: "field-honeypot-amount",
+                    label: t("honeypot.duration_label." + kind),
+                    control: h("div", { class: "field__row" }, amount, unit),
+                    hint: t("honeypot.duration_hint." + kind),
+                    extra: problem
+                }),
+                needsNote
+            );
+        }
+
+        const view = frame("honeypot", {
+            status: { on: !!saved.channel_id, text: saved.channel_id ? t("common.status_on") : t("common.status_off") },
+            body: body,
+            foot: [save, discard]
+        });
+
+        sync();
+        return view;
+    }
+
+    async function saveHoneypot() {
+        if (state.busy.honeypot) {
+            return;
+        }
+
+        const form = state.honeypot;
+        state.busy.honeypot = true;
+        render();
+
+        try {
+            const result = await api("PUT", "/honeypot", form.channel ? {
+                channel_id: form.channel,
+                punishment: form.kind,
+                duration: honeypotSeconds(form),
+                role_id: form.kind === 2 ? form.role || null : null
+            } : { channel_id: null });
+
+            state.data.settings.honeypot = result;
+            state.honeypot = honeypotDraft(result);
+            toast("ok", result.channel_id ? t("common.saved") : t("common.turned_off"));
+        } catch (error) {
+            fail(error);
+        } finally {
+            state.busy.honeypot = false;
+            render();
+        }
+    }
+
+    /* ---------- panel: server language ---------- */
+
+    function languagePanel() {
+        const saved = settings("language");
+        const form = state.language;
+        const busy = !!state.busy.language;
+
+        const save = button(busy ? t("common.saving") : t("common.save"), "btn--solid", saveLanguage);
+        const discard = button(t("common.discard"), "btn--line", function () {
+            form.value = saved.locale;
+            render();
+        });
+
+        function sync() {
+            const changed = form.value !== saved.locale;
+
+            save.disabled = !changed || busy;
+            discard.disabled = !changed || busy;
+            renderNav();
+        }
+
+        const options = saved.available.map(function (item) {
+            return h("option", { value: item.code, selected: item.code === form.value }, item.label);
+        });
+        if (!saved.available.some(function (item) {
+            return item.code === form.value;
+        })) {
+            options.unshift(h("option", { value: form.value, selected: true }, form.value));
+        }
+
+        const select = selectOf(options, function (event) {
+            form.value = event.target.value;
+            sync();
+        }, { id: "field-language", describedBy: "field-language-hint" });
+
+        const current = saved.available.find(function (item) {
+            return item.code === saved.locale;
+        });
+        const view = frame("language", {
+            status: { on: true, text: current ? current.label : saved.locale },
+            body: [
+                field({ id: "field-language", label: t("language.label"), control: select, hint: t("language.hint") }),
+                h("div", { class: "note", role: "note" }, t("language.site_note"))
+            ],
+            foot: [save, discard]
+        });
+
+        sync();
+        return view;
+    }
+
+    async function saveLanguage() {
+        if (state.busy.language) {
+            return;
+        }
+
+        const form = state.language;
+        state.busy.language = true;
+        render();
+
+        try {
+            const result = await api("PUT", "/language", { locale: form.value });
+
+            state.data.settings.language = result;
+            form.value = result.locale;
+            toast("ok", t("common.saved"));
+        } catch (error) {
+            fail(error);
+        } finally {
+            state.busy.language = false;
             render();
         }
     }
@@ -1749,7 +2099,9 @@
             return channelPanel("logs");
         },
         voice: voicePanel,
-        triggers: triggersPanel
+        honeypot: honeypotPanel,
+        triggers: triggersPanel,
+        language: languagePanel
     };
 
     /* ---------- start ---------- */

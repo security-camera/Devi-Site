@@ -10,7 +10,9 @@
     BOT_API_TOKEN          must equal DASHBOARD_API_TOKEN of the bot (required)
     SECRET_KEY             signs the session cookie; generated into instance/ if unset
     DEVI_SESSION_DB        default instance/sessions.sqlite3
-    DEVI_SESSION_DAYS      default 7
+    DEVI_SESSION_DAYS      how many days a session lives after its last use, default 7; every visit
+                           starts the countdown again, so people who use the dashboard stay signed in
+    DEVI_LOG_LEVEL         default INFO; sign-ins and the reason a session was rejected are logged
 
 The dashboard stays switched off until the client secret and the bot token are set,
 so the landing page keeps working on a machine that has no dashboard configuration.

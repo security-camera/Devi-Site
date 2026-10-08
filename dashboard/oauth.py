@@ -1,22 +1,25 @@
 """Discord OAuth2 (authorization code flow) with the `identify` and `guilds` scopes.
 
 The access token is used once during sign-in, to read the user's profile and
-server list, and is revoked right after. Nothing that could act on the user's
-behalf is stored. Who may do what on a server is decided by the bot on every
-request, so a stale server list can never grant access.
+server list, and is then thrown away. It is never stored, so nothing that could
+act on the user's behalf is kept. Who may do what on a server is decided by the
+bot on every request, so a stale server list can never grant access.
+
+The token is deliberately NOT revoked. For Discord, revoking it also withdraws the
+user's authorization of the app (it disappears from Settings > Authorized Apps).
+`prompt=none` then has nothing to reuse, and the full "Authorize Devi" screen would
+come back on every single sign-in. The scopes are read-only (`identify`, `guilds`)
+and the token expires on its own.
 """
 
 from __future__ import annotations
 
-import logging
 from typing import Any
 from urllib.parse import urlencode
 
 import requests
 
 from .settings import Settings
-
-log = logging.getLogger("devi.dashboard")
 
 USER_AGENT = "DeviSite (https://github.com/security-camera/Devi-Site, 1.0)"
 TIMEOUT = (3.05, 10)
@@ -124,23 +127,6 @@ def fetch_guilds(settings: Settings, token: str) -> list[dict[str, Any]]:
         after = str(page[-1]["id"])
 
     return guilds
-
-
-def revoke_token(settings: Settings, token: str) -> None:
-    """Best effort: a failure only means the token expires on its own in a week."""
-    try:
-        _call(
-            "POST",
-            f"{settings.discord_api}/oauth2/token/revoke",
-            data={
-                "client_id": settings.client_id,
-                "client_secret": settings.client_secret,
-                "token": token,
-                "token_type_hint": "access_token",
-            },
-        )
-    except OAuthError as error:
-        log.warning("could not revoke the OAuth token: %s", error)
 
 
 def avatar_url(user_id: str, avatar_hash: str | None, discriminator: str | None = None) -> str:

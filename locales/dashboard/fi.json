@@ -92,10 +92,20 @@
             "title": "Väliaikaiset äänikanavat",
             "lead": "Lobbyyn liittyvä jäsen saa oman äänikanavan. Se poistetaan, kun kaikki ovat lähteneet."
         },
+        "honeypot": {
+            "name": "Ansakanava",
+            "title": "Ansakanava",
+            "lead": "Ansa roskaposti-boteille. Jokainen, joka kirjoittaa tälle kanavalle, saa heti rangaistuksen ja hänen viestinsä poistetaan."
+        },
         "triggers": {
             "name": "Triggerit",
             "title": "Triggerit",
             "lead": "Kun viesti vastaa kaavaa, Devi vastaa jollakin vastauksista satunnaisesti."
+        },
+        "language": {
+            "name": "Kieli",
+            "title": "Palvelimen kieli",
+            "lead": "Kieli, jolla Devi puhuu tällä palvelimella."
         }
     },
     "channels": {
@@ -125,6 +135,61 @@
         "preview": "Esikatselu: {name}",
         "sample_name": "Alex",
         "bot_perms": "Devi tarvitsee oikeudet Hallitse kanavia ja Siirrä jäseniä luodakseen nämä kanavat ja siirtääkseen jäsenet niihin."
+    },
+    "honeypot": {
+        "label": "Ansakanava",
+        "off": "Pois (ei ansaa)",
+        "hint": "Devi julkaisee tälle kanavalle varoituksen. Tavallisten jäsenten kannattaa pysyä poissa: jokainen, joka kirjoittaa tänne, saa alla valitun rangaistuksen.",
+        "punishment_label": "Rangaistus",
+        "kind": {
+            "timeout": "Timeout",
+            "ban": "Ban / Kick",
+            "role": "Rooli"
+        },
+        "kind_hint": {
+            "timeout": "Jäsen ei voi kirjoittaa eikä puhua alla asetetun ajan.",
+            "ban": "Jäsen saa porttikiellon alla asetetuksi ajaksi, tai hänet potkitaan, jos arvo on 0.",
+            "role": "Jäsen saa roolin, esimerkiksi sellaisen, joka mykistää hänet tai siirtää hänet karanteenikanavalle."
+        },
+        "duration_label": {
+            "timeout": "Timeoutin kesto",
+            "ban": "Porttikiellon kesto",
+            "role": "Roolin kesto"
+        },
+        "duration_hint": {
+            "timeout": "1 sekunnista 28 päivään.",
+            "ban": "Arvolla 0 jäsen potkitaan porttikiellon sijaan.",
+            "role": "Arvolla 0 rooli pysyy, kunnes joku poistaa sen."
+        },
+        "unit_label": "Yksikkö",
+        "unit": {
+            "s": "sekuntia",
+            "m": "minuuttia",
+            "h": "tuntia",
+            "d": "päivää"
+        },
+        "role_label": "Rooli",
+        "role_none": "Valitse rooli",
+        "role_missing": "Tuntematon rooli ({id})",
+        "role_above": "Devin roolin yläpuolella",
+        "problem": {
+            "amount": "Anna kokonaisluku, 0 tai suurempi.",
+            "timeout_range": "Timeout kestää 1 sekunnista 28 päivään.",
+            "too_long": "Liian pitkä: enintään 10 vuotta.",
+            "role_required": "Valitse rooli."
+        },
+        "needs": {
+            "timeout": "Tällaiseen rangaistukseen Devi tarvitsee oikeuden asettaa jäsenet timeoutiin.",
+            "ban": "Tällaiseen rangaistukseen Devi tarvitsee oikeuden antaa jäsenille porttikielto.",
+            "kick": "Tällaiseen rangaistukseen Devi tarvitsee oikeuden potkia jäseniä.",
+            "role": "Tällaiseen rangaistukseen Devi tarvitsee oikeuden Hallitse rooleja.",
+            "role_above": "Devi ei voi antaa tätä roolia: se on Devin korkeimman roolin yläpuolella."
+        }
+    },
+    "language": {
+        "label": "Kieli",
+        "hint": "Devi vastaa ja kirjoittaa tällä palvelimella tällä kielellä.",
+        "site_note": "Tämä ei muuta verkkosivun kieltä. Käytä sitä varten sivun yläreunan kielivalikkoa."
     },
     "permissions": {
         "targets": "Keihin se vaikuttaa",
@@ -247,6 +312,12 @@
         "too_many_responses": "Liian monta vastausta (enintään {max}).",
         "duplicate_response": "Kaksi vastausta on samanlaisia.",
         "too_many_triggers": "Triggerien raja ({max}) on täynnä.",
-        "payload_too_large": "Tietoa on liikaa tallennettavaksi kerralla."
+        "payload_too_large": "Tietoa on liikaa tallennettavaksi kerralla.",
+        "invalid_timeout": "Timeout kestää 1 sekunnista 28 päivään.",
+        "invalid_duration": "Tämä kesto ei kelpaa.",
+        "invalid_role": "Tätä roolia ei voi käyttää.",
+        "role_required": "Valitse rooli tälle rangaistukselle.",
+        "cant_send": "Devi ei voi lähettää viestejä tälle kanavalle. Anna sille oikeudet Näytä kanava ja Lähetä viestejä.",
+        "invalid_locale": "Tämä kieli ei ole käytettävissä."
     }
 }

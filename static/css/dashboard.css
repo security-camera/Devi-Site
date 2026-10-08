@@ -340,6 +340,7 @@ a.server-card__name::after {  /* the whole card is the click target */
 .field__error { color: var(--danger); font-size: 0.88rem; }
 .field__preview { color: var(--ink-muted); font-size: 0.86rem; }
 .field__preview b { color: var(--ink); font-weight: 600; }
+.field__row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 11rem); gap: 10px; }
 
 .input,
 .select,
