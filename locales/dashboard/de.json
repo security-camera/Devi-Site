@@ -262,6 +262,14 @@
             "MusicBlackList": {
                 "desc": "Sperrt die Musikbefehle.",
                 "label": "Musik-Sperrliste"
+            },
+            "ManageAi": {
+                "desc": "KI-API-Schlüssel des Servers über /ai key einrichten oder entfernen.",
+                "label": "KI-Verwaltung"
+            },
+            "ManageHoneypots": {
+                "desc": "Den Honeypot-Kanal und die Strafe über das Dashboard oder /honeypot konfigurieren.",
+                "label": "Honeypot-Verwaltung"
             }
         }
     },

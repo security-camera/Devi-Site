@@ -262,6 +262,14 @@
             "MusicBlackList": {
                 "desc": "Estää musiikkikomennot.",
                 "label": "Musiikin mustalista"
+            },
+            "ManageAi": {
+                "desc": "Määritä tai poista palvelimen tekoälyn API-avain komennolla /ai key.",
+                "label": "Tekoälyn hallinta"
+            },
+            "ManageHoneypots": {
+                "desc": "Määritä honeypot-kanava ja rangaistus hallintapaneelissa tai komennolla /honeypot.",
+                "label": "Honeypot-kanavien hallinta"
             }
         }
     },

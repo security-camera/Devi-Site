@@ -262,6 +262,14 @@
             "MusicBlackList": {
                 "desc": "Bloquea los comandos de música.",
                 "label": "Lista negra de música"
+            },
+            "ManageAi": {
+                "desc": "Configura o elimina la clave API de IA del servidor mediante /ai key.",
+                "label": "Administración de IA"
+            },
+            "ManageHoneypots": {
+                "desc": "Configura el canal honeypot y el castigo desde el panel de control o mediante /honeypot.",
+                "label": "Administración de honeypots"
             }
         }
     },
