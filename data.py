@@ -17,6 +17,10 @@ LINKS = {
     "reviews": "https://top.gg/bot/1230603137253900339#reviews",
     "tos": "https://gist.github.com/security-camera/147e20418f9528e2e64d5e9e87c40977",
     "privacy": "https://gist.github.com/security-camera/c1c4ffc74fb2407b06044e4ab8607e71",
+    "topgg-server": "https://top.gg/discord/servers/896841550260490240",
+    "reviews-server": "https://top.gg/discord/servers/896841550260490240#reviews",
+    "github": "https://github.com/security-camera/Devi-Discord-Bot",
+    "github-site": "https://github.com/security-camera/Devi-Site"
 }
 
 # Each group: id -> icon + ordered commands.
