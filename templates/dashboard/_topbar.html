@@ -9,6 +9,10 @@
       {% if current_user %}
         <a href="{{ url_for('dashboard.servers', lang=lang) }}" data-i18n="dashboard.nav.servers">{{ t("dashboard.nav.servers") }}</a>
       {% endif %}
+      {# /<lang>/links needs the server, so the single-file build (build_static.py) leaves it out. #}
+      {% if not config.get("STATIC_BUILD") %}
+        <a href="{{ url_for('links_page', lang=lang) }}" data-i18n="nav.links" data-follow-lang{% if request.endpoint == "links_page" %} aria-current="page"{% endif %}>{{ t("nav.links") }}</a>
+      {% endif %}
     </nav>
 
     <div class="topbar__tools">

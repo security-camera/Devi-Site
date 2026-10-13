@@ -35,6 +35,15 @@ A Flask-powered website for the [Devi Discord bot](https://github.com/security-c
       <img src="assets/outro.png" width="400">
     </td>
   </tr>
+  <tr>
+    <th colspan="2">Links</th>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <img src="assets/links.png" width="800">
+    </td>
+  </tr>
+
 </table>
 
 ## Dashboard images
@@ -247,7 +256,7 @@ dashboard/          The dashboard (Flask blueprint)
     views.py            Pages, sign-in routes and the JSON API
 locales/            Landing page locales
 locales/dashboard/  Dashboard locales (one file per language)
-templates/          base.html, index.html, 404.html
+templates/          base.html, index.html, links.html, 404.html
 templates/dashboard/  Dashboard pages
 templates/partials/   Pieces shared with the landing page
 static/css, js/     Stylesheets and JavaScript (style.css, main.js, dashboard.css, dashboard.js)
@@ -326,6 +335,11 @@ To add a new command:
 Links such as the bot invite, support server, Terms of Service, Privacy Policy, and
 top.gg page are defined in `data.LINKS`.
 
+Every entry of `data.LINKS` is also listed on the `/<lang>/links` page. To add a link:
+
+1. Add it to `data.LINKS`.
+2. Add `links_page.items.<key>` with a `title` and a `description` to every locale file.
+
 ## Static Build
 
 ```bash
@@ -343,6 +357,7 @@ The generated file can be opened directly from disk or deployed to any static ho
 provider, such as GitHub Pages or Cloudflare Pages.
 
 Server-side language detection via `Accept-Language` is not available in the static build.
+The top bar link to `/<lang>/links` is left out of it, because that page needs the server.
 Users can switch languages manually.
 
 The static build is the landing page only. Run it where the dashboard is not configured (no `.env`), otherwise

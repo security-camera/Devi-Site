@@ -1,0 +1,23 @@
+{# Public page that lists every entry of data.LINKS: one card per link, with the
+   title and description taken from links_page.items.<id> of the locale files. #}
+{% extends "base.html" %}
+
+{% block title %}{{ t("links_page.title") }}{% endblock %}
+
+{% block main %}
+<div class="shell links-page">
+  <h1 class="links-page__title" data-i18n="links_page.title">{{ t("links_page.title") }}</h1>
+
+  <ul class="links-grid" role="list">
+    {% for card in link_cards %}
+      <li class="link-card">
+        <h2 class="link-card__title">
+          <a href="{{ card.url }}" rel="noopener" data-i18n="links_page.items.{{ card.id }}.title">{{ t("links_page.items." ~ card.id ~ ".title") }}</a>
+        </h2>
+        <p class="link-card__text" data-i18n="links_page.items.{{ card.id }}.description">{{ t("links_page.items." ~ card.id ~ ".description") }}</p>
+        <span class="link-card__host">{{ card.host }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

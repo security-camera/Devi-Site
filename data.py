@@ -20,7 +20,8 @@ LINKS = {
     "topgg-server": "https://top.gg/discord/servers/896841550260490240",
     "reviews-server": "https://top.gg/discord/servers/896841550260490240#reviews",
     "github": "https://github.com/security-camera/Devi-Discord-Bot",
-    "github-site": "https://github.com/security-camera/Devi-Site"
+    "github-site": "https://github.com/security-camera/Devi-Site",
+    "tiktok": "https://www.tiktok.com/@devi_discord"
 }
 
 # Each group: id -> icon + ordered commands.

@@ -8,6 +8,7 @@ Run locally:
 Routes:
     /            redirects to the best language for the visitor
     /<lang>/     the landing page in that language
+    /<lang>/links the page that lists every entry of data.LINKS with a title and a description
     /links/<link> redirects user to data.LINKS[<link>]
     /api/locales returns every translation as JSON
     /api/locales/<locale> returns locale as JSON
@@ -22,6 +23,7 @@ from __future__ import annotations
 
 import os
 from datetime import datetime
+from urllib.parse import urlsplit
 
 from flask import (
     Flask,
@@ -77,15 +79,51 @@ def render_page(lang: str):
     return response
 
 
-@app.route("/")
-def root():
-    """Send the visitor to their language, honouring ?lang= if present."""
-    lang = i18n.pick_language(
+def render_links_page(lang: str):
+    """Render the page that lists every entry of data.LINKS in the given language."""
+    languages = i18n.available_languages()
+    current = next(item for item in languages if item["code"] == lang)
+
+    # The same slim catalogues the dashboard ships (top bar, footer, theme button)
+    # plus the strings of this page, so the language picker works without a reload.
+    catalogs = {
+        code: {**catalog, "links_page": i18n.catalog(code).get("links_page", {})}
+        for code, catalog in i18n.dashboard_catalogs(lang).items()
+    }
+
+    # `id` is the key of data.LINKS and of links_page.items.<id> in the locale files.
+    link_cards = [
+        {"id": key, "url": url, "host": urlsplit(url).netloc}
+        for key, url in LINKS.items()
+    ]
+
+    response = make_response(
+        render_template(
+            "links.html",
+            lang=lang,
+            current_language=current,
+            languages=languages,
+            t=lambda key, **params: i18n.t(lang, key, **params),
+            catalogs=catalogs,
+            link_cards=link_cards,
+        )
+    )
+    response.set_cookie(
+        LANG_COOKIE, lang, max_age=COOKIE_MAX_AGE, samesite="Lax", path="/"
+    )
+    return response
+
+def best_language():
+    return i18n.pick_language(
         request.args.get("lang"),
         request.cookies.get(LANG_COOKIE),
         request.headers.get("Accept-Language"),
     )
-    return redirect(url_for("landing", lang=lang))
+
+@app.route("/")
+def root():
+    """Send the visitor to their language, honoring ?lang= if present."""
+    return redirect(url_for("landing", lang=best_language()))
 
 
 @app.route("/<lang>/")
@@ -94,6 +132,16 @@ def landing(lang: str):
         abort(404)
     return render_page(lang)
 
+
+@app.route("/<lang>/links", strict_slashes=False)
+def links_page(lang: str):
+    if not i18n.is_supported(lang):
+        abort(404)
+    return render_links_page(lang)
+
+@app.route("/links")
+def links_redirect():
+    return redirect(url_for("links_page", lang=best_language()))
 
 @app.route("/api/locales")
 def api_locales():

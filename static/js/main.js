@@ -98,6 +98,14 @@
                 });
         });
 
+        // Links that carry the language in their path ("/ru/links") follow the switch.
+        document.querySelectorAll("a[data-follow-lang]").forEach(function (link) {
+            link.setAttribute(
+                "href",
+                link.getAttribute("href").replace(/^\/[^/]+/, "/" + lang)
+            );
+        });
+
         const description = document.querySelector('meta[name="description"]');
         if (description) {
             description.setAttribute("content", t("site.description"));
