@@ -80,10 +80,9 @@ COMMAND_GROUPS = [
         "id": "ai",
         "icon": "🧠",
         "commands": [
-            ("ai_ask_text", "/ai ask text"),
+            ("ai_ask_text", "/ai ask text (or @Devi)"),
             ("ai_ask_voice", "/ai ask voice"),
             ("ai_clear", "/ai clear"),
-            ("ai_key", "/ai key"),
         ],
     },
     {
@@ -131,6 +130,13 @@ COMMAND_GROUPS = [
             ("music_loop", "/music loop"),
             ("music_queue", "/music queue"),
             ("music_stop", "/music stop"),
+            ("playlist_create", "/playlist create"),
+            ("playlist_add", "/playlist add"),
+            ("playlist_remove", "/playlist remove"),
+            ("playlist_delete", "/playlist delete"),
+            ("playlist_steal", "/playlist steal"),
+            ("playlist_show", "/playlist show"),
+            ("playlist_play", "/playlist play"),
         ],
     },
     {

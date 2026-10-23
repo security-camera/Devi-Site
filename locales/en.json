@@ -51,8 +51,8 @@
             "text": "Warnings with a full history and an \"old case\" flag, message clean-up, slow mode, roles that expire on their own, and one channel where everything gets written down."
         },
         "ai": {
-            "title": "AI on your own key",
-            "text": "The bot replies in a text channel or reads the answer out in voice chat. You set the Gemini key yourself with /ai key, and the conversation history can be wiped at any time."
+            "title": "AI",
+            "text": "The bot replies with text in text channels or with voice in voice channels, and understands images."
         },
         "music": {
             "title": "Music and speech",
@@ -173,11 +173,18 @@
         "permissions_list": "Shows every permission assigned on the server",
         "honeypot_channel": "Sets a honeypot channel",
         "honeypot_punishment": "Sets the honeypot channel punishment",
-        "temp_ban": "Temporarily bans a member"
+        "temp_ban": "Temporarily bans a member",
+        "playlist_create": "Creates a new playlist with a given name",
+        "playlist_add": "Adds tracks to an existing playlist by link or search query",
+        "playlist_remove": "Removes a track from a playlist by position, ID, or title match",
+        "playlist_delete": "Deletes a playlist entirely",
+        "playlist_steal": "Copies someone else's public playlist to your collection",
+        "playlist_show": "Displays all playlists of a user or the full contents of one",
+        "playlist_play": "Plays the tracks from a playlist in the voice channel"
     },
     "cta": {
         "title": "Add Devi and set it up in a couple of minutes",
-        "text": "Start with /language and /set_log_channel — the bot walks you through the rest. If something breaks, drop into the support server.",
+        "text": "Go to the dashboard to configure the server language, permissions, and individual features. If something breaks, drop into the support server.",
         "invite": "Add to your server",
         "reviews": "Reviews on top.gg"
     },

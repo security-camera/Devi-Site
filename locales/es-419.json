@@ -1,4 +1,4 @@
-﻿{
+{
     "_meta": {
         "name": "Español (Latinoamérica)",
         "english_name": "Spanish (Latin America)",
@@ -51,8 +51,8 @@
             "text": "Advertencias con historial y marca de «caso antiguo», limpieza de mensajes, modo lento, roles temporales y un canal aparte donde queda registrado todo lo que ocurre."
         },
         "ai": {
-            "title": "IA con tu propia clave",
-            "text": "El bot responde por texto en el canal o por voz en el canal de voz. La clave de Gemini la indicas tú con /ai key y el historial de la conversación se puede borrar en cualquier momento."
+            "title": "IA",
+            "text": "El bot responde con texto en los canales de texto o con voz en los canales de voz, y entiende imágenes."
         },
         "music": {
             "title": "Música y lectura en voz alta",
@@ -173,11 +173,18 @@
         "permissions_list": "Muestra todos los permisos asignados en el servidor",
         "honeypot_channel": "Establece un canal trampa",
         "honeypot_punishment": "Establece el castigo del canal trampa",
-        "temp_ban": "Banea temporalmente a un miembro"
+        "temp_ban": "Banea temporalmente a un miembro",
+        "playlist_create": "Crea una nueva playlist con el nombre indicado",
+        "playlist_add": "Agrega pistas a una playlist existente mediante enlace o búsqueda",
+        "playlist_remove": "Elimina una pista de una playlist por posición, ID o coincidencia de título",
+        "playlist_delete": "Elimina completamente una playlist",
+        "playlist_steal": "Copia la playlist pública de otro usuario en tu colección",
+        "playlist_show": "Muestra todas las playlists de un usuario o el contenido completo de una",
+        "playlist_play": "Reproduce las pistas de una playlist en el canal de voz"
     },
     "cta": {
         "title": "Agrega a Devi y configúralo en un par de minutos",
-        "text": "Empieza por /language y /set_log_channel: lo demás te lo irá indicando el propio bot. Si algo no funciona, visita el servidor de soporte.",
+        "text": "Ve al panel de control para configurar el idioma del servidor, los permisos y las funciones individuales. Si algo no funciona, visita el servidor de soporte.",
         "invite": "Agregar al servidor",
         "reviews": "Reseñas en top.gg"
     },

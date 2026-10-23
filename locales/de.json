@@ -1,4 +1,4 @@
-﻿{
+{
     "_meta": {
         "name": "Deutsch",
         "english_name": "German",
@@ -51,8 +51,8 @@
             "text": "Verwarnungen mit Verlauf und Markierung „alter Fall“, Nachrichtenlöschung, Slowmode, zeitlich begrenzte Rollen und ein eigener Kanal, in dem alles protokolliert wird."
         },
         "ai": {
-            "title": "KI mit eigenem Schlüssel",
-            "text": "Der Bot antwortet per Text im Kanal oder per Sprache im Sprachkanal. Deinen Gemini-Schlüssel gibst du mit /ai key an. Den Gesprächsverlauf kannst du jederzeit löschen."
+            "title": "KI",
+            "text": "Der Bot antwortet in Textkanälen mit Text und in Sprachkanälen per Sprache und kann Bilder verstehen."
         },
         "music": {
             "title": "Musik & Sprachausgabe",
@@ -173,11 +173,18 @@
         "permissions_list": "Zeigt alle auf dem Server vergebenen Berechtigungen",
         "honeypot_channel": "Legt einen Fallenkanal fest",
         "honeypot_punishment": "Legt die Bestrafung für einen Fallenkanal fest",
-        "temp_ban": "Verhängt einen vorübergehenden Bann gegen ein Mitglied"
+        "temp_ban": "Verhängt einen vorübergehenden Bann gegen ein Mitglied",
+        "playlist_create": "Erstellt eine neue Playlist mit einem bestimmten Namen",
+        "playlist_add": "Fügt Tracks zu einer bestehenden Playlist hinzu – nach Link oder Suchanfrage",
+        "playlist_remove": "Entfernt einen Track aus einer Playlist nach Position, ID oder Titelübereinstimmung",
+        "playlist_delete": "Löscht eine gesamte Playlist",
+        "playlist_steal": "Kopiert die öffentliche Playlist eines anderen Benutzers in deine Sammlung",
+        "playlist_show": "Zeigt alle Playlists eines Nutzers oder den vollständigen Inhalt einer Playlist an",
+        "playlist_play": "Spielt die Tracks aus einer Playlist im Sprachkanal ab"
     },
     "cta": {
         "title": "Füge Devi hinzu und richte ihn in wenigen Minuten ein",
-        "text": "Beginne mit /language und /set_log_channel — den Rest erklärt dir der Bot. Wenn etwas nicht funktioniert, besuche den Support-Server.",
+        "text": "Gehe zum Dashboard, um die Serversprache, Berechtigungen und einzelne Funktionen zu konfigurieren. Wenn etwas nicht funktioniert, besuche den Support-Server.",
         "invite": "Zum Server hinzufügen",
         "reviews": "Bewertungen auf top.gg"
     },

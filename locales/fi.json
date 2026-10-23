@@ -1,4 +1,4 @@
-﻿{
+{
     "_meta": {
         "name": "Suomi",
         "english_name": "Finnish",
@@ -51,8 +51,8 @@
             "text": "Varoitukset historioineen ja vanhan tapauksen merkinnällä, viestien poisto, hidas tila, väliaikaiset roolit sekä erillinen kanava, johon kaikki tapahtumat kirjataan."
         },
         "ai": {
-            "title": "Tekoäly omalla avaimellasi",
-            "text": "Botti voi vastata tekstinä tekstikanavalla tai puheena puhekanavalla. Annat oman Gemini-avaimesi komennolla /ai key, ja keskusteluhistorian voi poistaa milloin tahansa."
+            "title": "Tekoäly",
+            "text": "Botti vastaa tekstikanavilla tekstillä ja äänikanavilla puheella sekä ymmärtää kuvia."
         },
         "music": {
             "title": "Musiikki ja puhesynteesi",
@@ -173,11 +173,18 @@
         "permissions_list": "Näyttää kaikki palvelimelle määritetyt oikeudet",
         "honeypot_channel": "Asettaa ansakanavan",
         "honeypot_punishment": "Asettaa ansakanavan rangaistuksen",
-        "temp_ban": "Antaa jäsenelle väliaikaisen porttikiellon"
+        "temp_ban": "Antaa jäsenelle väliaikaisen porttikiellon",
+        "playlist_create": "Luo soittolistan annulla nimellä",
+        "playlist_add": "Lisää kappaleita olemassa olevaan soittolistaan linkin tai hakukyselyn perusteella",
+        "playlist_remove": "Poistaa soittolistasta kappaleen sijainnin, tunnisteessa tai nimen perusteella",
+        "playlist_delete": "Poistaa soittolistan kokonaan",
+        "playlist_steal": "Kopioi toisen käyttäjän julkisen soittolistan omaan kokoelmaasi",
+        "playlist_show": "Näyttää kaikki käyttäjän soittolistat tai yhden soittolisan sisällön",
+        "playlist_play": "Toistaa soittolistan kappaleet puhekanavalla"
     },
     "cta": {
         "title": "Lisää Devi ja määritä se muutamassa minuutissa",
-        "text": "Aloita komennoilla /language ja /set_log_channel — botti opastaa lopussa. Jos jokin ei toimi, liity tukipalvelimelle.",
+        "text": "Siirry hallintapaneeliin määrittämään palvelimen kieli, käyttöoikeudet ja yksittäiset ominaisuudet. Jos jokin ei toimi, liity tukipalvelimelle.",
         "invite": "Lisää palvelimelle",
         "reviews": "Arvostelut top.gg:ssä"
     },
