@@ -1,15 +1,10 @@
-"""Devi — landing page.
-
-Run locally:
-    pip install -r requirements.txt
-    python app.py
-    open http://127.0.0.1:5000
-
+"""
 Routes:
     /            redirects to the best language for the visitor
     /<lang>/     the landing page in that language
     /<lang>/links the page that lists every entry of data.LINKS with a title and a description
     /links/<link> redirects user to data.LINKS[<link>]
+    /.well-known/discord verification for connect domain to a discord profile
     /api/locales returns every translation as JSON
     /api/locales/<locale> returns locale as JSON
     /api/links returns every translation as JSON
@@ -142,6 +137,10 @@ def links_page(lang: str):
 @app.route("/links")
 def links_redirect():
     return redirect(url_for("links_page", lang=best_language()))
+
+@app.route("/.well-known/discord")
+def discord_connection():
+    return os.environ.get("DISCORD_CONNECTION", "NO_CONNECTION")
 
 @app.route("/api/locales")
 def api_locales():
