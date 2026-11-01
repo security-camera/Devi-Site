@@ -7,7 +7,7 @@ language never means touching this file.
 
 from __future__ import annotations
 import os
-from i18n import LOCALES_DIR
+from i18n import LOCALES_DIR, t
 
 # Public links shown across the site.
 LINKS = {
@@ -181,8 +181,47 @@ COMMAND_GROUPS = [
             ("honeypot_channel", "/honeypot channel"),
             ("honeypot_punishment", "/honeypot punishment"),
         ],
+    },
+    {
+        "id": "user",
+        "icon": "",
+        "commands": [
+            ("make_quote", "key=make_quote_name"),
+            ("make_gif", "key=make_gif_name"),
+        ]
     }
 ]
+
+COMMAND_NAME_KEY_PREFIX = "key="
+
+
+def command_name_key(name: str) -> str | None:
+    """Return the locale key encoded in a command name, if present."""
+    if not name.startswith(COMMAND_NAME_KEY_PREFIX):
+        return None
+
+    key = name[len(COMMAND_NAME_KEY_PREFIX):].strip()
+    return "cmd." + key or None
+
+
+def resolve_command_name(name: str, lang: str) -> str:
+    """Resolve a command's display name while leaving literal names unchanged."""
+    key = command_name_key(name)
+    return t(lang, key) if key else name
+
+
+def localized_command_groups(lang: str) -> list[dict[str, object]]:
+    """Return command groups with localized names."""
+    return [
+        {
+            **group,
+            "commands": [
+                (command_id, resolve_command_name(command_name, lang))
+                for command_id, command_name in group["commands"]
+            ],
+        }
+        for group in COMMAND_GROUPS
+    ]
 
 # Feature cards on the landing page. Each id maps to "features.<id>.title"
 # and "features.<id>.text" in the locale files.

@@ -107,7 +107,8 @@
         "birthdays": "Birthdays",
         "tempvoice": "Temporary voice",
         "permissions": "Permissions",
-        "security": "Security"
+        "security": "Security",
+        "user": "Other (requires adding to \"My Apps\")"
     },
     "cmd": {
         "mention_user": "Mentions a user a given number of times",
@@ -180,7 +181,11 @@
         "playlist_delete": "Deletes a playlist entirely",
         "playlist_steal": "Copies someone else's public playlist to your collection",
         "playlist_show": "Displays all playlists of a user or the full contents of one",
-        "playlist_play": "Plays the tracks from a playlist in the voice channel"
+        "playlist_play": "Plays the tracks from a playlist in the voice channel",
+        "make_gif": "Creates a GIF from a video, image, or message text",
+        "make_gif_name": "Message → Apps → Devi → Convert to GIF",
+        "make_quote": "Creates a quote from a message",
+        "make_quote_name": "Message → Apps → Devi → Turn into a quote"
     },
     "cta": {
         "title": "Add Devi and set it up in a couple of minutes",

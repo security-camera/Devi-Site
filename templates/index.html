@@ -117,11 +117,22 @@
             <span data-i18n="groups.{{ group.id }}">{{ t('groups.' ~ group.id) }}</span>
           </h3>
           <ul class="cmd-group__items">
-            {% for cmd_id, cmd_name in group.commands %}
-            <li class="cmd" data-name="{{ cmd_name }}" data-key="{{ cmd_id }}">
-              <code class="cmd__name">{{ cmd_name }}</code>
-              <span class="cmd__desc" data-i18n="cmd.{{ cmd_id }}">{{ t('cmd.' ~ cmd_id) }}</span>
-            </li>
+              {% for cmd_id, cmd_name in group.commands %}
+              {% set name_key = command_name_key(cmd_name) %}
+              {% set display_name = t(name_key) if name_key else cmd_name %}
+
+              <li class="cmd"
+                  data-name="{{ display_name }}"
+                  data-key="{{ cmd_id }}"
+                  {% if name_key %}data-i18n-attr="data-name:{{ name_key }}"{% endif %}>
+
+                  <code class="cmd__name"
+                        {% if name_key %}data-i18n="{{ name_key }}"{% endif %}>{{ display_name }}</code>
+
+                    <span class="cmd__desc" data-i18n="cmd.{{ cmd_id }}">
+                        {{ t('cmd.' ~ cmd_id) }}
+                    </span>
+              </li>
             {% endfor %}
           </ul>
         </section>

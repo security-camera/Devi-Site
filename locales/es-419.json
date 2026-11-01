@@ -107,7 +107,8 @@
         "birthdays": "Cumpleaños",
         "tempvoice": "Canales de voz temporales",
         "permissions": "Permisos",
-        "security": "Seguridad"
+        "security": "Seguridad",
+        "user": "Otro (requiere agregarse a \"Mis aplicaciones\")"
     },
     "cmd": {
         "mention_user": "Menciona a un usuario la cantidad de veces indicada",
@@ -180,7 +181,11 @@
         "playlist_delete": "Elimina completamente una playlist",
         "playlist_steal": "Copia la playlist pública de otro usuario en tu colección",
         "playlist_show": "Muestra todas las playlists de un usuario o el contenido completo de una",
-        "playlist_play": "Reproduce las pistas de una playlist en el canal de voz"
+        "playlist_play": "Reproduce las pistas de una playlist en el canal de voz",
+        "make_gif": "Crea un GIF a partir de un vídeo, una imagen o el texto de un mensaje",
+        "make_gif_name": "Mensaje → Aplicaciones → Devi → Convertir a GIF",
+        "make_quote": "Crea una cita a partir de un mensaje",
+        "make_quote_name": "Mensaje → Aplicaciones → Devi → Convertir en cita"
     },
     "cta": {
         "title": "Agrega a Devi y configúralo en un par de minutos",

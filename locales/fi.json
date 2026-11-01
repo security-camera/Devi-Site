@@ -107,7 +107,8 @@
         "birthdays": "Syntymäpäivät",
         "tempvoice": "Väliaikaiset puhekanavat",
         "permissions": "Oikeudet",
-        "security": "Turvallisuus"
+        "security": "Turvallisuus",
+        "user": "Muu (edellyttää lisäämistä \"Omat sovellukset\" -osioon)"
     },
     "cmd": {
         "mention_user": "Mainitsee käyttäjän määritetyn määrän kertoja",
@@ -180,7 +181,11 @@
         "playlist_delete": "Poistaa soittolistan kokonaan",
         "playlist_steal": "Kopioi toisen käyttäjän julkisen soittolistan omaan kokoelmaasi",
         "playlist_show": "Näyttää kaikki käyttäjän soittolistat tai yhden soittolisan sisällön",
-        "playlist_play": "Toistaa soittolistan kappaleet puhekanavalla"
+        "playlist_play": "Toistaa soittolistan kappaleet puhekanavalla",
+        "make_gif": "Luo GIF-videon, kuvan tai viestin tekstin perusteella",
+        "make_gif_name": "Viesti → Sovellukset → Devi → Muunna GIF-muotoon",
+        "make_quote": "Luo lainauksen viestistä",
+        "make_quote_name": "Viesti → Sovellukset → Devi → Muuta lainaukseksi"
     },
     "cta": {
         "title": "Lisää Devi ja määritä se muutamassa minuutissa",

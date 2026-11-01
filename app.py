@@ -60,6 +60,7 @@ def render_page(lang: str):
         languages=languages,
         t=translate,
         groups=data.COMMAND_GROUPS,
+        command_name_key=data.command_name_key,
         feature_ids=data.FEATURE_IDS,
         links=data.LINKS,
         command_count=data.command_count(),

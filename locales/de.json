@@ -107,7 +107,8 @@
         "birthdays": "Geburtstage",
         "tempvoice": "Temporäre Sprachkanäle",
         "permissions": "Berechtigungen",
-        "security": "Sicherheit"
+        "security": "Sicherheit",
+        "user": "Andere (muss zu \"Meine Apps\" hinzugefügt werden)"
     },
     "cmd": {
         "mention_user": "Erwähnt einen Benutzer eine bestimmte Anzahl von Malen",
@@ -180,7 +181,11 @@
         "playlist_delete": "Löscht eine gesamte Playlist",
         "playlist_steal": "Kopiert die öffentliche Playlist eines anderen Benutzers in deine Sammlung",
         "playlist_show": "Zeigt alle Playlists eines Nutzers oder den vollständigen Inhalt einer Playlist an",
-        "playlist_play": "Spielt die Tracks aus einer Playlist im Sprachkanal ab"
+        "playlist_play": "Spielt die Tracks aus einer Playlist im Sprachkanal ab",
+        "make_gif": "Erstellt ein GIF aus einem Video, Bild oder Nachrichtentext",
+        "make_gif_name": "Nachricht → Apps → Devi → In GIF umwandeln",
+        "make_quote": "Erstellt ein Zitat aus einer Nachricht",
+        "make_quote_name": "Nachricht → Apps → Devi → In ein Zitat umwandeln"
     },
     "cta": {
         "title": "Füge Devi hinzu und richte ihn in wenigen Minuten ein",
