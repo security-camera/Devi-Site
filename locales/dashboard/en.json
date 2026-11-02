@@ -264,8 +264,8 @@
                 "label": "Music Blacklist"
             },
             "ManageAi": {
-                "desc": "Configure or remove the server's AI API key through /ai key.",
-                "label": "Manage AI"
+                "desc": "Configure the log channel.",
+                "label": "Manage Logs"
             },
             "ManageHoneypots": {
                 "desc": "Configure the honeypot channel and punishment through the dashboard or /honeypot.",

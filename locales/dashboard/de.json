@@ -263,9 +263,9 @@
                 "desc": "Sperrt die Musikbefehle.",
                 "label": "Musik-Sperrliste"
             },
-            "ManageAi": {
-                "desc": "KI-API-Schlüssel des Servers über /ai key einrichten oder entfernen.",
-                "label": "KI-Verwaltung"
+            "ManageLogs": {
+                "desc": "Legt den Kanal für das Logs-System fest.",
+                "label": "Log-Verwaltung"
             },
             "ManageHoneypots": {
                 "desc": "Den Honeypot-Kanal und die Strafe über das Dashboard oder /honeypot konfigurieren.",

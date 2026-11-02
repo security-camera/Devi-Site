@@ -6,7 +6,7 @@ Routes:
     /.well-known/discord verification for connect domain to a discord profile
     /api/locales returns every translation as JSON
     /api/locales/<locale> returns locale as JSON
-    /api/links returns every translation as JSON
+    /api/links returns every link as JSON
     /api/links/<link> returns link as JSON
     /api/commands returns data.COMMAND_GROUPS as JSON
     /login, /oauth/callback, /logout, /dashboard, /dashboard/<guild>
@@ -121,7 +121,6 @@ def best_language(requested: str | None = None) -> str:
 
 @app.route("/")
 def landing():
-    """Render the landing page using ?lang=xx."""
     requested = request.args.get("lang")
     lang = best_language(requested)
     if requested != lang:
