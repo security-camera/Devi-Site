@@ -8,7 +8,7 @@
       <h1 data-i18n="dashboard.servers.title">{{ t("dashboard.servers.title") }}</h1>
       <p class="page__lead" data-i18n="dashboard.servers.lead">{{ t("dashboard.servers.lead") }}</p>
     </div>
-    <a class="btn btn--line" href="{{ refresh_url }}" data-i18n="dashboard.servers.refresh">{{ t("dashboard.servers.refresh") }}</a>
+    <a class="btn btn--line" href="{{ refresh_url }}" data-follow-lang data-i18n="dashboard.servers.refresh">{{ t("dashboard.servers.refresh") }}</a>
   </header>
 
   {% if unavailable %}
@@ -16,7 +16,7 @@
       <h2 data-i18n="dashboard.servers.unavailable_title">{{ t("dashboard.servers.unavailable_title") }}</h2>
       <p data-i18n="dashboard.servers.unavailable_text">{{ t("dashboard.servers.unavailable_text") }}</p>
       <div class="state__actions">
-        <a class="btn btn--solid" href="{{ request.path }}" data-i18n="dashboard.common.retry">{{ t("dashboard.common.retry") }}</a>
+        <a class="btn btn--solid" href="{{ url_for('dashboard.servers', lang=lang) }}" data-i18n="dashboard.common.retry">{{ t("dashboard.common.retry") }}</a>
       </div>
     </div>
   {% elif not openable and not invitable %}
@@ -35,7 +35,7 @@
         <li class="server-card">
           {{ guild_icon(item) }}
           <div class="server-card__body">
-            <a class="server-card__name" href="{{ url_for('dashboard.guild_page', lang=lang, guild_id=item.id) }}">{{ item.name }}</a>
+            <a class="server-card__name" href="{{ url_for('dashboard.guild_page', lang=lang, guild_id=item.id) }}" data-follow-lang>{{ item.name }}</a>
             {% if item.limited %}
               <span class="tag" data-i18n="dashboard.servers.limited">{{ t("dashboard.servers.limited") }}</span>
             {% endif %}

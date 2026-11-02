@@ -22,10 +22,10 @@
     const toasts = document.getElementById("toasts");
     const html = document.documentElement;
 
-    const apiBase = root.dataset.api;
+    let apiBase = root.dataset.api;
     const csrfToken = root.dataset.csrf;
-    const loginUrl = root.dataset.loginUrl;
-    const serversUrl = root.dataset.serversUrl;
+    let loginUrl = root.dataset.loginUrl;
+    let serversUrl = root.dataset.serversUrl;
     const inviteUrl = root.dataset.inviteUrl;
 
     /* ---------- translations ---------- */
@@ -178,7 +178,12 @@
 
         let response;
         try {
-            response = await fetch(apiBase + suffix, options);
+            // Append the API endpoint suffix to the URL path, not to its query string.
+            // apiBase may already contain ?lang=xx after the language switcher runs.
+            const requestUrl = new URL(apiBase, window.location.href);
+            requestUrl.pathname = requestUrl.pathname.replace(/\/$/, "") + suffix;
+            requestUrl.searchParams.set("lang", lang);
+            response = await fetch(requestUrl.pathname + requestUrl.search + requestUrl.hash, options);
         } catch (error) {
             throw new ApiError(0, "network");
         }
@@ -2113,6 +2118,9 @@
 
         if (next && next !== lang) {
             lang = next;
+            apiBase = root.dataset.api;
+            loginUrl = root.dataset.loginUrl;
+            serversUrl = root.dataset.serversUrl;
             render();
         }
     }).observe(html, { attributes: true, attributeFilter: ["data-lang"] });

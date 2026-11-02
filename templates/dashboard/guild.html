@@ -3,14 +3,14 @@
 {% block title %}{{ guild.name if guild else t("dashboard.title") }}{% endblock %}
 {% block main %}
 <div class="shell dash" id="dash"
-     data-api="{{ url_for('dashboard.api_snapshot', guild_id=guild_id) }}"
+     data-api="{{ url_for('dashboard.api_snapshot', guild_id=guild_id, lang=lang) }}"
      data-csrf="{{ csrf_token }}"
-     data-login-url="{{ url_for('dashboard.login', lang=lang, next=request.path) }}"
+     data-login-url="{{ url_for('dashboard.login', lang=lang, next=request.full_path[:-1] if request.full_path.endswith('?') else request.full_path) }}"
      data-servers-url="{{ url_for('dashboard.servers', lang=lang) }}"
      data-invite-url="{{ invite_url }}">
 
   <header class="dash__head">
-    <a class="dash__back" href="{{ url_for('dashboard.servers', lang=lang) }}" data-i18n="dashboard.guild.back">{{ t("dashboard.guild.back") }}</a>
+    <a class="dash__back" href="{{ url_for('dashboard.servers', lang=lang) }}" data-follow-lang data-i18n="dashboard.guild.back">{{ t("dashboard.guild.back") }}</a>
     <div class="dash__guild" id="dash-guild">
       {% if guild %}
         {{ guild_icon(guild, "sm") }}

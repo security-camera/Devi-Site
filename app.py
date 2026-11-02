@@ -1,8 +1,7 @@
 """
 Routes:
-    /            redirects to the best language for the visitor
-    /<lang>/     the landing page in that language
-    /<lang>/links the page that lists every entry of data.LINKS with a title and a description
+    /            the landing page
+    /links the page that lists every entry of data.LINKS with a title and a description
     /links/<link> redirects user to data.LINKS[<link>]
     /.well-known/discord verification for connect domain to a discord profile
     /api/locales returns every translation as JSON
@@ -10,8 +9,11 @@ Routes:
     /api/links returns every translation as JSON
     /api/links/<link> returns link as JSON
     /api/commands returns data.COMMAND_GROUPS as JSON
-    /login, /oauth/callback, /logout, /<lang>/servers, /<lang>/dashboard/<guild>
+    /login, /oauth/callback, /logout, /dashboard, /dashboard/<guild>
                   the dashboard, see dashboard/views.py
+
+Query:
+    ?lang
 """
 
 from __future__ import annotations
@@ -35,7 +37,7 @@ import data
 import i18n
 from i18n import LOCALES_DIR
 
-from data import LINKS, COMMAND_GROUPS
+from data import LINKS, localized_command_groups
 from dashboard import init_app as init_dashboard
 from dotenv import load_dotenv
 
@@ -109,35 +111,30 @@ def render_links_page(lang: str):
     )
     return response
 
-def best_language():
+def best_language(requested: str | None = None) -> str:
     return i18n.pick_language(
-        request.args.get("lang"),
+        requested,
         request.cookies.get(LANG_COOKIE),
         request.headers.get("Accept-Language"),
     )
 
+
 @app.route("/")
-def root():
-    """Send the visitor to their language, honoring ?lang= if present."""
-    return redirect(url_for("landing", lang=best_language()))
-
-
-@app.route("/<lang>/")
-def landing(lang: str):
-    if not i18n.is_supported(lang):
-        abort(404)
+def landing():
+    """Render the landing page using ?lang=xx."""
+    requested = request.args.get("lang")
+    lang = best_language(requested)
+    if requested != lang:
+        return redirect(url_for("landing", lang=lang))
     return render_page(lang)
 
-
-@app.route("/<lang>/links", strict_slashes=False)
-def links_page(lang: str):
-    if not i18n.is_supported(lang):
-        abort(404)
+@app.route("/links", strict_slashes=False)
+def links_page():
+    requested = request.args.get("lang")
+    lang = best_language(requested)
+    if requested != lang:
+        return redirect(url_for("links_page", lang=lang))
     return render_links_page(lang)
-
-@app.route("/links")
-def links_redirect():
-    return redirect(url_for("links_page", lang=best_language()))
 
 @app.route("/.well-known/discord")
 def discord_connection():
@@ -145,13 +142,12 @@ def discord_connection():
 
 @app.route("/api/locales")
 def api_locales():
-    return jsonify(i18n.all_catalogs())
-
-@app.route("/api/locales/<locale>")
-def api_locale(locale: str):
-    if not i18n.is_supported(locale):
+    lang = request.args.get("lang")
+    if lang is None:
+        return jsonify(i18n.all_catalogs())
+    if not i18n.is_supported(lang):
         abort(404)
-    return jsonify(i18n.catalog(locale))
+    return jsonify(i18n.catalog(lang))
 
 @app.route("/links/<link>")
 def links_link(link: str):
@@ -174,15 +170,12 @@ def api_link(link: str):
 
 @app.route("/api/commands")
 def api_commands():
-    return jsonify(COMMAND_GROUPS)
+    lang = best_language(request.args.get("lang"))
+    return jsonify(localized_command_groups(lang))
 
 @app.errorhandler(404)
 def not_found(_error):
-    lang = i18n.pick_language(
-        None,
-        request.cookies.get(LANG_COOKIE),
-        request.headers.get("Accept-Language"),
-    )
+    lang = best_language(request.args.get("lang"))
     return render_template("404.html", lang=lang, t=lambda key, **p: i18n.t(lang, key, **p)), 404
 
 
@@ -193,10 +186,10 @@ def inject_globals():
 @app.context_processor
 def inject_template_helpers():
     def lang_url(language: str) -> str:
-        endpoint = request.endpoint
+        endpoint = request.endpoint or "landing"
         values = dict(request.view_args or {})
+        values.update(request.args.to_dict())
         values["lang"] = language
-
         return url_for(endpoint, **values)
 
     return {

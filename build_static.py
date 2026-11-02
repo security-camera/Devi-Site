@@ -48,7 +48,7 @@ def rewrite_links(html: str) -> str:
 def build(target: Path, lang: str | None = None) -> Path:
     lang = lang or i18n.DEFAULT_LANG
     app.config["STATIC_BUILD"] = True  # pages that need the server (like /<lang>/links) are not linked
-    with app.test_request_context("/%s/" % lang):
+    with app.test_request_context("/?lang=%s" % lang):
         html = render_page(lang).get_data(as_text=True)
     html = rewrite_links(inline_assets(html))
     target.parent.mkdir(parents=True, exist_ok=True)

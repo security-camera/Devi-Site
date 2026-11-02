@@ -1,13 +1,13 @@
 <header class="topbar">
   <div class="shell topbar__inner">
-    <a class="brand" href="{{ url_for('landing', lang=lang) }}">
+    <a class="brand" href="{{ url_for('landing', lang=lang) }}" data-follow-lang>
       {% include "partials/brand_mark.html" %}
       <span>Devi</span>
     </a>
 
     <nav class="topbar__nav" aria-label="{{ t('dashboard.title') }}">
       {% if current_user %}
-        <a href="{{ url_for('dashboard.servers', lang=lang) }}" data-i18n="dashboard.nav.servers">{{ t("dashboard.nav.servers") }}</a>
+        <a href="{{ url_for('dashboard.servers', lang=lang) }}" data-follow-lang data-i18n="dashboard.nav.servers">{{ t("dashboard.nav.servers") }}</a>
       {% endif %}
       {# /<lang>/links needs the server, so the single-file build (build_static.py) leaves it out. #}
       {% if not config.get("STATIC_BUILD") %}
@@ -45,7 +45,7 @@
           <img class="user-chip__avatar" src="{{ current_user.avatar }}" alt="" width="28" height="28" referrerpolicy="no-referrer">
           <span class="user-chip__name">{{ current_user.name }}</span>
         </span>
-        <form class="logout" method="post" action="{{ url_for('dashboard.logout') }}">
+        <form class="logout" method="post" action="{{ url_for('dashboard.logout', lang=lang) }}" data-follow-lang="action">
           <input type="hidden" name="csrf" value="{{ csrf_token }}">
           <button class="ghost-btn logout__btn" type="submit">
             <svg class="logout__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>

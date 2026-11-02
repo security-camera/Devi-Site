@@ -2,9 +2,9 @@
 
     /login                       start Discord OAuth2 (?next=/path, ?refresh=1 to re-read the server list)
     /oauth/callback              Discord sends the user back here
-    /logout            (POST)    end the session
-    /<lang>/servers              server picker
-    /<lang>/dashboard/<guild>    settings of one server (a page that loads its data from the API below)
+    /logout (POST)               end the session
+    /dashboard                   server picker
+    /dashboard/<guild>           settings of one server (a page that loads its data from the API below)
     /api/dashboard/<guild>...    JSON API used by that page; forwards to the bot's internal API
 """
 
@@ -107,7 +107,11 @@ def invite_url(guild_id: str | None = None) -> str:
 
 
 def _switch_language_here(code: str) -> str:
-    return url_for(request.endpoint, **{**(request.view_args or {}), "lang": code})
+    endpoint = request.endpoint or "landing"
+    values = dict(request.view_args or {})
+    values.update(request.args.to_dict())
+    values["lang"] = code
+    return url_for(endpoint, **values)
 
 
 def render(template: str, lang: str, status: int = 200, switch: Callable[[str], str] | None = None, **context: Any):
@@ -142,7 +146,11 @@ def login_required_page(view: Callable[..., Any]) -> Callable[..., Any]:
     @wraps(view)
     def wrapper(*args: Any, **kwargs: Any):
         if current_session() is None:
-            return redirect(url_for("dashboard.login", next=request.path, lang=kwargs.get("lang")))
+            lang = pick_lang(request.args.get("lang"))
+            query = request.args.to_dict()
+            query["lang"] = lang
+            target = request.path + "?" + urlencode(query)
+            return redirect(url_for("dashboard.login", next=target, lang=lang))
         return view(*args, **kwargs)
 
     return wrapper
@@ -216,7 +224,13 @@ def _start_oauth(flow: dict[str, Any]):
 
 @bp.get("/login")
 def login():
-    lang = pick_lang(request.args.get("lang"))
+    requested_lang = request.args.get("lang")
+    lang = pick_lang(requested_lang)
+    if requested_lang != lang:
+        query = request.args.to_dict()
+        query["lang"] = lang
+        return redirect(url_for("dashboard.login", **query))
+
     if not _dash().settings.enabled:
         return message("not_configured", 503, lang)
 
@@ -278,8 +292,9 @@ def oauth_callback():
 
 @bp.post("/logout")
 def logout():
+    lang = pick_lang(request.args.get("lang") or request.form.get("lang"))
     if not _dash().settings.enabled:
-        return redirect(url_for("landing", lang=pick_lang()))
+        return redirect(url_for("landing", lang=lang))
 
     sess = current_session()
     if sess is not None:
@@ -287,7 +302,7 @@ def logout():
             abort(400)
         _dash().store.delete(sess.sid)
     session.clear()
-    return redirect(url_for("landing", lang=pick_lang()))
+    return redirect(url_for("landing", lang=lang))
 
 
 # ------------------------------------------------------------------ pages
@@ -304,11 +319,14 @@ def _initials(name: str) -> str:
     return ("".join(letters) or name.strip()[:1] or "?").upper()
 
 
-@bp.get("/<lang>/servers")
+@bp.get("/dashboard")
 @login_required_page
-def servers(lang: str):
-    if not i18n.is_supported(lang):
-        abort(404)
+def servers():
+    lang = pick_lang(request.args.get("lang"))
+    if request.args.get("lang") != lang:
+        query = request.args.to_dict()
+        query["lang"] = lang
+        return redirect(url_for("dashboard.servers", **query))
 
     sess = current_session()
     guilds = sorted(sess.guilds, key=lambda item: item["name"].lower())
@@ -341,14 +359,23 @@ def servers(lang: str):
         invitable=invitable,
         unavailable=unavailable,
         invite_url=invite_url(),
-        refresh_url=url_for("dashboard.login", refresh=1, next=request.path, lang=lang),
+        refresh_url=url_for(
+            "dashboard.login",
+            refresh=1,
+            next=request.full_path[:-1] if request.full_path.endswith("?") else request.full_path,
+            lang=lang,
+        ),
     )
 
-
-@bp.get("/<lang>/dashboard/<guild_id>")
+@bp.get("/dashboard/<guild_id>")
 @login_required_page
-def guild_page(lang: str, guild_id: str):
-    if not i18n.is_supported(lang) or not SNOWFLAKE.match(guild_id):
+def guild_page(guild_id: str):
+    lang = pick_lang(request.args.get("lang"))
+    if request.args.get("lang") != lang:
+        query = request.args.to_dict()
+        query["lang"] = lang
+        return redirect(url_for("dashboard.guild_page", guild_id=guild_id, **query))
+    if not SNOWFLAKE.match(guild_id):
         abort(404)
 
     known = next((item for item in current_session().guilds if item["id"] == guild_id), None)
@@ -360,9 +387,7 @@ def guild_page(lang: str, guild_id: str):
         invite_url=invite_url(guild_id),
     )
 
-
 # ------------------------------------------------------------------- API
-
 
 def _forward(guild_id: str, method: str, suffix: str = "", *, body: bool = False, params: dict[str, Any] | None = None):
     if not SNOWFLAKE.match(guild_id):

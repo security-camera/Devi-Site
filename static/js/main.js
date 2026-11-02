@@ -98,13 +98,22 @@
                 });
         });
 
-        // Links that carry the language in their path ("/ru/links") follow the switch.
-        document.querySelectorAll("a[data-follow-lang]").forEach(function (link) {
-            link.setAttribute(
-                "href",
-                link.getAttribute("href").replace(/^\/[^/]+/, "/" + lang)
-            );
+        // Internal links keep the selected language in the query string.
+        document.querySelectorAll("[data-follow-lang]").forEach(function (node) {
+            const attribute = node.getAttribute("data-follow-lang") || "href";
+            const target = new URL(node.getAttribute(attribute), window.location.href);
+            target.searchParams.set("lang", lang);
+            node.setAttribute(attribute, target.pathname + target.search + target.hash);
         });
+
+        const dashboardRoot = document.getElementById("dash");
+        if (dashboardRoot) {
+            ["data-api", "data-login-url", "data-servers-url"].forEach(function (attribute) {
+                const target = new URL(dashboardRoot.getAttribute(attribute), window.location.href);
+                target.searchParams.set("lang", lang);
+                dashboardRoot.setAttribute(attribute, target.pathname + target.search + target.hash);
+            });
+        }
 
         const description = document.querySelector('meta[name="description"]');
         if (description) {
@@ -156,9 +165,22 @@
             applyLanguage(lang);
 
             if (window.history && window.history.pushState) {
-                window.history.pushState({ lang: lang }, "", link.getAttribute("href"));
+                const target = new URL(link.getAttribute("href"), window.location.href);
+                target.searchParams.set("lang", lang);
+                window.history.pushState(
+                    { lang: lang },
+                    "",
+                    target.pathname + target.search + target.hash
+                );
             }
         });
+    });
+
+    window.addEventListener("popstate", function () {
+        const lang = new URL(window.location.href).searchParams.get("lang");
+        if (lang && catalogs[lang]) {
+            applyLanguage(lang);
+        }
     });
 
     // Close the picker when clicking outside of it.
