@@ -185,7 +185,9 @@
         "make_gif": "Erstellt ein GIF aus einem Video, Bild oder Nachrichtentext",
         "make_gif_name": "Nachricht → Apps → Devi → In GIF umwandeln",
         "make_quote": "Erstellt ein Zitat aus einer Nachricht",
-        "make_quote_name": "Nachricht → Apps → Devi → In ein Zitat umwandeln"
+        "make_quote_name": "Nachricht → Apps → Devi → In ein Zitat umwandeln",
+        "add_caption": "Fügt Medien eine Beschriftung hinzu",
+        "add_caption_name": "Nachricht → Apps → Devi → Medien beschriften"
     },
     "cta": {
         "title": "Füge Devi hinzu und richte ihn in wenigen Minuten ein",

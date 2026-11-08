@@ -188,6 +188,7 @@ COMMAND_GROUPS = [
         "commands": [
             ("make_quote", "key=make_quote_name"),
             ("make_gif", "key=make_gif_name"),
+            ("add_caption", "key=add_caption_name")
         ]
     }
 ]

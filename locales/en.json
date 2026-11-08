@@ -185,7 +185,9 @@
         "make_gif": "Creates a GIF from a video, image, or message text",
         "make_gif_name": "Message → Apps → Devi → Convert to GIF",
         "make_quote": "Creates a quote from a message",
-        "make_quote_name": "Message → Apps → Devi → Turn into a quote"
+        "make_quote_name": "Message → Apps → Devi → Turn into a quote",
+        "add_caption": "Adds a caption to media",
+        "add_caption_name": "Message → Apps → Devi → Add a caption to media"
     },
     "cta": {
         "title": "Add Devi and set it up in a couple of minutes",

@@ -185,7 +185,9 @@
         "make_gif": "Crea un GIF a partir de un vídeo, una imagen o el texto de un mensaje",
         "make_gif_name": "Mensaje → Aplicaciones → Devi → Convertir a GIF",
         "make_quote": "Crea una cita a partir de un mensaje",
-        "make_quote_name": "Mensaje → Aplicaciones → Devi → Convertir en cita"
+        "make_quote_name": "Mensaje → Aplicaciones → Devi → Convertir en cita",
+        "add_caption": "Agrega un pie de foto al contenido multimedia",
+        "add_caption_name": "Mensaje → Aplicaciones → Devi → Agregar un pie de foto al contenido multimedia"
     },
     "cta": {
         "title": "Agrega a Devi y configúralo en un par de minutos",

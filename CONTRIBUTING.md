@@ -306,4 +306,4 @@ Do not disclose credentials, session data, private user information, or exploita
 
 ---
 
-By contributing, you confirm that you have read and will comply with the applicable terms in [LICENSE.md](LICENSE.md).
+By contributing, you confirm that you have read and will comply with the applicable terms in [LICENSE](LICENSE.md).
