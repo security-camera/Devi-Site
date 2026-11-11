@@ -120,15 +120,15 @@ After signing in with Discord, the **Servers** page lists the servers where Devi
 allowed to change something. Servers you manage but where Devi is missing get an *Add Devi* button.
 Each server has these sections:
 
-| Section         | What you can set                                                                                                | Who can open it                                     |
-|-----------------|-----------------------------------------------------------------------------------------------------------------|-----------------------------------------------------|
-| Permissions     | Which roles and members get which of Devi's permissions (the same as `/permissions manage`)                     | Administrator or Devi's `Admin` permission          |
-| Birthdays       | The channel birthdays are announced in                                                                          | Administrator or Devi's `Admin` permission          |
-| Logs            | The channel Devi writes its logs to                                                                             | Administrator or Devi's `Admin` permission          |
-| Temporary voice | Lobby channel, category and name template of temporary voice channels                                           | Administrator or Devi's `Admin` permission          |
-| Honeypot        | The honeypot channel and the punishment for writing in it: timeout, ban / kick, or a role, each with a duration | Administrator or Devi's `Admin` permission          |
-| Triggers        | Automatic replies                                                                                               | Administrator or Devi's `ManageTriggers` permission |
-| Language        | The language Devi uses on the server (not the language of this website)                                         | Administrator or Devi's `Admin` permission          |
+| Section         | What you can set                                                                                                | Who can open it                                      |
+|-----------------|-----------------------------------------------------------------------------------------------------------------|------------------------------------------------------|
+| Permissions     | Which roles and members get which of Devi's permissions (the same as `/permissions manage`)                     | Administrator or Devi's `Admin` permission           |
+| Birthdays       | The channel birthdays are announced in                                                                          | Administrator or Devi's `Admin` permission           |
+| Logs            | The channel Devi writes its logs to                                                                             | Administrator or Devi's `ManageLogs` permission      |
+| Temporary voice | Lobby channel, category and name template of temporary voice channels                                           | Administrator or Devi's `Admin` permission           |
+| Honeypot        | The honeypot channel and the punishment for writing in it: timeout, ban / kick, or a role, each with a duration | Administrator or Devi's `ManageHoneypots` permission |
+| Triggers        | Automatic replies                                                                                               | Administrator or Devi's `ManageTriggers` permission  |
+| Language        | The language Devi uses on the server (not the language of this website)                                         | Administrator or Devi's `Admin` permission           |
 
 The rules mirror the slash commands. Someone who may not run a command in Discord cannot change the same setting
 here, and sections a person may not use are not shown to them.
