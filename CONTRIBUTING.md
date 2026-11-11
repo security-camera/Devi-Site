@@ -300,10 +300,6 @@ A pull request should include:
 
 Before submitting, inspect the complete diff. Make sure it contains no `.env` file, credentials, session data, generated secrets, local runtime files, AI instructions (`CLAUDE.md` or `AGENTS.md`) or unrelated changes. Be prepared to address review feedback and update the pull request.
 
-## 8. Reporting security issues
-
-Do not disclose credentials, session data, private user information, or exploitable vulnerability details in a public issue or pull request. Report suspected security vulnerabilities privately to the maintainer through GitHub rather than publishing reproduction details before they can be reviewed.
-
 ---
 
 By contributing, you confirm that you have read and will comply with the applicable terms in [LICENSE](LICENSE.md).
