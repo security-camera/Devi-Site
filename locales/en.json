@@ -260,6 +260,10 @@
     "notfound": {
         "title": "That page isn't here",
         "text": "The link is out of date, or the address has a typo.",
-        "home": "Go to the start"
+        "home": "Go to the home page"
+    },
+    "forbidden": {
+        "title": "Unauthorized",
+        "text": "Sign in with your Discord account to access this page."
     }
 }

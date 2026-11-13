@@ -31,6 +31,7 @@ from flask import (
     render_template,
     request,
     url_for,
+    g
 )
 
 import data
@@ -177,6 +178,18 @@ def not_found(_error):
     lang = best_language(request.args.get("lang"))
     return render_template("404.html", lang=lang, t=lambda key, **p: i18n.t(lang, key, **p)), 404
 
+@app.errorhandler(403)
+def forbidden(_error):
+    lang = best_language(request.args.get("lang"))
+
+    target = getattr(g, "forbidden_next", None)
+
+    if not isinstance(target, str) or not target.startswith("/") or target.startswith("//") or "\\" in target:
+        target = url_for("dashboard.servers", lang=lang)
+
+    login_url = url_for("dashboard.login", lang=lang, next=target)
+
+    return render_template("403.html", lang=lang, login_url=login_url, t=lambda key, **p: i18n.t(lang, key, **p),), 403
 
 @app.context_processor
 def inject_globals():

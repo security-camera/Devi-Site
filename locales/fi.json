@@ -261,5 +261,9 @@
         "title": "Tätä sivua ei ole",
         "text": "Linkki saattaa olla vanhentunut tai osoitteessa voi olla kirjoitusvirhe.",
         "home": "Etusivulle"
+    },
+    "forbidden": {
+        "title": "Et ole kirjautunut sisään",
+        "text": "Kirjaudu sisään Discord-tililläsi, jotta voit käyttää tätä sivua."
     }
 }

@@ -717,16 +717,16 @@ img, svg { max-width: 100%; }
   font-size: 0.82rem;
 }
 
-/* ---------- 404 ---------- */
+/* ---------- 404 / 403 ---------- */
 
-.notfound {
+.error {
   min-height: 100vh;
   display: grid;
   align-content: center;
   justify-items: start;
   gap: 14px;
 }
-.notfound h1 { font-size: 4rem; color: var(--accent); }
+.error h1 { font-size: 4rem; color: var(--accent); }
 
 /* ---------- links page ---------- */
 

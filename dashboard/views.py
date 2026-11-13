@@ -147,10 +147,17 @@ def login_required_page(view: Callable[..., Any]) -> Callable[..., Any]:
     def wrapper(*args: Any, **kwargs: Any):
         if current_session() is None:
             lang = pick_lang(request.args.get("lang"))
+
             query = request.args.to_dict()
             query["lang"] = lang
-            target = request.path + "?" + urlencode(query)
-            return redirect(url_for("dashboard.login", next=target, lang=lang))
+
+            target = request.path
+            if query:
+                target = f"{target}?{urlencode(query)}"
+
+            g.forbidden_next = target
+            abort(403)
+
         return view(*args, **kwargs)
 
     return wrapper
